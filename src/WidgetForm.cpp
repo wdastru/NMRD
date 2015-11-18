@@ -9,11 +9,12 @@
 #include <math.h>
 
 #include <QtGui/QDoubleSpinBox>
+#include <QtGui/QComboBox>
 
 #include "WidgetForm.h"
 
 extern "C" {
-	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *);
+	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *, unsigned int *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
@@ -52,8 +53,15 @@ void WidgetForm::startParaNMRD() {
 	unsigned int max = (inputLen>outputLen) ? inputLen : outputLen;
 
 	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10,ui.gammaIExpSpinBox->value());
-
 	double elSpin = ui.elSpinDoubleSpinBox->value();
 
-	paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin, &gammaI, &elSpin);
+	unsigned int T1T2;
+	if (ui.T1T2ComboBox->currentText() == "T1") {
+		T1T2 = 1;
+	} else if (ui.T1T2ComboBox->currentText() == "T1") {
+		T1T2 = 2;
+	}
+
+
+	paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin, &gammaI, &elSpin, &T1T2);
 }

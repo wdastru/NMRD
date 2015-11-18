@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QComboBox>
 #include <QtGui/QDoubleSpinBox>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
@@ -35,14 +36,16 @@ public:
     QLineEdit *inputFileLineEdit;
     QLabel *outputFileLabel;
     QLineEdit *outputFileLineEdit;
+    QLabel *elSpinLabel;
+    QDoubleSpinBox *elSpinDoubleSpinBox;
     QLabel *metalNuclearSpinLabel;
     QDoubleSpinBox *metalNuclearSpinDoubleSpinBox;
     QLabel *gammaILabel;
     QDoubleSpinBox *gammaIDoubleSpinBox;
     QSpinBox *gammaIExpSpinBox;
     QLabel *gammaILabel2;
-    QLabel *elSpinLabel;
-    QDoubleSpinBox *elSpinDoubleSpinBox;
+    QLabel *T1T2Label;
+    QComboBox *T1T2ComboBox;
 
     void setupUi(QWidget *WidgetForm)
     {
@@ -58,7 +61,7 @@ public:
         closeButton->setGeometry(QRect(310, 590, 75, 23));
         layoutWidget = new QWidget(WidgetForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 361, 126));
+        layoutWidget->setGeometry(QRect(20, 20, 361, 152));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -81,6 +84,19 @@ public:
         outputFileLineEdit->setObjectName(QString::fromUtf8("outputFileLineEdit"));
 
         gridLayout->addWidget(outputFileLineEdit, 1, 1, 1, 1);
+
+        elSpinLabel = new QLabel(layoutWidget);
+        elSpinLabel->setObjectName(QString::fromUtf8("elSpinLabel"));
+
+        gridLayout->addWidget(elSpinLabel, 4, 0, 1, 1);
+
+        elSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        elSpinDoubleSpinBox->setObjectName(QString::fromUtf8("elSpinDoubleSpinBox"));
+        elSpinDoubleSpinBox->setDecimals(1);
+        elSpinDoubleSpinBox->setSingleStep(0.5);
+        elSpinDoubleSpinBox->setValue(3.5);
+
+        gridLayout->addWidget(elSpinDoubleSpinBox, 4, 1, 1, 1);
 
         metalNuclearSpinLabel = new QLabel(layoutWidget);
         metalNuclearSpinLabel->setObjectName(QString::fromUtf8("metalNuclearSpinLabel"));
@@ -121,18 +137,16 @@ public:
 
         gridLayout->addWidget(gammaILabel2, 3, 2, 1, 1);
 
-        elSpinLabel = new QLabel(layoutWidget);
-        elSpinLabel->setObjectName(QString::fromUtf8("elSpinLabel"));
+        T1T2Label = new QLabel(layoutWidget);
+        T1T2Label->setObjectName(QString::fromUtf8("T1T2Label"));
 
-        gridLayout->addWidget(elSpinLabel, 4, 0, 1, 1);
+        gridLayout->addWidget(T1T2Label, 5, 0, 1, 1);
 
-        elSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
-        elSpinDoubleSpinBox->setObjectName(QString::fromUtf8("elSpinDoubleSpinBox"));
-        elSpinDoubleSpinBox->setDecimals(1);
-        elSpinDoubleSpinBox->setSingleStep(0.5);
-        elSpinDoubleSpinBox->setValue(3.5);
+        T1T2ComboBox = new QComboBox(layoutWidget);
+        T1T2ComboBox->setObjectName(QString::fromUtf8("T1T2ComboBox"));
+        T1T2ComboBox->setMaxVisibleItems(10);
 
-        gridLayout->addWidget(elSpinDoubleSpinBox, 4, 1, 1, 1);
+        gridLayout->addWidget(T1T2ComboBox, 5, 1, 1, 1);
 
         QWidget::setTabOrder(inputFileLineEdit, outputFileLineEdit);
         QWidget::setTabOrder(outputFileLineEdit, startButton);
@@ -155,10 +169,16 @@ public:
         closeButton->setText(QApplication::translate("WidgetForm", "CLOSE", 0, QApplication::UnicodeUTF8));
         inputFileLabel->setText(QApplication::translate("WidgetForm", "input file:", 0, QApplication::UnicodeUTF8));
         outputFileLabel->setText(QApplication::translate("WidgetForm", "output file:", 0, QApplication::UnicodeUTF8));
+        elSpinLabel->setText(QApplication::translate("WidgetForm", "electron spin", 0, QApplication::UnicodeUTF8));
         metalNuclearSpinLabel->setText(QApplication::translate("WidgetForm", "metal nuclear spin", 0, QApplication::UnicodeUTF8));
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
         gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        elSpinLabel->setText(QApplication::translate("WidgetForm", "electron spin", 0, QApplication::UnicodeUTF8));
+        T1T2Label->setText(QApplication::translate("WidgetForm", "T1 or T2 calculation", 0, QApplication::UnicodeUTF8));
+        T1T2ComboBox->clear();
+        T1T2ComboBox->insertItems(0, QStringList()
+         << QApplication::translate("WidgetForm", "T1", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("WidgetForm", "T2", 0, QApplication::UnicodeUTF8)
+        );
     } // retranslateUi
 
 };
