@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WidgetForm</class>
+ <widget class="QWidget" name="WidgetForm">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>630</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NMRD</string>
+  </property>
+  <widget class="QPushButton" name="startButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>590</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>START</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>590</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CLOSE</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>361</width>
+     <height>126</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="inputFileLabel">
+      <property name="text">
+       <string>input file:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="inputFileLineEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="outputFileLabel">
+      <property name="text">
+       <string>output file:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="outputFileLineEdit"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="metalNuclearSpinLabel">
+      <property name="text">
+       <string>metal nuclear spin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QDoubleSpinBox" name="metalNuclearSpinDoubleSpinBox">
+      <property name="decimals">
+       <number>1</number>
+      </property>
+      <property name="minimum">
+       <double>-100.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.500000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="gammaILabel">
+      <property name="text">
+       <string>gammaI of investigated particle</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QDoubleSpinBox" name="gammaIDoubleSpinBox">
+      <property name="decimals">
+       <number>6</number>
+      </property>
+      <property name="maximum">
+       <double>9.999999000000001</double>
+      </property>
+      <property name="singleStep">
+       <double>0.000001000000000</double>
+      </property>
+      <property name="value">
+       <double>2.675199000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="gammaILabel2">
+      <property name="text">
+       <string>10^</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QSpinBox" name="gammaIExpSpinBox">
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <number>8</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>inputFileLineEdit</tabstop>
+  <tabstop>outputFileLineEdit</tabstop>
+  <tabstop>startButton</tabstop>
+  <tabstop>closeButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>590</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>555</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>startParaNMRD()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>590</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>575</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inputFileLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setInputFilename()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>212</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outputFileLineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setOutputFilename()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>212</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>metalNuclearSpinDoubleSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setMetalNuclearSpin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>225</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>273</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gammaIDoubleSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setGammaI()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>58</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gammaIExpSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setGammaI()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>221</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>startParaNMRD()</slot>
+  <slot>setInputFilename()</slot>
+  <slot>setOutputFilename()</slot>
+  <slot>setMetalNuclearSpin()</slot>
+  <slot>setGammaI()</slot>
+ </slots>
+</ui>
