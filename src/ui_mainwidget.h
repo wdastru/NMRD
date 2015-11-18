@@ -39,8 +39,10 @@ public:
     QDoubleSpinBox *metalNuclearSpinDoubleSpinBox;
     QLabel *gammaILabel;
     QDoubleSpinBox *gammaIDoubleSpinBox;
-    QLabel *gammaILabel2;
     QSpinBox *gammaIExpSpinBox;
+    QLabel *gammaILabel2;
+    QLabel *elSpinLabel;
+    QDoubleSpinBox *elSpinDoubleSpinBox;
 
     void setupUi(QWidget *WidgetForm)
     {
@@ -107,17 +109,30 @@ public:
 
         gridLayout->addWidget(gammaIDoubleSpinBox, 3, 1, 1, 1);
 
-        gammaILabel2 = new QLabel(layoutWidget);
-        gammaILabel2->setObjectName(QString::fromUtf8("gammaILabel2"));
-
-        gridLayout->addWidget(gammaILabel2, 3, 2, 1, 1);
-
         gammaIExpSpinBox = new QSpinBox(layoutWidget);
         gammaIExpSpinBox->setObjectName(QString::fromUtf8("gammaIExpSpinBox"));
         gammaIExpSpinBox->setMinimum(0);
         gammaIExpSpinBox->setValue(8);
 
         gridLayout->addWidget(gammaIExpSpinBox, 3, 3, 1, 1);
+
+        gammaILabel2 = new QLabel(layoutWidget);
+        gammaILabel2->setObjectName(QString::fromUtf8("gammaILabel2"));
+
+        gridLayout->addWidget(gammaILabel2, 3, 2, 1, 1);
+
+        elSpinLabel = new QLabel(layoutWidget);
+        elSpinLabel->setObjectName(QString::fromUtf8("elSpinLabel"));
+
+        gridLayout->addWidget(elSpinLabel, 4, 0, 1, 1);
+
+        elSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        elSpinDoubleSpinBox->setObjectName(QString::fromUtf8("elSpinDoubleSpinBox"));
+        elSpinDoubleSpinBox->setDecimals(1);
+        elSpinDoubleSpinBox->setSingleStep(0.5);
+        elSpinDoubleSpinBox->setValue(3.5);
+
+        gridLayout->addWidget(elSpinDoubleSpinBox, 4, 1, 1, 1);
 
         QWidget::setTabOrder(inputFileLineEdit, outputFileLineEdit);
         QWidget::setTabOrder(outputFileLineEdit, startButton);
@@ -129,8 +144,6 @@ public:
         QObject::connect(inputFileLineEdit, SIGNAL(textChanged(QString)), WidgetForm, SLOT(setInputFilename()));
         QObject::connect(outputFileLineEdit, SIGNAL(textChanged(QString)), WidgetForm, SLOT(setOutputFilename()));
         QObject::connect(metalNuclearSpinDoubleSpinBox, SIGNAL(valueChanged(double)), WidgetForm, SLOT(setMetalNuclearSpin()));
-        QObject::connect(gammaIDoubleSpinBox, SIGNAL(valueChanged(double)), WidgetForm, SLOT(setGammaI()));
-        QObject::connect(gammaIExpSpinBox, SIGNAL(valueChanged(int)), WidgetForm, SLOT(setGammaI()));
 
         QMetaObject::connectSlotsByName(WidgetForm);
     } // setupUi
@@ -145,6 +158,7 @@ public:
         metalNuclearSpinLabel->setText(QApplication::translate("WidgetForm", "metal nuclear spin", 0, QApplication::UnicodeUTF8));
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
         gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
+        elSpinLabel->setText(QApplication::translate("WidgetForm", "electron spin", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -22,7 +22,7 @@ static const uint qt_meta_data_WidgetForm[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,7 +34,6 @@ static const uint qt_meta_data_WidgetForm[] = {
       28,   11,   11,   11, 0x08,
       47,   11,   11,   11, 0x08,
       67,   11,   11,   11, 0x08,
-      89,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -42,7 +41,7 @@ static const uint qt_meta_data_WidgetForm[] = {
 static const char qt_meta_stringdata_WidgetForm[] = {
     "WidgetForm\0\0startParaNMRD()\0"
     "setInputFilename()\0setOutputFilename()\0"
-    "setMetalNuclearSpin()\0setGammaI()\0"
+    "setMetalNuclearSpin()\0"
 };
 
 void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -55,7 +54,6 @@ void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->setInputFilename(); break;
         case 2: _t->setOutputFilename(); break;
         case 3: _t->setMetalNuclearSpin(); break;
-        case 4: _t->setGammaI(); break;
         default: ;
         }
     }
@@ -94,9 +92,9 @@ int WidgetForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     }
     return _id;
 }

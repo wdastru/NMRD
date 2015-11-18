@@ -13,8 +13,7 @@
 #include "WidgetForm.h"
 
 extern "C" {
-	//void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, float *);
-	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *);
+	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
@@ -25,9 +24,6 @@ WidgetForm::WidgetForm(QWidget *parent) :
 	ui.inputFileLineEdit->setText(inputFilename);
 	ui.outputFileLineEdit->setText(outputFilename);
 
-	//while (1) {
-	//	ui.startButton->click();
-	//}
 }
 
 void WidgetForm::setInputFilename() {
@@ -40,10 +36,6 @@ void WidgetForm::setOutputFilename() {
 
 void WidgetForm::setMetalNuclearSpin() {
 	this->metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
-}
-
-void WidgetForm::setGammaI() {
-	//this->gammaI = ui.gammaIDoubleSpinBox->value()*pow(10,ui.gammaIExpSpinBox->value());
 }
 
 void WidgetForm::startParaNMRD() {
@@ -59,6 +51,9 @@ void WidgetForm::startParaNMRD() {
 
 	unsigned int max = (inputLen>outputLen) ? inputLen : outputLen;
 
-	//paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin, &this->gammaI);
-	paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin);
+	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10,ui.gammaIExpSpinBox->value());
+
+	double elSpin = ui.elSpinDoubleSpinBox->value();
+
+	paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin, &gammaI, &elSpin);
 }

@@ -24,15 +24,12 @@ private slots:
 	void setInputFilename();
 	void setOutputFilename();
 	void setMetalNuclearSpin();
-	void setGammaI();
 
 private:
 	Ui::WidgetForm ui;
 	QString inputFilename;
 	QString outputFilename;
 	double metalNuclearSpin;
-	//float gammaI;
-
 };
 
 #endif /* WIDGETFORM_H_ */
