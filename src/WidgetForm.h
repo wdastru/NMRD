@@ -21,6 +21,7 @@ public:
 
 private slots:
 	void startParaNMRD();
+	void enableTempSpinBoxes();
 
 private:
 	Ui::WidgetForm ui;

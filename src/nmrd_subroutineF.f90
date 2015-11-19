@@ -1,6 +1,6 @@
 !      SUBROUTINE paranmrd(FILEINPUT,II)
       SUBROUTINE paranmrd(FILEINPUT, II, FILEOUTPUT, JJ, SI_, GAMMAI_, &
-		SPIN_, IREL_, X1_, X2_, X3_, NUMPUN_, SET_)
+		SPIN_, IREL_, X1_, X2_, X3_, NUMPUN_, SET_, TEMP_, TEMPSIZE_)
 
 ! PROGRAMMA FINALE
 
@@ -73,7 +73,9 @@
       CHARACTER(LEN=JJ) :: FILEINPUT                     ! WD 13/11/2015
       COMMON/TEMPERATURE/ TEMP(10)
       COMMON /TMSTART/ TM11(10),TM21(10)
-	  
+      INTEGER	TEMPSIZE_
+      REAL*8 TEMP_(TEMPSIZE_)
+      
 !     DIMENSION=MAX NUMBER OF PARAMETERS (21)
       DIMENSION P(21)
       DIMENSION P1(21)
@@ -82,16 +84,7 @@
    
       INDEX=1
       INDEXSTAMPA=0
-
-!      PRINT *, FILEINPUT
-!      PRINT *, FILEOUTPUT
-!      PRINT *, LEN(FILEINPUT),LEN(FILEOUTPUT)
  
-      DO I=1, iargc()				                 ! WD 13/11/2015
-      CALL getarg(I, FILEINPUT)                      ! WD 13/11/2015
-!      WRITE (*,*) FILEINPUT                         ! WD 13/11/2015
-      END DO                                         ! WD 13/11/2015
-	  
 !     CONSTANTS READ IN FILE PAR.DAT
 !      OPEN (1, STATUS = 'OLD', FILE = 'PARC.DAT')   ! WD 13/11/2015
       OPEN (1, STATUS = 'OLD', FILE = FILEINPUT)     ! WD 13/11/2015
@@ -129,11 +122,17 @@
       IF(XMIN == XMAX)NUMPUN=1
 !     NUMBER OF SETS OF DATA FOR FITTING
 !      READ(1,*)SET
-      SET=SET_
+      SET = SET_
+	  
       IF(SET == 0) SET=1
 !     TEMPERATURE
-      READ(1,*)(TEMP(K),K=1,SET)
-   
+!      READ(1,*)(TEMP(K),K=1,SET)
+	  
+      DO K=1,TEMPSIZE_
+!          PRINT *, TEMP_(K)
+		  TEMP(K) = TEMP_(K)
+      END DO  
+
       J=1
       IND=1
       IND1=1

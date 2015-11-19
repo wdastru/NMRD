@@ -48,7 +48,7 @@
      <x>20</x>
      <y>20</y>
      <width>361</width>
-     <height>230</height>
+     <height>256</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -203,6 +203,26 @@
       </property>
      </widget>
     </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="datasetsLabel">
+      <property name="text">
+       <string>sets of data</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QSpinBox" name="datasetsSpinBox">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>3</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
     <item row="6" column="3">
      <widget class="QDoubleSpinBox" name="fieldRangeX3DoubleSpinBox">
       <property name="value">
@@ -230,20 +250,46 @@
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="datasetsLabel">
+    <item row="9" column="0">
+     <widget class="QLabel" name="tempLabel">
       <property name="text">
-       <string>sets of data</string>
+       <string>temperature (K)</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="1">
-     <widget class="QSpinBox" name="datasetsSpinBox">
-      <property name="minimum">
-       <number>1</number>
+    <item row="9" column="1">
+     <widget class="QDoubleSpinBox" name="temp1DoubleSpinBox">
+      <property name="maximum">
+       <double>500.000000000000000</double>
       </property>
       <property name="value">
-       <number>1</number>
+       <double>273.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="2">
+     <widget class="QDoubleSpinBox" name="temp2DoubleSpinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <double>500.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>310.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QDoubleSpinBox" name="temp3DoubleSpinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <double>500.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>298.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -290,12 +336,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>datasetsSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>enableTempSpinBoxes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>213</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startParaNMRD()</slot>
-  <slot>setInputFilename()</slot>
-  <slot>setOutputFilename()</slot>
-  <slot>setMetalNuclearSpin()</slot>
-  <slot>setGammaI()</slot>
+  <slot>enableTempSpinBoxes()</slot>
  </slots>
 </ui>

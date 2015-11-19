@@ -14,17 +14,34 @@
 #include "WidgetForm.h"
 
 extern "C" {
-	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *, \
-			unsigned int *, double *, double *, double *, unsigned int *, double *);
+void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *,
+		double *, double *, unsigned int *, double *, double *, double *,
+		unsigned int *, double *, double *, unsigned int *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
-	QWidget(parent) {
+		QWidget(parent) {
 	ui.setupUi(this);
 	inputFilename = "PARC_NEW.DAT";
 	outputFilename = "PARC.OUT";
 	ui.inputFileLineEdit->setText(inputFilename);
 	ui.outputFileLineEdit->setText(outputFilename);
+}
+
+void WidgetForm::enableTempSpinBoxes() {
+	if (ui.datasetsSpinBox->value() == 1) {
+		ui.temp1DoubleSpinBox->setEnabled(true);
+		ui.temp2DoubleSpinBox->setEnabled(false);
+		ui.temp3DoubleSpinBox->setEnabled(false);
+	} else if (ui.datasetsSpinBox->value() == 2) {
+		ui.temp1DoubleSpinBox->setEnabled(true);
+		ui.temp2DoubleSpinBox->setEnabled(true);
+		ui.temp3DoubleSpinBox->setEnabled(false);
+	} else if (ui.datasetsSpinBox->value() == 3) {
+		ui.temp1DoubleSpinBox->setEnabled(true);
+		ui.temp2DoubleSpinBox->setEnabled(true);
+		ui.temp3DoubleSpinBox->setEnabled(true);
+	}
 }
 
 void WidgetForm::startParaNMRD() {
@@ -38,11 +55,12 @@ void WidgetForm::startParaNMRD() {
 	unsigned int inputLen = strlen(inputFN);
 	unsigned int outputLen = strlen(outputFN);
 
-	unsigned int max = (inputLen>outputLen) ? inputLen : outputLen;
+	unsigned int max = (inputLen > outputLen) ? inputLen : outputLen;
 
 	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
 
-	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10, ui.gammaIExpSpinBox->value());
+	double gammaI = ui.gammaIDoubleSpinBox->value()
+			* pow(10, ui.gammaIExpSpinBox->value());
 	double elSpin = ui.elSpinDoubleSpinBox->value();
 
 	unsigned int T1T2;
@@ -58,8 +76,17 @@ void WidgetForm::startParaNMRD() {
 
 	unsigned int np = ui.numberOfPointsSpinBox->value();
 
-	double ds = (double)ui.datasetsSpinBox->value();
+	/*
+	 * ds sono i dataset che dovranno essere trattati
+	 * dsDouble e' servito perche' se passavo un in
+	 */
+	unsigned int ds = ui.datasetsSpinBox->value();
+	double dsDouble = (double) ds;
 
-	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI, &elSpin, &T1T2, \
-			&X1, &X2, &X3, &np, &ds);
+	double temp[3] = {273, 310, 298};
+
+	//double fpA[]={1.2f,3.f,44.f,2.5f,-1.3f,33.44f,5.f,0.3f,-3.6f,24.1f};
+
+	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI,
+			&elSpin, &T1T2, &X1, &X2, &X3, &np, &dsDouble, temp, &ds);
 }

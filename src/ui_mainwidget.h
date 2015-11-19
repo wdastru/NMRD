@@ -49,11 +49,15 @@ public:
     QLabel *fieldRangeLabel;
     QLabel *gammaILabel2;
     QDoubleSpinBox *fieldRangeX1DoubleSpinBox;
+    QLabel *datasetsLabel;
+    QSpinBox *datasetsSpinBox;
     QDoubleSpinBox *fieldRangeX3DoubleSpinBox;
     QLabel *numberOfPointsLabel;
     QSpinBox *numberOfPointsSpinBox;
-    QLabel *datasetsLabel;
-    QSpinBox *datasetsSpinBox;
+    QLabel *tempLabel;
+    QDoubleSpinBox *temp1DoubleSpinBox;
+    QDoubleSpinBox *temp2DoubleSpinBox;
+    QDoubleSpinBox *temp3DoubleSpinBox;
 
     void setupUi(QWidget *WidgetForm)
     {
@@ -69,7 +73,7 @@ public:
         closeButton->setGeometry(QRect(310, 590, 75, 23));
         layoutWidget = new QWidget(WidgetForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 361, 230));
+        layoutWidget->setGeometry(QRect(20, 20, 361, 256));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -174,6 +178,19 @@ public:
 
         gridLayout->addWidget(fieldRangeX1DoubleSpinBox, 6, 1, 1, 1);
 
+        datasetsLabel = new QLabel(layoutWidget);
+        datasetsLabel->setObjectName(QString::fromUtf8("datasetsLabel"));
+
+        gridLayout->addWidget(datasetsLabel, 8, 0, 1, 1);
+
+        datasetsSpinBox = new QSpinBox(layoutWidget);
+        datasetsSpinBox->setObjectName(QString::fromUtf8("datasetsSpinBox"));
+        datasetsSpinBox->setMinimum(1);
+        datasetsSpinBox->setMaximum(3);
+        datasetsSpinBox->setValue(1);
+
+        gridLayout->addWidget(datasetsSpinBox, 8, 1, 1, 1);
+
         fieldRangeX3DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
         fieldRangeX3DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX3DoubleSpinBox"));
         fieldRangeX3DoubleSpinBox->setValue(1);
@@ -193,17 +210,33 @@ public:
 
         gridLayout->addWidget(numberOfPointsSpinBox, 7, 1, 1, 1);
 
-        datasetsLabel = new QLabel(layoutWidget);
-        datasetsLabel->setObjectName(QString::fromUtf8("datasetsLabel"));
+        tempLabel = new QLabel(layoutWidget);
+        tempLabel->setObjectName(QString::fromUtf8("tempLabel"));
 
-        gridLayout->addWidget(datasetsLabel, 8, 0, 1, 1);
+        gridLayout->addWidget(tempLabel, 9, 0, 1, 1);
 
-        datasetsSpinBox = new QSpinBox(layoutWidget);
-        datasetsSpinBox->setObjectName(QString::fromUtf8("datasetsSpinBox"));
-        datasetsSpinBox->setMinimum(1);
-        datasetsSpinBox->setValue(1);
+        temp1DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        temp1DoubleSpinBox->setObjectName(QString::fromUtf8("temp1DoubleSpinBox"));
+        temp1DoubleSpinBox->setMaximum(500);
+        temp1DoubleSpinBox->setValue(273);
 
-        gridLayout->addWidget(datasetsSpinBox, 8, 1, 1, 1);
+        gridLayout->addWidget(temp1DoubleSpinBox, 9, 1, 1, 1);
+
+        temp2DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        temp2DoubleSpinBox->setObjectName(QString::fromUtf8("temp2DoubleSpinBox"));
+        temp2DoubleSpinBox->setEnabled(false);
+        temp2DoubleSpinBox->setMaximum(500);
+        temp2DoubleSpinBox->setValue(310);
+
+        gridLayout->addWidget(temp2DoubleSpinBox, 9, 2, 1, 1);
+
+        temp3DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        temp3DoubleSpinBox->setObjectName(QString::fromUtf8("temp3DoubleSpinBox"));
+        temp3DoubleSpinBox->setEnabled(false);
+        temp3DoubleSpinBox->setMaximum(500);
+        temp3DoubleSpinBox->setValue(298);
+
+        gridLayout->addWidget(temp3DoubleSpinBox, 9, 3, 1, 1);
 
         QWidget::setTabOrder(inputFileLineEdit, outputFileLineEdit);
         QWidget::setTabOrder(outputFileLineEdit, startButton);
@@ -212,6 +245,7 @@ public:
         retranslateUi(WidgetForm);
         QObject::connect(closeButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(close()));
         QObject::connect(startButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(startParaNMRD()));
+        QObject::connect(datasetsSpinBox, SIGNAL(valueChanged(int)), WidgetForm, SLOT(enableTempSpinBoxes()));
 
         QMetaObject::connectSlotsByName(WidgetForm);
     } // setupUi
@@ -234,8 +268,9 @@ public:
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
         fieldRangeLabel->setText(QApplication::translate("WidgetForm", "field range", 0, QApplication::UnicodeUTF8));
         gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
         datasetsLabel->setText(QApplication::translate("WidgetForm", "sets of data", 0, QApplication::UnicodeUTF8));
+        numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
+        tempLabel->setText(QApplication::translate("WidgetForm", "temperature (K)", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
