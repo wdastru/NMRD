@@ -52,6 +52,8 @@ public:
     QDoubleSpinBox *fieldRangeX3DoubleSpinBox;
     QLabel *numberOfPointsLabel;
     QSpinBox *numberOfPointsSpinBox;
+    QLabel *datasetsLabel;
+    QSpinBox *datasetsSpinBox;
 
     void setupUi(QWidget *WidgetForm)
     {
@@ -67,7 +69,7 @@ public:
         closeButton->setGeometry(QRect(310, 590, 75, 23));
         layoutWidget = new QWidget(WidgetForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 361, 204));
+        layoutWidget->setGeometry(QRect(20, 20, 361, 230));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -112,6 +114,7 @@ public:
 
         T1T2ComboBox = new QComboBox(layoutWidget);
         T1T2ComboBox->setObjectName(QString::fromUtf8("T1T2ComboBox"));
+        T1T2ComboBox->setMaximumSize(QSize(40, 16777215));
         T1T2ComboBox->setMaxVisibleItems(10);
 
         gridLayout->addWidget(T1T2ComboBox, 5, 1, 1, 1);
@@ -184,10 +187,23 @@ public:
 
         numberOfPointsSpinBox = new QSpinBox(layoutWidget);
         numberOfPointsSpinBox->setObjectName(QString::fromUtf8("numberOfPointsSpinBox"));
+        numberOfPointsSpinBox->setMinimum(1);
         numberOfPointsSpinBox->setMaximum(1000);
         numberOfPointsSpinBox->setValue(100);
 
         gridLayout->addWidget(numberOfPointsSpinBox, 7, 1, 1, 1);
+
+        datasetsLabel = new QLabel(layoutWidget);
+        datasetsLabel->setObjectName(QString::fromUtf8("datasetsLabel"));
+
+        gridLayout->addWidget(datasetsLabel, 8, 0, 1, 1);
+
+        datasetsSpinBox = new QSpinBox(layoutWidget);
+        datasetsSpinBox->setObjectName(QString::fromUtf8("datasetsSpinBox"));
+        datasetsSpinBox->setMinimum(1);
+        datasetsSpinBox->setValue(1);
+
+        gridLayout->addWidget(datasetsSpinBox, 8, 1, 1, 1);
 
         QWidget::setTabOrder(inputFileLineEdit, outputFileLineEdit);
         QWidget::setTabOrder(outputFileLineEdit, startButton);
@@ -219,6 +235,7 @@ public:
         fieldRangeLabel->setText(QApplication::translate("WidgetForm", "field range", 0, QApplication::UnicodeUTF8));
         gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
+        datasetsLabel->setText(QApplication::translate("WidgetForm", "sets of data", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

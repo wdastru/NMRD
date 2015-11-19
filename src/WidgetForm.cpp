@@ -15,7 +15,7 @@
 
 extern "C" {
 	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *, \
-			unsigned int *, double *, double *, double *, unsigned int *);
+			unsigned int *, double *, double *, double *, unsigned int *, double *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
@@ -42,7 +42,7 @@ void WidgetForm::startParaNMRD() {
 
 	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
 
-	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10,ui.gammaIExpSpinBox->value());
+	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10, ui.gammaIExpSpinBox->value());
 	double elSpin = ui.elSpinDoubleSpinBox->value();
 
 	unsigned int T1T2;
@@ -58,6 +58,8 @@ void WidgetForm::startParaNMRD() {
 
 	unsigned int np = ui.numberOfPointsSpinBox->value();
 
+	double ds = (double)ui.datasetsSpinBox->value();
+
 	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI, &elSpin, &T1T2, \
-			&X1, &X2, &X3, &np);
+			&X1, &X2, &X3, &np, &ds);
 }

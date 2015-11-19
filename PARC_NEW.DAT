@@ -1,4 +1,3 @@
-1                sets of data
 298 310                temperature
 0  0.0338 0 2  taue(1),taus0(1)if tauv=/0[s],or delta (2)[cm**(-1)]
 0  100e-12 3.3 122e-12  taur    rotational correlation time   [s]
