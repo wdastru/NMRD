@@ -1,6 +1,6 @@
 !      SUBROUTINE paranmrd(FILEINPUT,II)
       SUBROUTINE paranmrd(FILEINPUT, II, FILEOUTPUT, JJ, SI, GAMMAI_, &
-		SPIN_, IREL_)
+		SPIN_, IREL_, X1_, X2_, X3_)
 
 ! PROGRAMMA FINALE
 
@@ -110,7 +110,10 @@
 !      READ(1,*)IREL
       IREL = IREL_
 !     LIMITS OF THE FIELD
-      READ(1,*)X1,X2,X3
+!      READ(1,*)X1,X2,X3
+      X1 = X1_
+      X2 = X2_
+      X3 = X3_
       IF(X3 == 1)THEN
           XMIN=X1
           XMAX=X2

@@ -14,7 +14,8 @@
 #include "WidgetForm.h"
 
 extern "C" {
-	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *, unsigned int *);
+	void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *, double *, double *, \
+			unsigned int *, double *, double *, double *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
@@ -51,5 +52,10 @@ void WidgetForm::startParaNMRD() {
 		T1T2 = 2;
 	}
 
-	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI, &elSpin, &T1T2);
+	double X1 = ui.fieldRangeX1DoubleSpinBox->value();
+	double X2 = ui.fieldRangeX2DoubleSpinBox->value();
+	double X3 = ui.fieldRangeX3DoubleSpinBox->value();
+
+	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI, &elSpin, &T1T2, \
+			&X1, &X2, &X3);
 }
