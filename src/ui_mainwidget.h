@@ -32,6 +32,7 @@ public:
     QPushButton *closeButton;
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
+    QDoubleSpinBox *fieldRangeX2DoubleSpinBox;
     QLabel *inputFileLabel;
     QLineEdit *inputFileLineEdit;
     QLabel *outputFileLabel;
@@ -45,11 +46,12 @@ public:
     QLabel *gammaILabel;
     QDoubleSpinBox *gammaIDoubleSpinBox;
     QSpinBox *gammaIExpSpinBox;
-    QLabel *gammaILabel2;
     QLabel *fieldRangeLabel;
+    QLabel *gammaILabel2;
     QDoubleSpinBox *fieldRangeX1DoubleSpinBox;
-    QDoubleSpinBox *fieldRangeX2DoubleSpinBox;
     QDoubleSpinBox *fieldRangeX3DoubleSpinBox;
+    QLabel *numberOfPointsLabel;
+    QSpinBox *numberOfPointsSpinBox;
 
     void setupUi(QWidget *WidgetForm)
     {
@@ -65,10 +67,16 @@ public:
         closeButton->setGeometry(QRect(310, 590, 75, 23));
         layoutWidget = new QWidget(WidgetForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 20, 361, 178));
+        layoutWidget->setGeometry(QRect(20, 20, 361, 204));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
+        fieldRangeX2DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
+        fieldRangeX2DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX2DoubleSpinBox"));
+        fieldRangeX2DoubleSpinBox->setValue(9);
+
+        gridLayout->addWidget(fieldRangeX2DoubleSpinBox, 6, 2, 1, 1);
+
         inputFileLabel = new QLabel(layoutWidget);
         inputFileLabel->setObjectName(QString::fromUtf8("inputFileLabel"));
 
@@ -147,15 +155,15 @@ public:
 
         gridLayout->addWidget(gammaIExpSpinBox, 3, 3, 1, 1);
 
-        gammaILabel2 = new QLabel(layoutWidget);
-        gammaILabel2->setObjectName(QString::fromUtf8("gammaILabel2"));
-
-        gridLayout->addWidget(gammaILabel2, 3, 2, 1, 1);
-
         fieldRangeLabel = new QLabel(layoutWidget);
         fieldRangeLabel->setObjectName(QString::fromUtf8("fieldRangeLabel"));
 
         gridLayout->addWidget(fieldRangeLabel, 6, 0, 1, 1);
+
+        gammaILabel2 = new QLabel(layoutWidget);
+        gammaILabel2->setObjectName(QString::fromUtf8("gammaILabel2"));
+
+        gridLayout->addWidget(gammaILabel2, 3, 2, 1, 1);
 
         fieldRangeX1DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
         fieldRangeX1DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX1DoubleSpinBox"));
@@ -163,17 +171,23 @@ public:
 
         gridLayout->addWidget(fieldRangeX1DoubleSpinBox, 6, 1, 1, 1);
 
-        fieldRangeX2DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
-        fieldRangeX2DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX2DoubleSpinBox"));
-        fieldRangeX2DoubleSpinBox->setValue(9);
-
-        gridLayout->addWidget(fieldRangeX2DoubleSpinBox, 6, 2, 1, 1);
-
         fieldRangeX3DoubleSpinBox = new QDoubleSpinBox(layoutWidget);
         fieldRangeX3DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX3DoubleSpinBox"));
         fieldRangeX3DoubleSpinBox->setValue(1);
 
         gridLayout->addWidget(fieldRangeX3DoubleSpinBox, 6, 3, 1, 1);
+
+        numberOfPointsLabel = new QLabel(layoutWidget);
+        numberOfPointsLabel->setObjectName(QString::fromUtf8("numberOfPointsLabel"));
+
+        gridLayout->addWidget(numberOfPointsLabel, 7, 0, 1, 1);
+
+        numberOfPointsSpinBox = new QSpinBox(layoutWidget);
+        numberOfPointsSpinBox->setObjectName(QString::fromUtf8("numberOfPointsSpinBox"));
+        numberOfPointsSpinBox->setMaximum(1000);
+        numberOfPointsSpinBox->setValue(100);
+
+        gridLayout->addWidget(numberOfPointsSpinBox, 7, 1, 1, 1);
 
         QWidget::setTabOrder(inputFileLineEdit, outputFileLineEdit);
         QWidget::setTabOrder(outputFileLineEdit, startButton);
@@ -202,8 +216,9 @@ public:
         T1T2Label->setText(QApplication::translate("WidgetForm", "T1 or T2 calculation", 0, QApplication::UnicodeUTF8));
         metalNuclearSpinLabel->setText(QApplication::translate("WidgetForm", "metal nuclear spin", 0, QApplication::UnicodeUTF8));
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
-        gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         fieldRangeLabel->setText(QApplication::translate("WidgetForm", "field range", 0, QApplication::UnicodeUTF8));
+        gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
+        numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
