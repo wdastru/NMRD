@@ -219,54 +219,6 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>inputFileLineEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>WidgetForm</receiver>
-   <slot>setInputFilename()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>212</x>
-     <y>31</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>294</x>
-     <y>23</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>outputFileLineEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>WidgetForm</receiver>
-   <slot>setOutputFilename()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>212</x>
-     <y>66</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>275</x>
-     <y>75</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>metalNuclearSpinDoubleSpinBox</sender>
-   <signal>valueChanged(double)</signal>
-   <receiver>WidgetForm</receiver>
-   <slot>setMetalNuclearSpin()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>225</x>
-     <y>101</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>273</x>
-     <y>117</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>startParaNMRD()</slot>

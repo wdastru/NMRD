@@ -21,15 +21,11 @@ public:
 
 private slots:
 	void startParaNMRD();
-	void setInputFilename();
-	void setOutputFilename();
-	void setMetalNuclearSpin();
 
 private:
 	Ui::WidgetForm ui;
 	QString inputFilename;
 	QString outputFilename;
-	double metalNuclearSpin;
 };
 
 #endif /* WIDGETFORM_H_ */

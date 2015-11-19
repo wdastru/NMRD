@@ -155,9 +155,6 @@ public:
         retranslateUi(WidgetForm);
         QObject::connect(closeButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(close()));
         QObject::connect(startButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(startParaNMRD()));
-        QObject::connect(inputFileLineEdit, SIGNAL(textChanged(QString)), WidgetForm, SLOT(setInputFilename()));
-        QObject::connect(outputFileLineEdit, SIGNAL(textChanged(QString)), WidgetForm, SLOT(setOutputFilename()));
-        QObject::connect(metalNuclearSpinDoubleSpinBox, SIGNAL(valueChanged(double)), WidgetForm, SLOT(setMetalNuclearSpin()));
 
         QMetaObject::connectSlotsByName(WidgetForm);
     } // setupUi

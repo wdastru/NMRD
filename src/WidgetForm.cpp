@@ -24,25 +24,12 @@ WidgetForm::WidgetForm(QWidget *parent) :
 	outputFilename = "PARC.OUT";
 	ui.inputFileLineEdit->setText(inputFilename);
 	ui.outputFileLineEdit->setText(outputFilename);
-
-}
-
-void WidgetForm::setInputFilename() {
-	this->inputFilename = ui.inputFileLineEdit->text();
-}
-
-void WidgetForm::setOutputFilename() {
-	this->outputFilename = ui.outputFileLineEdit->text();
-}
-
-void WidgetForm::setMetalNuclearSpin() {
-	this->metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
 }
 
 void WidgetForm::startParaNMRD() {
 
-	QByteArray ba1 = this->inputFilename.toLatin1();
-	QByteArray ba2 = this->outputFilename.toLatin1();
+	QByteArray ba1 = ui.inputFileLineEdit->text().toLatin1();
+	QByteArray ba2 = ui.outputFileLineEdit->text().toLatin1();
 
 	char *inputFN = ba1.data();
 	char *outputFN = ba2.data();
@@ -51,6 +38,8 @@ void WidgetForm::startParaNMRD() {
 	unsigned int outputLen = strlen(outputFN);
 
 	unsigned int max = (inputLen>outputLen) ? inputLen : outputLen;
+
+	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
 
 	double gammaI = ui.gammaIDoubleSpinBox->value()*pow(10,ui.gammaIExpSpinBox->value());
 	double elSpin = ui.elSpinDoubleSpinBox->value();
@@ -62,6 +51,5 @@ void WidgetForm::startParaNMRD() {
 		T1T2 = 2;
 	}
 
-
-	paranmrd_(inputFN, &max, outputFN, &max, &this->metalNuclearSpin, &gammaI, &elSpin, &T1T2);
+	paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI, &elSpin, &T1T2);
 }
