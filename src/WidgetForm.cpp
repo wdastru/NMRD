@@ -237,8 +237,6 @@ void WidgetForm::readInputFile() {
 
 	inFile >> i;
 	ui.numberOfPointsSpinBox->setValue(i);
-	//ui.datasetsSpinBox->setValue(i);
-	//ui.typesOfWaterSpinBox->setValue(i);
 
 	inFile >> i;
 	int ds = i;
@@ -693,8 +691,22 @@ void WidgetForm::readInputFile() {
 	inFile >> d;
 	ui.phiDoubleSpinBox->setValue(d);
 
-	inFile >> i;
-	ui.numberOfPointsSpinBox->setValue(i);
+	if (ds==1) {
+		inFile >> i;
+		ui.nExpPts1SpinBox->setValue(i);
+	} else if (ds==2) {
+		inFile >> i;
+		ui.nExpPts1SpinBox->setValue(i);
+		inFile >> i;
+		ui.nExpPts2SpinBox->setValue(i);
+	} else if (ds==3) {
+		inFile >> i;
+		ui.nExpPts1SpinBox->setValue(i);
+		inFile >> i;
+		ui.nExpPts2SpinBox->setValue(i);
+		inFile >> i;
+		ui.nExpPts3SpinBox->setValue(i);
+	}
 
 	inFile >> str;
 	items.clear();

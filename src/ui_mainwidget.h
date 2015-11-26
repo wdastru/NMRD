@@ -899,6 +899,7 @@ public:
 
         numberOfPointsSpinBox = new QSpinBox(layoutWidget_1);
         numberOfPointsSpinBox->setObjectName(QString::fromUtf8("numberOfPointsSpinBox"));
+        numberOfPointsSpinBox->setMinimum(1);
         numberOfPointsSpinBox->setMaximum(1000);
 
         gridLayout->addWidget(numberOfPointsSpinBox, 8, 1, 1, 1);
@@ -1287,7 +1288,7 @@ public:
         QObject::connect(startButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(startParaNMRD_new()));
         QObject::connect(pushButton, SIGNAL(clicked()), WidgetForm, SLOT(readInputFile()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(WidgetForm);
