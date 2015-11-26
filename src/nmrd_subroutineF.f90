@@ -143,6 +143,12 @@
       NPLUS2=0
 !      CORRELATION TIMES
       READ(1,*)B1(J), (TAUS0M(J,K),K=1,2),TAUDELTA
+	  
+      PRINT *, B1(J)
+      PRINT *, TAUS0M(J,1)
+      PRINT *, TAUS0M(J,2)
+      PRINT *, TAUDELTA
+	  
       IF(B1(J) >= 2)THEN
           TS1=TAUS0M(J,1)
           TS2=TAUS0M(J,2)

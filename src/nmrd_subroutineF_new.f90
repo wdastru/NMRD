@@ -1,4 +1,5 @@
-      PROGRAM PARANMRD
+!      SUBROUTINE paranmrd(FILEINPUT,II)
+      SUBROUTINE paranmrdorig(FILEINPUT, II, FILEOUTPUT, JJ)
 
 ! PROGRAMMA FINALE
 
@@ -36,6 +37,8 @@
 !  BETA AND GAMMA ARE THE EULER ANGLES DEFINING THE MOLECULAR FRAME WITH
 !  RESPECT TO THE LAB FRAME
 
+!  FILEOUTPUT = THE XY CURVE
+
       IMPLICIT REAL*8(A-H,O-Z)
       PARAMETER(PI2 = 6.2831853, VL = 2.9979D+10)
       COMMON /SET/SET
@@ -65,11 +68,11 @@
       COMMON /BPARA/B1(10),B2(10),B3(10),B4(10),B5(10),B6(10),B7(10), &
       B8(10),B9(10),B10(10),B11(10),B12(10),B13(10),B14(10),B15(10), &
       B16(10),B17(10),B18(10),B19(10),B20(10),B21(10)
-      CHARACTER(20) :: FILENAME
-      CHARACTER(50) :: FILEINPUT                     ! WD 13/11/2015
+      CHARACTER(LEN=II) :: FILEOUTPUT
+      CHARACTER(LEN=JJ) :: FILEINPUT                     ! WD 13/11/2015
       COMMON/TEMPERATURE/ TEMP(10)
       COMMON /TMSTART/ TM11(10),TM21(10)
-   
+      
 !     DIMENSION=MAX NUMBER OF PARAMETERS (21)
       DIMENSION P(21)
       DIMENSION P1(21)
@@ -78,23 +81,18 @@
    
       INDEX=1
       INDEXSTAMPA=0
-
-      DO I=1, iargc()				                 ! WD 13/11/2015
-      CALL getarg(I, FILEINPUT)                      ! WD 13/11/2015
-!      WRITE (*,*) FILEINPUT                         ! WD 13/11/2015
-      END DO                                         ! WD 13/11/2015
-	  
+ 
 !     CONSTANTS READ IN FILE PAR.DAT
 !      OPEN (1, STATUS = 'OLD', FILE = 'PARC.DAT')   ! WD 13/11/2015
       OPEN (1, STATUS = 'OLD', FILE = FILEINPUT)     ! WD 13/11/2015
-      OPEN (4, FILE="PAR.OUT")
+      OPEN (4, FILE = "PAR.OUT")
 !     OUTPUT FILE
-      READ(1,'(A)')FILENAME
+      READ(1,'(A)')FILEOUTPUT						! WD 15/11/2015
 !     NUCLEAR MOLECULAR SPIN
-      READ(1,*)SI
+      READ(1,*)SI		  ! WD 18/11/2015
 !     GAMMA OF THE INVESTIGATED PARTICLE
-      READ(1,*)GAMMAI
-!     ELECTRON SPIN
+      READ(1,*)GAMMAI								! WD 18/11/2015
+!      ELECTRON SPIN
       READ(1,*)SPIN
 !     T1 OR T2 CALCULATION
       READ(1,*)IREL
@@ -109,13 +107,15 @@
       ENDIF
 !     NUMBER OF POINTS TO BE CALCULATED
       READ(1,*)NUMPUN
+
       IF(XMIN == XMAX)NUMPUN=1
 !     NUMBER OF SETS OF DATA FOR FITTING
       READ(1,*)SET
+	  
       IF(SET == 0) SET=1
 !     TEMPERATURE
       READ(1,*)(TEMP(K),K=1,SET)
-   
+
       J=1
       IND=1
       IND1=1
@@ -126,6 +126,7 @@
       NPLUS2=0
 !      CORRELATION TIMES
       READ(1,*)B1(J), (TAUS0M(J,K),K=1,2),TAUDELTA
+	  
       IF(B1(J) >= 2)THEN
           TS1=TAUS0M(J,1)
           TS2=TAUS0M(J,2)
@@ -327,9 +328,11 @@
       ENDIF
 !     NUMBER OF DIFFERENT SITES
       READ(1,*) ACQ
+	  
 !     PARAMETERS FOR DIFFERENT SITES
       DO J=1,ACQ
           READ(1,*)B4(J), (TAUMM(J,K),K=1,2)
+		  
           IF(B4(J) >= 2)THEN
               TM1=TAUMM(J,1)
               TM2=TAUMM(J,2)
@@ -375,6 +378,7 @@
               IND2=IND2+1
           ENDIF
           READ(1,*)B16(J), ACONTM(J)
+		  
           IF(B16(J) == 1)THEN
               P(IND)=ACONTM(J)
               P2(IND2)=ACONTM(J)
@@ -383,7 +387,8 @@
               IND2=IND2+1
           ENDIF
           READ(1,*)B7(J), THETAM(J)
-          IF(B7(J) == 1)THEN
+		  
+		  IF(B7(J) == 1)THEN
               P(IND)=THETAM(J)
               P1(IND1)=THETAM(J)
               WRITE(4,'(2X,4(E10.4,2X))') P(IND)
@@ -391,7 +396,8 @@
               IND1=IND1+1
           ENDIF
           READ(1,*)B8(J), PHIM(J)
-          IF(B8(J) == 1)THEN
+		  
+		  IF(B8(J) == 1)THEN
               P(IND)=PHIM(J)
               P1(IND1)=PHIM(J)
               WRITE(4,'(2X,4(E10.4,2X))') P(IND)
@@ -449,7 +455,6 @@
               ACONIND=1.
           ENDIF
       ENDIF
-   
    
       READ(1,*) (NPT(K),K=1, SET)
       READ(1,*) FTOL
@@ -568,7 +573,7 @@
       250 CONTINUE
    
 !     CALCULATION OF THE CURVE
-      OPEN (44, FILE=FILENAME)
+      OPEN (44, FILE = FILEOUTPUT) ! FILEOUTPUT WAS FILENAME IN ORIGINAL FILE (WD) 
       DO K=1,SET
           NPT(K)=NUMPUN
       END DO
@@ -587,11 +592,8 @@
       NVEST=30+OO
       CALL FUNCZFS(P1,FUNC,NMX,NV)
       CLOSE(44)
-      STOP
-      END PROGRAM
-   
-            
-   
+!      STOP
+      END SUBROUTINE paranmrdorig
    
       SUBROUTINE FUNCZFS(P,FUNC,NMX,NV)
       IMPLICIT REAL*8(A-H,O-Z)

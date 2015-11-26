@@ -22,7 +22,7 @@ static const uint qt_meta_data_WidgetForm[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,13 +32,17 @@ static const uint qt_meta_data_WidgetForm[] = {
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
       28,   11,   11,   11, 0x08,
+      48,   11,   11,   11, 0x08,
+      82,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_WidgetForm[] = {
     "WidgetForm\0\0startParaNMRD()\0"
-    "enableTempSpinBoxes()\0"
+    "startParaNMRD_new()\0"
+    "on_datasetsSpinBox_valueChanged()\0"
+    "readInputFile()\0"
 };
 
 void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -48,7 +52,9 @@ void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         WidgetForm *_t = static_cast<WidgetForm *>(_o);
         switch (_id) {
         case 0: _t->startParaNMRD(); break;
-        case 1: _t->enableTempSpinBoxes(); break;
+        case 1: _t->startParaNMRD_new(); break;
+        case 2: _t->on_datasetsSpinBox_valueChanged(); break;
+        case 3: _t->readInputFile(); break;
         default: ;
         }
     }
@@ -87,9 +93,9 @@ int WidgetForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
 }

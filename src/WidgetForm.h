@@ -21,12 +21,15 @@ public:
 
 private slots:
 	void startParaNMRD();
-	void enableTempSpinBoxes();
+	void startParaNMRD_new();
+	void on_datasetsSpinBox_valueChanged();
+	void readInputFile();
 
 private:
 	Ui::WidgetForm ui;
 	QString inputFilename;
 	QString outputFilename;
+	void writeInputFile();
 };
 
 #endif /* WIDGETFORM_H_ */
