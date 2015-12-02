@@ -81,6 +81,8 @@
    
       INDEX=1
       INDEXSTAMPA=0
+	  
+	  PRINT *,FILEINPUT
  
 !     CONSTANTS READ IN FILE PAR.DAT
 !      OPEN (1, STATUS = 'OLD', FILE = 'PARC.DAT')   ! WD 13/11/2015

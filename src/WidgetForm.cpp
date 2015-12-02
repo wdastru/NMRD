@@ -10,15 +10,18 @@
 
 #include <math.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <QtGui/QDoubleSpinBox>
 #include <QtGui/QComboBox>
 #include <QtCore/QByteArray>
-#include <QtCore/QRegExp.h>
+#include <QtCore/QRegExp>
+#include <QtGui/QFileDialog>
 
 #include "WidgetForm.h"
 
 #define FIXED(param) param->isChecked() ? file << 0 << ' ' : file << 1 << ' ';
+#define COUT(something) std::cout << something << std::endl;
 
 using namespace std;
 
@@ -188,9 +191,18 @@ void WidgetForm::writeInputFile() {
 
 void WidgetForm::readInputFile() {
 
-	std::cout << "----" << std::endl << "In readInputFile() : " << ui.inputFileLineEdit->text().toStdString()<< std::endl;
+	this->inputFilename = QFileDialog::getOpenFileName(this,
+			tr("Open Input File"), ".", tr("Text Files (*.txt *.dat)"));
+	QFileInfo fileInfo(this->inputFilename);
 
-	ifstream file(ui.inputFileLineEdit->text().toStdString().c_str());	// input.txt has integers, one per line
+	chdir(fileInfo.absoluteDir().absolutePath().toStdString().c_str());
+
+	COUT(fileInfo.absoluteFilePath().toStdString());
+
+	ui.inputFileLineEdit->setText(fileInfo.fileName());
+
+	// input.txt has integers, one per line
+	ifstream file(fileInfo.absoluteFilePath().toStdString().c_str());
 
 	std::string str;
 	int i;
@@ -730,7 +742,7 @@ void WidgetForm::readInputFile() {
 
 void WidgetForm::startParaNMRD_new() {
 
-	writeInputFile();
+	//writeInputFile();
 
 	QByteArray ba1 = ui.inputFileLineEdit->text().toLatin1();
 	QByteArray ba2 = ui.outputFileLineEdit->text().toLatin1();
@@ -744,6 +756,8 @@ void WidgetForm::startParaNMRD_new() {
 	unsigned int max = (inputLen > outputLen) ? inputLen : outputLen;
 
 	paranmrdorig_(inputFN, &max, outputFN, &max);
+
+	COUT("Out");
 }
 
 void WidgetForm::startParaNMRD() {
