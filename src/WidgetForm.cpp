@@ -34,7 +34,7 @@ void paranmrdorig_(char *, unsigned int *, char *, unsigned int *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
-	QWidget(parent) {
+		QWidget(parent) {
 	ui.setupUi(this);
 	inputFilename = "PARC.DAT";
 	outputFilename = "PARC.OUT";
@@ -84,8 +84,9 @@ void WidgetForm::writeInputFile() {
 
 	file << ui.outputFileLineEdit->text().toStdString().c_str() << std::endl;
 	file << ui.metalNuclearSpinDoubleSpinBox->value() << std::endl;
-	file << ui.gammaIDoubleSpinBox->value() * pow(10,
-			ui.gammaIExpSpinBox->value()) << std::endl;
+	file
+			<< ui.gammaIDoubleSpinBox->value()
+					* pow(10, ui.gammaIExpSpinBox->value()) << std::endl;
 	file << ui.elSpinDoubleSpinBox->value() << std::endl;
 
 	if (ui.T1T2ComboBox->currentText() == "T1") {
@@ -112,24 +113,31 @@ void WidgetForm::writeInputFile() {
 	}
 
 	FIXED(ui.TauSCheckBox);
-	file << ui.TAUMS01DoubleSpinBox->value() * pow(10,
-			ui.TAUMS01ExpSpinBox->value()) << ' ';
-	file << ui.TAUMS02DoubleSpinBox->value() * pow(10,
-			ui.TAUMS02ExpSpinBox->value()) << ' ';
-	file << ui.TAUDELTADoubleSpinBox->value() * pow(10,
-			ui.TAUDELTAExpSpinBox->value()) << std::endl;
+	file
+			<< ui.TAUMS01DoubleSpinBox->value()
+					* pow(10, ui.TAUMS01ExpSpinBox->value()) << ' ';
+	file
+			<< ui.TAUMS02DoubleSpinBox->value()
+					* pow(10, ui.TAUMS02ExpSpinBox->value()) << ' ';
+	file
+			<< ui.TAUDELTADoubleSpinBox->value()
+					* pow(10, ui.TAUDELTAExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.TauRCheckBox);
-	file << ui.TAURM1DoubleSpinBox->value() * pow(10,
-			ui.TAURM1ExpSpinBox->value()) << ' ';
-	file << ui.TAURM2DoubleSpinBox->value() * pow(10,
-			ui.TAURM2ExpSpinBox->value()) << std::endl;
+	file
+			<< ui.TAURM1DoubleSpinBox->value()
+					* pow(10, ui.TAURM1ExpSpinBox->value()) << ' ';
+	file
+			<< ui.TAURM2DoubleSpinBox->value()
+					* pow(10, ui.TAURM2ExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.TauVCheckBox);
-	file << ui.TAUVM1DoubleSpinBox->value() * pow(10,
-			ui.TAUVM1ExpSpinBox->value()) << ' ';
-	file << ui.TAUVM2DoubleSpinBox->value() * pow(10,
-			ui.TAUVM2ExpSpinBox->value()) << std::endl;
+	file
+			<< ui.TAUVM1DoubleSpinBox->value()
+					* pow(10, ui.TAUVM1ExpSpinBox->value()) << ' ';
+	file
+			<< ui.TAUVM2DoubleSpinBox->value()
+					* pow(10, ui.TAUVM2ExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.DZFSCheckBox);
 	file << ui.DZFSDoubleSpinBox->value() * pow(10, ui.DZFSExpSpinBox->value())
@@ -168,12 +176,14 @@ void WidgetForm::writeInputFile() {
 			<< std::endl;
 
 	FIXED(ui.distanceCheckBox);
-	file << ui.distanceDoubleSpinBox->value() * pow(10,
-			ui.distanceExpSpinBox->value()) << std::endl;
+	file
+			<< ui.distanceDoubleSpinBox->value()
+					* pow(10, ui.distanceExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.DCoeffCheckBox);
-	file << ui.DCoeffDoubleSpinBox->value() * pow(10,
-			ui.DCoeffExpSpinBox->value()) << std::endl;
+	file
+			<< ui.DCoeffDoubleSpinBox->value()
+					* pow(10, ui.DCoeffExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.concCheckBox);
 	file << ui.concDoubleSpinBox->value() * pow(10, ui.concExpSpinBox->value())
@@ -182,18 +192,22 @@ void WidgetForm::writeInputFile() {
 	file << ui.typesOfWaterSpinBox->value() << std::endl;
 
 	FIXED(ui.taumCheckBox);
-	file << ui.taum1DoubleSpinBox->value() * pow(10,
-			ui.taum1ExpSpinBox->value()) << ' ';
-	file << ui.taum2DoubleSpinBox->value() * pow(10,
-			ui.taum2ExpSpinBox->value()) << std::endl;
+	file
+			<< ui.taum1DoubleSpinBox->value()
+					* pow(10, ui.taum1ExpSpinBox->value()) << ' ';
+	file
+			<< ui.taum2DoubleSpinBox->value()
+					* pow(10, ui.taum2ExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.molFracCheckBox);
-	file << ui.molFracDoubleSpinBox->value() * pow(10,
-			ui.molFracExpSpinBox->value()) << std::endl;
+	file
+			<< ui.molFracDoubleSpinBox->value()
+					* pow(10, ui.molFracExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.rkDistanceCheckBox);
-	file << ui.rkDistanceDoubleSpinBox->value() * pow(10,
-			ui.rkDistanceExpSpinBox->value()) << std::endl;
+	file
+			<< ui.rkDistanceDoubleSpinBox->value()
+					* pow(10, ui.rkDistanceExpSpinBox->value()) << std::endl;
 
 	FIXED(ui.AHCheckBox);
 	file << ui.AHDoubleSpinBox->value() * pow(10, ui.AHExpSpinBox->value())
@@ -216,8 +230,9 @@ void WidgetForm::writeInputFile() {
 				<< ui.nExpPts3SpinBox->value() << std::endl;
 	}
 
-	file << ui.toleranceDoubleSpinBox->value() * pow(10,
-			ui.toleranceExpSpinBox->value()) << std::endl;
+	file
+			<< ui.toleranceDoubleSpinBox->value()
+					* pow(10, ui.toleranceExpSpinBox->value()) << std::endl;
 
 	file << ui.fittingStepDoubleSpinBox->value() << std::endl;
 
@@ -334,8 +349,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.TauSCheckBox->setChecked(true) : ui.TauSCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.TauSCheckBox->setChecked(true) :
+			ui.TauSCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -386,8 +402,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.TauRCheckBox->setChecked(true) : ui.TauRCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.TauRCheckBox->setChecked(true) :
+			ui.TauRCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -422,8 +439,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.TauVCheckBox->setChecked(true) : ui.TauVCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.TauVCheckBox->setChecked(true) :
+			ui.TauVCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -458,8 +476,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.DZFSCheckBox->setChecked(true) : ui.DZFSCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.DZFSCheckBox->setChecked(true) :
+			ui.DZFSCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -478,8 +497,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.EZFSCheckBox->setChecked(true) : ui.EZFSCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.EZFSCheckBox->setChecked(true) :
+			ui.EZFSCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -498,8 +518,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.S4MCheckBox->setChecked(true) : ui.S4MCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.S4MCheckBox->setChecked(true) :
+			ui.S4MCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -632,8 +653,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.distanceCheckBox->setChecked(true)
-			: ui.distanceCheckBox->setChecked(false);
+	i == 0 ?
+			ui.distanceCheckBox->setChecked(true) :
+			ui.distanceCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -652,8 +674,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.DCoeffCheckBox->setChecked(true)
-			: ui.DCoeffCheckBox->setChecked(false);
+	i == 0 ?
+			ui.DCoeffCheckBox->setChecked(true) :
+			ui.DCoeffCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -672,8 +695,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.concCheckBox->setChecked(true) : ui.concCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.concCheckBox->setChecked(true) :
+			ui.concCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -695,8 +719,9 @@ void WidgetForm::readInputFile() {
 	ui.typesOfWaterSpinBox->setValue(i);
 
 	file >> i;
-	i == 0 ? ui.taumCheckBox->setChecked(true) : ui.taumCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.taumCheckBox->setChecked(true) :
+			ui.taumCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -731,8 +756,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.molFracCheckBox->setChecked(true)
-			: ui.molFracCheckBox->setChecked(false);
+	i == 0 ?
+			ui.molFracCheckBox->setChecked(true) :
+			ui.molFracCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -751,8 +777,9 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.rkDistanceCheckBox->setChecked(true)
-			: ui.rkDistanceCheckBox->setChecked(false);
+	i == 0 ?
+			ui.rkDistanceCheckBox->setChecked(true) :
+			ui.rkDistanceCheckBox->setChecked(false);
 
 	file >> str;
 	items.clear();
@@ -790,15 +817,17 @@ void WidgetForm::readInputFile() {
 	}
 
 	file >> i;
-	i == 0 ? ui.thetaCheckBox->setChecked(true) : ui.thetaCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.thetaCheckBox->setChecked(true) :
+			ui.thetaCheckBox->setChecked(false);
 
 	file >> d;
 	ui.thetaDoubleSpinBox->setValue(d);
 
 	file >> i;
-	i == 0 ? ui.phiCheckBox->setChecked(true) : ui.phiCheckBox->setChecked(
-			false);
+	i == 0 ?
+			ui.phiCheckBox->setChecked(true) :
+			ui.phiCheckBox->setChecked(false);
 
 	file >> d;
 	ui.phiDoubleSpinBox->setValue(d);
@@ -843,6 +872,9 @@ void WidgetForm::readInputFile() {
 
 void WidgetForm::startParaNMRD_new() {
 
+#undef FUNCTION_NAME
+#define FUNCTION_NAME __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ". "
+
 	if (!ui.newDirLineEdit->text().isEmpty()) {
 		this->dir = ui.newDirLineEdit->text();
 	}
@@ -870,22 +902,46 @@ void WidgetForm::startParaNMRD_new() {
 	plot.ui.plotarea->addGraph();
 	plot.ui.plotarea->graph(0)->setPen(QPen(Qt::blue));
 	plot.ui.plotarea->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
-	plot.ui.plotarea->addGraph();
-	plot.ui.plotarea->graph(1)->setPen(QPen(Qt::red));
+//	plot.ui.plotarea->addGraph();
+//	plot.ui.plotarea->graph(1)->setPen(QPen(Qt::red));
 
-
-	QVector<double> x(500), y0(500), y1(500);
-	for (int i = 0; i < 500; ++i) {
-		x[i] = (i / 499.0 - 0.5) * 10;
-		y0[i] = qExp(-x[i] * x[i] * 0.25) * qSin(x[i] * 5) * 5;
-		y1[i] = qExp(-x[i] * x[i] * 0.25) * 5;
+	COUT(ui.outputFileLineEdit->text().toStdString().c_str());
+	ifstream file(ui.outputFileLineEdit->text().toStdString().c_str());
+	if (file.is_open()) {
+		COUT("file exists");
 	}
 
+	QVector<double> x, y0, y1;
+	double x_val, y_val, x_max, x_min, y_max, y_min;
+	x_max=x_min=y_max=y_min=0;
+
+	for (unsigned int i=0; i<100; i++) {
+	//while (!file.eof()) {
+		file >> x_val;
+		file >> y_val;
+
+		x_max = x_val>x_max ? x_val : x_max;
+		x_min = x_val<x_min ? x_val : x_min;
+		y_max = y_val>y_max ? y_val : y_max;
+		y_min = y_val<y_min ? y_val : y_min;
+
+		//COUT(x_val << '\t' << y_val);
+
+		x.push_back(x_val);
+		y0.push_back(y_val);
+	}
+
+	file.close();
 
 	plot.ui.plotarea->graph(0)->setData(x, y0);
-	plot.ui.plotarea->graph(1)->setData(x, y1);
+//	plot.ui.plotarea->graph(1)->setData(x, y1);
 	plot.ui.plotarea->axisRect()->setupFullAxesBox(true);
+	plot.ui.plotarea->xAxis->setScaleType(QCPAxis::stLogarithmic);
+	plot.ui.plotarea->xAxis->setScaleLogBase(100);
+	plot.ui.plotarea->xAxis->setRange(x_min, x_max);
+	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
 	plot.ui.plotarea->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+	plot.ui.plotarea->replot();
 
 }
 
@@ -904,8 +960,8 @@ void WidgetForm::startParaNMRD() {
 
 	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
 
-	double gammaI = ui.gammaIDoubleSpinBox->value() * pow(10,
-			ui.gammaIExpSpinBox->value());
+	double gammaI = ui.gammaIDoubleSpinBox->value()
+			* pow(10, ui.gammaIExpSpinBox->value());
 	double elSpin = ui.elSpinDoubleSpinBox->value();
 
 	unsigned int T1T2;
