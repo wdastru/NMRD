@@ -40,6 +40,12 @@ public:
     QWidget *tab;
     QWidget *layoutWidget_1;
     QGridLayout *gridLayout;
+    QCheckBox *gyCheckBox;
+    QLabel *gzLabel;
+    QDoubleSpinBox *AxDoubleSpinBox;
+    QLabel *label_22;
+    QLabel *gyLabel;
+    QSpinBox *gyExpSpinBox;
     QDoubleSpinBox *metalNuclearSpinDoubleSpinBox;
     QLabel *gammaILabel;
     QSpinBox *TAUMS01ExpSpinBox;
@@ -50,13 +56,7 @@ public:
     QLabel *label_26;
     QCheckBox *AzCheckBox;
     QSpinBox *AyExpSpinBox;
-    QCheckBox *gyCheckBox;
     QLabel *numberOfPointsLabel;
-    QSpinBox *gyExpSpinBox;
-    QLabel *gyLabel;
-    QLabel *label_22;
-    QDoubleSpinBox *AxDoubleSpinBox;
-    QLabel *gzLabel;
     QLabel *AxLabel;
     QFrame *line_6;
     QDoubleSpinBox *gyDoubleSpinBox;
@@ -150,6 +150,9 @@ public:
     QLineEdit *inputFileLineEdit;
     QPushButton *pushButton;
     QSpinBox *numberOfPointsSpinBox;
+    QCheckBox *newDirCheckBox;
+    QPushButton *chooseParentDirPushButton;
+    QLineEdit *newDirLineEdit;
     QWidget *tab_2;
     QWidget *layoutWidget_2;
     QGridLayout *gridLayout_2;
@@ -234,96 +237,20 @@ public:
         tab->setObjectName(QString::fromUtf8("tab"));
         layoutWidget_1 = new QWidget(tab);
         layoutWidget_1->setObjectName(QString::fromUtf8("layoutWidget_1"));
-        layoutWidget_1->setGeometry(QRect(0, 0, 721, 763));
+        layoutWidget_1->setGeometry(QRect(0, 0, 721, 776));
         gridLayout = new QGridLayout(layoutWidget_1);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(10, 10, 10, 0);
-        metalNuclearSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
-        metalNuclearSpinDoubleSpinBox->setObjectName(QString::fromUtf8("metalNuclearSpinDoubleSpinBox"));
-        metalNuclearSpinDoubleSpinBox->setDecimals(1);
-        metalNuclearSpinDoubleSpinBox->setMinimum(-100);
-        metalNuclearSpinDoubleSpinBox->setSingleStep(0.5);
-        metalNuclearSpinDoubleSpinBox->setValue(0);
-
-        gridLayout->addWidget(metalNuclearSpinDoubleSpinBox, 3, 1, 1, 1);
-
-        gammaILabel = new QLabel(layoutWidget_1);
-        gammaILabel->setObjectName(QString::fromUtf8("gammaILabel"));
-
-        gridLayout->addWidget(gammaILabel, 4, 0, 1, 1);
-
-        TAUMS01ExpSpinBox = new QSpinBox(layoutWidget_1);
-        TAUMS01ExpSpinBox->setObjectName(QString::fromUtf8("TAUMS01ExpSpinBox"));
-        TAUMS01ExpSpinBox->setMinimum(-99);
-
-        gridLayout->addWidget(TAUMS01ExpSpinBox, 12, 4, 1, 1);
-
-        fieldRangeLabel = new QLabel(layoutWidget_1);
-        fieldRangeLabel->setObjectName(QString::fromUtf8("fieldRangeLabel"));
-
-        gridLayout->addWidget(fieldRangeLabel, 7, 0, 1, 1);
-
-        AzDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
-        AzDoubleSpinBox->setObjectName(QString::fromUtf8("AzDoubleSpinBox"));
-        AzDoubleSpinBox->setDecimals(5);
-        AzDoubleSpinBox->setMaximum(10);
-        AzDoubleSpinBox->setSingleStep(0.1);
-
-        gridLayout->addWidget(AzDoubleSpinBox, 36, 2, 1, 1);
-
-        AzLabel = new QLabel(layoutWidget_1);
-        AzLabel->setObjectName(QString::fromUtf8("AzLabel"));
-
-        gridLayout->addWidget(AzLabel, 36, 1, 1, 1);
-
-        label_31 = new QLabel(layoutWidget_1);
-        label_31->setObjectName(QString::fromUtf8("label_31"));
-
-        gridLayout->addWidget(label_31, 36, 3, 1, 1);
-
-        label_26 = new QLabel(layoutWidget_1);
-        label_26->setObjectName(QString::fromUtf8("label_26"));
-
-        gridLayout->addWidget(label_26, 35, 3, 1, 1);
-
-        AzCheckBox = new QCheckBox(layoutWidget_1);
-        AzCheckBox->setObjectName(QString::fromUtf8("AzCheckBox"));
-        AzCheckBox->setChecked(true);
-
-        gridLayout->addWidget(AzCheckBox, 36, 0, 1, 1);
-
-        AyExpSpinBox = new QSpinBox(layoutWidget_1);
-        AyExpSpinBox->setObjectName(QString::fromUtf8("AyExpSpinBox"));
-        AyExpSpinBox->setMinimum(-99);
-
-        gridLayout->addWidget(AyExpSpinBox, 35, 4, 1, 1);
-
         gyCheckBox = new QCheckBox(layoutWidget_1);
         gyCheckBox->setObjectName(QString::fromUtf8("gyCheckBox"));
         gyCheckBox->setChecked(true);
 
-        gridLayout->addWidget(gyCheckBox, 31, 0, 1, 1);
+        gridLayout->addWidget(gyCheckBox, 32, 0, 1, 1);
 
-        numberOfPointsLabel = new QLabel(layoutWidget_1);
-        numberOfPointsLabel->setObjectName(QString::fromUtf8("numberOfPointsLabel"));
+        gzLabel = new QLabel(layoutWidget_1);
+        gzLabel->setObjectName(QString::fromUtf8("gzLabel"));
 
-        gridLayout->addWidget(numberOfPointsLabel, 8, 0, 1, 1);
-
-        gyExpSpinBox = new QSpinBox(layoutWidget_1);
-        gyExpSpinBox->setObjectName(QString::fromUtf8("gyExpSpinBox"));
-        gyExpSpinBox->setMinimum(-99);
-
-        gridLayout->addWidget(gyExpSpinBox, 31, 4, 1, 1);
-
-        gyLabel = new QLabel(layoutWidget_1);
-        gyLabel->setObjectName(QString::fromUtf8("gyLabel"));
-
-        gridLayout->addWidget(gyLabel, 31, 1, 1, 1);
-
-        label_22 = new QLabel(layoutWidget_1);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-
-        gridLayout->addWidget(label_22, 31, 3, 1, 1);
+        gridLayout->addWidget(gzLabel, 33, 1, 1, 1);
 
         AxDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         AxDoubleSpinBox->setObjectName(QString::fromUtf8("AxDoubleSpinBox"));
@@ -331,24 +258,100 @@ public:
         AxDoubleSpinBox->setMaximum(10);
         AxDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(AxDoubleSpinBox, 34, 2, 1, 1);
+        gridLayout->addWidget(AxDoubleSpinBox, 35, 2, 1, 1);
 
-        gzLabel = new QLabel(layoutWidget_1);
-        gzLabel->setObjectName(QString::fromUtf8("gzLabel"));
+        label_22 = new QLabel(layoutWidget_1);
+        label_22->setObjectName(QString::fromUtf8("label_22"));
 
-        gridLayout->addWidget(gzLabel, 32, 1, 1, 1);
+        gridLayout->addWidget(label_22, 32, 3, 1, 1);
+
+        gyLabel = new QLabel(layoutWidget_1);
+        gyLabel->setObjectName(QString::fromUtf8("gyLabel"));
+
+        gridLayout->addWidget(gyLabel, 32, 1, 1, 1);
+
+        gyExpSpinBox = new QSpinBox(layoutWidget_1);
+        gyExpSpinBox->setObjectName(QString::fromUtf8("gyExpSpinBox"));
+        gyExpSpinBox->setMinimum(-99);
+
+        gridLayout->addWidget(gyExpSpinBox, 32, 4, 1, 1);
+
+        metalNuclearSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
+        metalNuclearSpinDoubleSpinBox->setObjectName(QString::fromUtf8("metalNuclearSpinDoubleSpinBox"));
+        metalNuclearSpinDoubleSpinBox->setDecimals(1);
+        metalNuclearSpinDoubleSpinBox->setMinimum(-100);
+        metalNuclearSpinDoubleSpinBox->setSingleStep(0.5);
+        metalNuclearSpinDoubleSpinBox->setValue(0);
+
+        gridLayout->addWidget(metalNuclearSpinDoubleSpinBox, 4, 1, 1, 1);
+
+        gammaILabel = new QLabel(layoutWidget_1);
+        gammaILabel->setObjectName(QString::fromUtf8("gammaILabel"));
+
+        gridLayout->addWidget(gammaILabel, 5, 0, 1, 1);
+
+        TAUMS01ExpSpinBox = new QSpinBox(layoutWidget_1);
+        TAUMS01ExpSpinBox->setObjectName(QString::fromUtf8("TAUMS01ExpSpinBox"));
+        TAUMS01ExpSpinBox->setMinimum(-99);
+
+        gridLayout->addWidget(TAUMS01ExpSpinBox, 13, 4, 1, 1);
+
+        fieldRangeLabel = new QLabel(layoutWidget_1);
+        fieldRangeLabel->setObjectName(QString::fromUtf8("fieldRangeLabel"));
+
+        gridLayout->addWidget(fieldRangeLabel, 8, 0, 1, 1);
+
+        AzDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
+        AzDoubleSpinBox->setObjectName(QString::fromUtf8("AzDoubleSpinBox"));
+        AzDoubleSpinBox->setDecimals(5);
+        AzDoubleSpinBox->setMaximum(10);
+        AzDoubleSpinBox->setSingleStep(0.1);
+
+        gridLayout->addWidget(AzDoubleSpinBox, 37, 2, 1, 1);
+
+        AzLabel = new QLabel(layoutWidget_1);
+        AzLabel->setObjectName(QString::fromUtf8("AzLabel"));
+
+        gridLayout->addWidget(AzLabel, 37, 1, 1, 1);
+
+        label_31 = new QLabel(layoutWidget_1);
+        label_31->setObjectName(QString::fromUtf8("label_31"));
+
+        gridLayout->addWidget(label_31, 37, 3, 1, 1);
+
+        label_26 = new QLabel(layoutWidget_1);
+        label_26->setObjectName(QString::fromUtf8("label_26"));
+
+        gridLayout->addWidget(label_26, 36, 3, 1, 1);
+
+        AzCheckBox = new QCheckBox(layoutWidget_1);
+        AzCheckBox->setObjectName(QString::fromUtf8("AzCheckBox"));
+        AzCheckBox->setChecked(true);
+
+        gridLayout->addWidget(AzCheckBox, 37, 0, 1, 1);
+
+        AyExpSpinBox = new QSpinBox(layoutWidget_1);
+        AyExpSpinBox->setObjectName(QString::fromUtf8("AyExpSpinBox"));
+        AyExpSpinBox->setMinimum(-99);
+
+        gridLayout->addWidget(AyExpSpinBox, 36, 4, 1, 1);
+
+        numberOfPointsLabel = new QLabel(layoutWidget_1);
+        numberOfPointsLabel->setObjectName(QString::fromUtf8("numberOfPointsLabel"));
+
+        gridLayout->addWidget(numberOfPointsLabel, 9, 0, 1, 1);
 
         AxLabel = new QLabel(layoutWidget_1);
         AxLabel->setObjectName(QString::fromUtf8("AxLabel"));
 
-        gridLayout->addWidget(AxLabel, 34, 1, 1, 1);
+        gridLayout->addWidget(AxLabel, 35, 1, 1, 1);
 
         line_6 = new QFrame(layoutWidget_1);
         line_6->setObjectName(QString::fromUtf8("line_6"));
         line_6->setFrameShape(QFrame::HLine);
         line_6->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_6, 33, 0, 1, 5);
+        gridLayout->addWidget(line_6, 34, 0, 1, 5);
 
         gyDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         gyDoubleSpinBox->setObjectName(QString::fromUtf8("gyDoubleSpinBox"));
@@ -356,13 +359,13 @@ public:
         gyDoubleSpinBox->setMaximum(10);
         gyDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(gyDoubleSpinBox, 31, 2, 1, 1);
+        gridLayout->addWidget(gyDoubleSpinBox, 32, 2, 1, 1);
 
         gzExpSpinBox = new QSpinBox(layoutWidget_1);
         gzExpSpinBox->setObjectName(QString::fromUtf8("gzExpSpinBox"));
         gzExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(gzExpSpinBox, 32, 4, 1, 1);
+        gridLayout->addWidget(gzExpSpinBox, 33, 4, 1, 1);
 
         gzDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         gzDoubleSpinBox->setObjectName(QString::fromUtf8("gzDoubleSpinBox"));
@@ -370,35 +373,35 @@ public:
         gzDoubleSpinBox->setMaximum(10);
         gzDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(gzDoubleSpinBox, 32, 2, 1, 1);
+        gridLayout->addWidget(gzDoubleSpinBox, 33, 2, 1, 1);
 
         gzCheckBox = new QCheckBox(layoutWidget_1);
         gzCheckBox->setObjectName(QString::fromUtf8("gzCheckBox"));
         gzCheckBox->setChecked(true);
 
-        gridLayout->addWidget(gzCheckBox, 32, 0, 1, 1);
+        gridLayout->addWidget(gzCheckBox, 33, 0, 1, 1);
 
         label_23 = new QLabel(layoutWidget_1);
         label_23->setObjectName(QString::fromUtf8("label_23"));
 
-        gridLayout->addWidget(label_23, 32, 3, 1, 1);
+        gridLayout->addWidget(label_23, 33, 3, 1, 1);
 
         label_32 = new QLabel(layoutWidget_1);
         label_32->setObjectName(QString::fromUtf8("label_32"));
 
-        gridLayout->addWidget(label_32, 28, 3, 1, 1);
+        gridLayout->addWidget(label_32, 29, 3, 1, 1);
 
         line_4 = new QFrame(layoutWidget_1);
         line_4->setObjectName(QString::fromUtf8("line_4"));
         line_4->setFrameShape(QFrame::HLine);
         line_4->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_4, 25, 1, 1, 1);
+        gridLayout->addWidget(line_4, 26, 1, 1, 1);
 
         DZFSLabel = new QLabel(layoutWidget_1);
         DZFSLabel->setObjectName(QString::fromUtf8("DZFSLabel"));
 
-        gridLayout->addWidget(DZFSLabel, 26, 1, 1, 1);
+        gridLayout->addWidget(DZFSLabel, 27, 1, 1, 1);
 
         DZFSDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         DZFSDoubleSpinBox->setObjectName(QString::fromUtf8("DZFSDoubleSpinBox"));
@@ -406,31 +409,31 @@ public:
         DZFSDoubleSpinBox->setMaximum(10);
         DZFSDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(DZFSDoubleSpinBox, 26, 2, 1, 1);
+        gridLayout->addWidget(DZFSDoubleSpinBox, 27, 2, 1, 1);
 
         DZFSExpSpinBox = new QSpinBox(layoutWidget_1);
         DZFSExpSpinBox->setObjectName(QString::fromUtf8("DZFSExpSpinBox"));
         DZFSExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(DZFSExpSpinBox, 26, 4, 1, 1);
+        gridLayout->addWidget(DZFSExpSpinBox, 27, 4, 1, 1);
 
         S4MCheckBox = new QCheckBox(layoutWidget_1);
         S4MCheckBox->setObjectName(QString::fromUtf8("S4MCheckBox"));
         S4MCheckBox->setChecked(true);
 
-        gridLayout->addWidget(S4MCheckBox, 28, 0, 1, 1);
+        gridLayout->addWidget(S4MCheckBox, 29, 0, 1, 1);
 
         gxExpSpinBox = new QSpinBox(layoutWidget_1);
         gxExpSpinBox->setObjectName(QString::fromUtf8("gxExpSpinBox"));
         gxExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(gxExpSpinBox, 30, 4, 1, 1);
+        gridLayout->addWidget(gxExpSpinBox, 31, 4, 1, 1);
 
         DZFSCheckBox = new QCheckBox(layoutWidget_1);
         DZFSCheckBox->setObjectName(QString::fromUtf8("DZFSCheckBox"));
         DZFSCheckBox->setChecked(true);
 
-        gridLayout->addWidget(DZFSCheckBox, 26, 0, 1, 1);
+        gridLayout->addWidget(DZFSCheckBox, 27, 0, 1, 1);
 
         gxDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         gxDoubleSpinBox->setObjectName(QString::fromUtf8("gxDoubleSpinBox"));
@@ -438,30 +441,30 @@ public:
         gxDoubleSpinBox->setMaximum(10);
         gxDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(gxDoubleSpinBox, 30, 2, 1, 1);
+        gridLayout->addWidget(gxDoubleSpinBox, 31, 2, 1, 1);
 
         gxLabel = new QLabel(layoutWidget_1);
         gxLabel->setObjectName(QString::fromUtf8("gxLabel"));
 
-        gridLayout->addWidget(gxLabel, 30, 1, 1, 1);
+        gridLayout->addWidget(gxLabel, 31, 1, 1, 1);
 
         line_5 = new QFrame(layoutWidget_1);
         line_5->setObjectName(QString::fromUtf8("line_5"));
         line_5->setFrameShape(QFrame::HLine);
         line_5->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_5, 29, 0, 1, 5);
+        gridLayout->addWidget(line_5, 30, 0, 1, 5);
 
         EZFSExpSpinBox = new QSpinBox(layoutWidget_1);
         EZFSExpSpinBox->setObjectName(QString::fromUtf8("EZFSExpSpinBox"));
         EZFSExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(EZFSExpSpinBox, 27, 4, 1, 1);
+        gridLayout->addWidget(EZFSExpSpinBox, 28, 4, 1, 1);
 
         label_21 = new QLabel(layoutWidget_1);
         label_21->setObjectName(QString::fromUtf8("label_21"));
 
-        gridLayout->addWidget(label_21, 30, 3, 1, 1);
+        gridLayout->addWidget(label_21, 31, 3, 1, 1);
 
         S4MDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         S4MDoubleSpinBox->setObjectName(QString::fromUtf8("S4MDoubleSpinBox"));
@@ -469,50 +472,50 @@ public:
         S4MDoubleSpinBox->setMaximum(10);
         S4MDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(S4MDoubleSpinBox, 28, 2, 1, 1);
+        gridLayout->addWidget(S4MDoubleSpinBox, 29, 2, 1, 1);
 
         label_19 = new QLabel(layoutWidget_1);
         label_19->setObjectName(QString::fromUtf8("label_19"));
 
-        gridLayout->addWidget(label_19, 26, 3, 1, 1);
+        gridLayout->addWidget(label_19, 27, 3, 1, 1);
 
         label_20 = new QLabel(layoutWidget_1);
         label_20->setObjectName(QString::fromUtf8("label_20"));
 
-        gridLayout->addWidget(label_20, 27, 3, 1, 1);
+        gridLayout->addWidget(label_20, 28, 3, 1, 1);
 
         label_9 = new QLabel(layoutWidget_1);
         label_9->setObjectName(QString::fromUtf8("label_9"));
 
-        gridLayout->addWidget(label_9, 24, 3, 1, 1);
+        gridLayout->addWidget(label_9, 25, 3, 1, 1);
 
         EZFSCheckBox = new QCheckBox(layoutWidget_1);
         EZFSCheckBox->setObjectName(QString::fromUtf8("EZFSCheckBox"));
         EZFSCheckBox->setChecked(true);
 
-        gridLayout->addWidget(EZFSCheckBox, 27, 0, 1, 1);
+        gridLayout->addWidget(EZFSCheckBox, 28, 0, 1, 1);
 
         EZFSLabel = new QLabel(layoutWidget_1);
         EZFSLabel->setObjectName(QString::fromUtf8("EZFSLabel"));
 
-        gridLayout->addWidget(EZFSLabel, 27, 1, 1, 1);
+        gridLayout->addWidget(EZFSLabel, 28, 1, 1, 1);
 
         gxCheckBox = new QCheckBox(layoutWidget_1);
         gxCheckBox->setObjectName(QString::fromUtf8("gxCheckBox"));
         gxCheckBox->setChecked(true);
 
-        gridLayout->addWidget(gxCheckBox, 30, 0, 1, 1);
+        gridLayout->addWidget(gxCheckBox, 31, 0, 1, 1);
 
         TAUVM2ExpSpinBox = new QSpinBox(layoutWidget_1);
         TAUVM2ExpSpinBox->setObjectName(QString::fromUtf8("TAUVM2ExpSpinBox"));
         TAUVM2ExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAUVM2ExpSpinBox, 24, 4, 1, 1);
+        gridLayout->addWidget(TAUVM2ExpSpinBox, 25, 4, 1, 1);
 
         S4MLabel = new QLabel(layoutWidget_1);
         S4MLabel->setObjectName(QString::fromUtf8("S4MLabel"));
 
-        gridLayout->addWidget(S4MLabel, 28, 1, 1, 1);
+        gridLayout->addWidget(S4MLabel, 29, 1, 1, 1);
 
         EZFSDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         EZFSDoubleSpinBox->setObjectName(QString::fromUtf8("EZFSDoubleSpinBox"));
@@ -520,35 +523,35 @@ public:
         EZFSDoubleSpinBox->setMaximum(10);
         EZFSDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(EZFSDoubleSpinBox, 27, 2, 1, 1);
+        gridLayout->addWidget(EZFSDoubleSpinBox, 28, 2, 1, 1);
 
         S4MExpSpinBox = new QSpinBox(layoutWidget_1);
         S4MExpSpinBox->setObjectName(QString::fromUtf8("S4MExpSpinBox"));
         S4MExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(S4MExpSpinBox, 28, 4, 1, 1);
+        gridLayout->addWidget(S4MExpSpinBox, 29, 4, 1, 1);
 
         label_5 = new QLabel(layoutWidget_1);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        gridLayout->addWidget(label_5, 20, 3, 1, 1);
+        gridLayout->addWidget(label_5, 21, 3, 1, 1);
 
         TAUMS01Label = new QLabel(layoutWidget_1);
         TAUMS01Label->setObjectName(QString::fromUtf8("TAUMS01Label"));
 
-        gridLayout->addWidget(TAUMS01Label, 12, 1, 1, 1);
+        gridLayout->addWidget(TAUMS01Label, 13, 1, 1, 1);
 
         gammaIExpSpinBox = new QSpinBox(layoutWidget_1);
         gammaIExpSpinBox->setObjectName(QString::fromUtf8("gammaIExpSpinBox"));
         gammaIExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(gammaIExpSpinBox, 4, 3, 1, 1);
+        gridLayout->addWidget(gammaIExpSpinBox, 5, 3, 1, 1);
 
         TAURM2ExpSpinBox = new QSpinBox(layoutWidget_1);
         TAURM2ExpSpinBox->setObjectName(QString::fromUtf8("TAURM2ExpSpinBox"));
         TAURM2ExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAURM2ExpSpinBox, 21, 4, 1, 1);
+        gridLayout->addWidget(TAURM2ExpSpinBox, 22, 4, 1, 1);
 
         gammaIDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         gammaIDoubleSpinBox->setObjectName(QString::fromUtf8("gammaIDoubleSpinBox"));
@@ -556,30 +559,30 @@ public:
         gammaIDoubleSpinBox->setMaximum(10);
         gammaIDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(gammaIDoubleSpinBox, 4, 1, 1, 1);
+        gridLayout->addWidget(gammaIDoubleSpinBox, 5, 1, 1, 1);
 
         TAURM1Label = new QLabel(layoutWidget_1);
         TAURM1Label->setObjectName(QString::fromUtf8("TAURM1Label"));
 
-        gridLayout->addWidget(TAURM1Label, 20, 1, 1, 1);
+        gridLayout->addWidget(TAURM1Label, 21, 1, 1, 1);
 
         line = new QFrame(layoutWidget_1);
         line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line, 11, 0, 1, 5);
+        gridLayout->addWidget(line, 12, 0, 1, 5);
 
         label_6 = new QLabel(layoutWidget_1);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
-        gridLayout->addWidget(label_6, 21, 3, 1, 1);
+        gridLayout->addWidget(label_6, 22, 3, 1, 1);
 
         TAUDELTAExpSpinBox = new QSpinBox(layoutWidget_1);
         TAUDELTAExpSpinBox->setObjectName(QString::fromUtf8("TAUDELTAExpSpinBox"));
         TAUDELTAExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAUDELTAExpSpinBox, 17, 4, 1, 1);
+        gridLayout->addWidget(TAUDELTAExpSpinBox, 18, 4, 1, 1);
 
         TAURM1DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAURM1DoubleSpinBox->setObjectName(QString::fromUtf8("TAURM1DoubleSpinBox"));
@@ -587,19 +590,19 @@ public:
         TAURM1DoubleSpinBox->setMaximum(10);
         TAURM1DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAURM1DoubleSpinBox, 20, 2, 1, 1);
+        gridLayout->addWidget(TAURM1DoubleSpinBox, 21, 2, 1, 1);
 
         TAUDELTALabel = new QLabel(layoutWidget_1);
         TAUDELTALabel->setObjectName(QString::fromUtf8("TAUDELTALabel"));
 
-        gridLayout->addWidget(TAUDELTALabel, 17, 1, 1, 1);
+        gridLayout->addWidget(TAUDELTALabel, 18, 1, 1, 1);
 
         line_2 = new QFrame(layoutWidget_1);
         line_2->setObjectName(QString::fromUtf8("line_2"));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_2, 19, 0, 1, 5);
+        gridLayout->addWidget(line_2, 20, 0, 1, 5);
 
         TAURM2DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAURM2DoubleSpinBox->setObjectName(QString::fromUtf8("TAURM2DoubleSpinBox"));
@@ -607,35 +610,35 @@ public:
         TAURM2DoubleSpinBox->setMaximum(10);
         TAURM2DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAURM2DoubleSpinBox, 21, 2, 1, 1);
+        gridLayout->addWidget(TAURM2DoubleSpinBox, 22, 2, 1, 1);
 
         TAURM1ExpSpinBox = new QSpinBox(layoutWidget_1);
         TAURM1ExpSpinBox->setObjectName(QString::fromUtf8("TAURM1ExpSpinBox"));
         TAURM1ExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAURM1ExpSpinBox, 20, 4, 1, 1);
+        gridLayout->addWidget(TAURM1ExpSpinBox, 21, 4, 1, 1);
 
         elSpinLabel = new QLabel(layoutWidget_1);
         elSpinLabel->setObjectName(QString::fromUtf8("elSpinLabel"));
 
-        gridLayout->addWidget(elSpinLabel, 5, 0, 1, 1);
+        gridLayout->addWidget(elSpinLabel, 6, 0, 1, 1);
 
         line_3 = new QFrame(layoutWidget_1);
         line_3->setObjectName(QString::fromUtf8("line_3"));
         line_3->setFrameShape(QFrame::HLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_3, 22, 0, 1, 5);
+        gridLayout->addWidget(line_3, 23, 0, 1, 5);
 
         TAUVM1Label = new QLabel(layoutWidget_1);
         TAUVM1Label->setObjectName(QString::fromUtf8("TAUVM1Label"));
 
-        gridLayout->addWidget(TAUVM1Label, 23, 1, 1, 1);
+        gridLayout->addWidget(TAUVM1Label, 24, 1, 1, 1);
 
         label_2 = new QLabel(layoutWidget_1);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
-        gridLayout->addWidget(label_2, 12, 3, 1, 1);
+        gridLayout->addWidget(label_2, 13, 3, 1, 1);
 
         TAUVM1DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUVM1DoubleSpinBox->setObjectName(QString::fromUtf8("TAUVM1DoubleSpinBox"));
@@ -644,52 +647,52 @@ public:
         TAUVM1DoubleSpinBox->setMaximum(10);
         TAUVM1DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAUVM1DoubleSpinBox, 23, 2, 1, 1);
+        gridLayout->addWidget(TAUVM1DoubleSpinBox, 24, 2, 1, 1);
 
         label_8 = new QLabel(layoutWidget_1);
         label_8->setObjectName(QString::fromUtf8("label_8"));
 
-        gridLayout->addWidget(label_8, 23, 3, 1, 1);
+        gridLayout->addWidget(label_8, 24, 3, 1, 1);
 
         fieldRangeX1DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         fieldRangeX1DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX1DoubleSpinBox"));
 
-        gridLayout->addWidget(fieldRangeX1DoubleSpinBox, 7, 1, 1, 1);
+        gridLayout->addWidget(fieldRangeX1DoubleSpinBox, 8, 1, 1, 1);
 
         elSpinDoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         elSpinDoubleSpinBox->setObjectName(QString::fromUtf8("elSpinDoubleSpinBox"));
         elSpinDoubleSpinBox->setDecimals(1);
         elSpinDoubleSpinBox->setSingleStep(0.5);
 
-        gridLayout->addWidget(elSpinDoubleSpinBox, 5, 1, 1, 1);
+        gridLayout->addWidget(elSpinDoubleSpinBox, 6, 1, 1, 1);
 
         T1T2Label = new QLabel(layoutWidget_1);
         T1T2Label->setObjectName(QString::fromUtf8("T1T2Label"));
 
-        gridLayout->addWidget(T1T2Label, 6, 0, 1, 1);
+        gridLayout->addWidget(T1T2Label, 7, 0, 1, 1);
 
         TAURM2Label = new QLabel(layoutWidget_1);
         TAURM2Label->setObjectName(QString::fromUtf8("TAURM2Label"));
 
-        gridLayout->addWidget(TAURM2Label, 21, 1, 1, 1);
+        gridLayout->addWidget(TAURM2Label, 22, 1, 1, 1);
 
         gammaILabel2 = new QLabel(layoutWidget_1);
         gammaILabel2->setObjectName(QString::fromUtf8("gammaILabel2"));
 
-        gridLayout->addWidget(gammaILabel2, 4, 2, 1, 1);
+        gridLayout->addWidget(gammaILabel2, 5, 2, 1, 1);
 
         TauRCheckBox = new QCheckBox(layoutWidget_1);
         TauRCheckBox->setObjectName(QString::fromUtf8("TauRCheckBox"));
         TauRCheckBox->setChecked(true);
 
-        gridLayout->addWidget(TauRCheckBox, 20, 0, 1, 1);
+        gridLayout->addWidget(TauRCheckBox, 21, 0, 1, 1);
 
         T1T2ComboBox = new QComboBox(layoutWidget_1);
         T1T2ComboBox->setObjectName(QString::fromUtf8("T1T2ComboBox"));
         T1T2ComboBox->setMaximumSize(QSize(40, 16777215));
         T1T2ComboBox->setMaxVisibleItems(10);
 
-        gridLayout->addWidget(T1T2ComboBox, 6, 1, 1, 1);
+        gridLayout->addWidget(T1T2ComboBox, 7, 1, 1, 1);
 
         TAUDELTADoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUDELTADoubleSpinBox->setObjectName(QString::fromUtf8("TAUDELTADoubleSpinBox"));
@@ -698,7 +701,7 @@ public:
         TAUDELTADoubleSpinBox->setSingleStep(0.1);
         TAUDELTADoubleSpinBox->setValue(0);
 
-        gridLayout->addWidget(TAUDELTADoubleSpinBox, 17, 2, 1, 1);
+        gridLayout->addWidget(TAUDELTADoubleSpinBox, 18, 2, 1, 1);
 
         TAUMS01DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUMS01DoubleSpinBox->setObjectName(QString::fromUtf8("TAUMS01DoubleSpinBox"));
@@ -706,12 +709,12 @@ public:
         TAUMS01DoubleSpinBox->setMaximum(10);
         TAUMS01DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAUMS01DoubleSpinBox, 12, 2, 1, 1);
+        gridLayout->addWidget(TAUMS01DoubleSpinBox, 13, 2, 1, 1);
 
         label_4 = new QLabel(layoutWidget_1);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        gridLayout->addWidget(label_4, 17, 3, 1, 1);
+        gridLayout->addWidget(label_4, 18, 3, 1, 1);
 
         TAUVM2DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUVM2DoubleSpinBox->setObjectName(QString::fromUtf8("TAUVM2DoubleSpinBox"));
@@ -719,29 +722,29 @@ public:
         TAUVM2DoubleSpinBox->setMaximum(10);
         TAUVM2DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAUVM2DoubleSpinBox, 24, 2, 1, 1);
+        gridLayout->addWidget(TAUVM2DoubleSpinBox, 25, 2, 1, 1);
 
         TAUVM2Label = new QLabel(layoutWidget_1);
         TAUVM2Label->setObjectName(QString::fromUtf8("TAUVM2Label"));
 
-        gridLayout->addWidget(TAUVM2Label, 24, 1, 1, 1);
+        gridLayout->addWidget(TAUVM2Label, 25, 1, 1, 1);
 
         TAUVM1ExpSpinBox = new QSpinBox(layoutWidget_1);
         TAUVM1ExpSpinBox->setObjectName(QString::fromUtf8("TAUVM1ExpSpinBox"));
         TAUVM1ExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAUVM1ExpSpinBox, 23, 4, 1, 1);
+        gridLayout->addWidget(TAUVM1ExpSpinBox, 24, 4, 1, 1);
 
         TauVCheckBox = new QCheckBox(layoutWidget_1);
         TauVCheckBox->setObjectName(QString::fromUtf8("TauVCheckBox"));
         TauVCheckBox->setChecked(true);
 
-        gridLayout->addWidget(TauVCheckBox, 23, 0, 1, 1);
+        gridLayout->addWidget(TauVCheckBox, 24, 0, 1, 1);
 
         fieldRangeX3DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         fieldRangeX3DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX3DoubleSpinBox"));
 
-        gridLayout->addWidget(fieldRangeX3DoubleSpinBox, 7, 3, 1, 1);
+        gridLayout->addWidget(fieldRangeX3DoubleSpinBox, 8, 3, 1, 1);
 
         temp3DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         temp3DoubleSpinBox->setObjectName(QString::fromUtf8("temp3DoubleSpinBox"));
@@ -749,13 +752,13 @@ public:
         temp3DoubleSpinBox->setMaximum(500);
         temp3DoubleSpinBox->setValue(273);
 
-        gridLayout->addWidget(temp3DoubleSpinBox, 10, 3, 1, 1);
+        gridLayout->addWidget(temp3DoubleSpinBox, 11, 3, 1, 1);
 
         TAUMS02ExpSpinBox = new QSpinBox(layoutWidget_1);
         TAUMS02ExpSpinBox->setObjectName(QString::fromUtf8("TAUMS02ExpSpinBox"));
         TAUMS02ExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(TAUMS02ExpSpinBox, 14, 4, 1, 1);
+        gridLayout->addWidget(TAUMS02ExpSpinBox, 15, 4, 1, 1);
 
         temp2DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         temp2DoubleSpinBox->setObjectName(QString::fromUtf8("temp2DoubleSpinBox"));
@@ -763,23 +766,23 @@ public:
         temp2DoubleSpinBox->setMaximum(500);
         temp2DoubleSpinBox->setValue(310);
 
-        gridLayout->addWidget(temp2DoubleSpinBox, 10, 2, 1, 1);
+        gridLayout->addWidget(temp2DoubleSpinBox, 11, 2, 1, 1);
 
         label_3 = new QLabel(layoutWidget_1);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        gridLayout->addWidget(label_3, 14, 3, 1, 1);
+        gridLayout->addWidget(label_3, 15, 3, 1, 1);
 
         tempLabel = new QLabel(layoutWidget_1);
         tempLabel->setObjectName(QString::fromUtf8("tempLabel"));
 
-        gridLayout->addWidget(tempLabel, 10, 0, 1, 1);
+        gridLayout->addWidget(tempLabel, 11, 0, 1, 1);
 
         temp1DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         temp1DoubleSpinBox->setObjectName(QString::fromUtf8("temp1DoubleSpinBox"));
         temp1DoubleSpinBox->setMaximum(500);
 
-        gridLayout->addWidget(temp1DoubleSpinBox, 10, 1, 1, 1);
+        gridLayout->addWidget(temp1DoubleSpinBox, 11, 1, 1, 1);
 
         TAUMS02DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUMS02DoubleSpinBox->setObjectName(QString::fromUtf8("TAUMS02DoubleSpinBox"));
@@ -787,23 +790,23 @@ public:
         TAUMS02DoubleSpinBox->setMaximum(10);
         TAUMS02DoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(TAUMS02DoubleSpinBox, 14, 2, 1, 1);
+        gridLayout->addWidget(TAUMS02DoubleSpinBox, 15, 2, 1, 1);
 
         fieldRangeX2DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         fieldRangeX2DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX2DoubleSpinBox"));
 
-        gridLayout->addWidget(fieldRangeX2DoubleSpinBox, 7, 2, 1, 1);
+        gridLayout->addWidget(fieldRangeX2DoubleSpinBox, 8, 2, 1, 1);
 
         TauSCheckBox = new QCheckBox(layoutWidget_1);
         TauSCheckBox->setObjectName(QString::fromUtf8("TauSCheckBox"));
         TauSCheckBox->setChecked(true);
 
-        gridLayout->addWidget(TauSCheckBox, 12, 0, 1, 1);
+        gridLayout->addWidget(TauSCheckBox, 13, 0, 1, 1);
 
         datasetsLabel = new QLabel(layoutWidget_1);
         datasetsLabel->setObjectName(QString::fromUtf8("datasetsLabel"));
 
-        gridLayout->addWidget(datasetsLabel, 9, 0, 1, 1);
+        gridLayout->addWidget(datasetsLabel, 10, 0, 1, 1);
 
         datasetsSpinBox = new QSpinBox(layoutWidget_1);
         datasetsSpinBox->setObjectName(QString::fromUtf8("datasetsSpinBox"));
@@ -811,19 +814,19 @@ public:
         datasetsSpinBox->setMaximum(3);
         datasetsSpinBox->setValue(0);
 
-        gridLayout->addWidget(datasetsSpinBox, 9, 1, 1, 1);
+        gridLayout->addWidget(datasetsSpinBox, 10, 1, 1, 1);
 
         TAUMS02Label = new QLabel(layoutWidget_1);
         TAUMS02Label->setObjectName(QString::fromUtf8("TAUMS02Label"));
 
-        gridLayout->addWidget(TAUMS02Label, 14, 1, 1, 1);
+        gridLayout->addWidget(TAUMS02Label, 15, 1, 1, 1);
 
         line_7 = new QFrame(layoutWidget_1);
         line_7->setObjectName(QString::fromUtf8("line_7"));
         line_7->setFrameShape(QFrame::HLine);
         line_7->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line_7, 37, 0, 1, 5);
+        gridLayout->addWidget(line_7, 38, 0, 1, 5);
 
         outputFileLineEdit = new QLineEdit(layoutWidget_1);
         outputFileLineEdit->setObjectName(QString::fromUtf8("outputFileLineEdit"));
@@ -833,13 +836,13 @@ public:
         metalNuclearSpinLabel = new QLabel(layoutWidget_1);
         metalNuclearSpinLabel->setObjectName(QString::fromUtf8("metalNuclearSpinLabel"));
 
-        gridLayout->addWidget(metalNuclearSpinLabel, 3, 0, 1, 1);
+        gridLayout->addWidget(metalNuclearSpinLabel, 4, 0, 1, 1);
 
         AzExpSpinBox = new QSpinBox(layoutWidget_1);
         AzExpSpinBox->setObjectName(QString::fromUtf8("AzExpSpinBox"));
         AzExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(AzExpSpinBox, 36, 4, 1, 1);
+        gridLayout->addWidget(AzExpSpinBox, 37, 4, 1, 1);
 
         outputFileLabel = new QLabel(layoutWidget_1);
         outputFileLabel->setObjectName(QString::fromUtf8("outputFileLabel"));
@@ -852,35 +855,35 @@ public:
         AyDoubleSpinBox->setMaximum(10);
         AyDoubleSpinBox->setSingleStep(0.1);
 
-        gridLayout->addWidget(AyDoubleSpinBox, 35, 2, 1, 1);
+        gridLayout->addWidget(AyDoubleSpinBox, 36, 2, 1, 1);
 
         AxCheckBox = new QCheckBox(layoutWidget_1);
         AxCheckBox->setObjectName(QString::fromUtf8("AxCheckBox"));
         AxCheckBox->setChecked(true);
 
-        gridLayout->addWidget(AxCheckBox, 34, 0, 1, 1);
+        gridLayout->addWidget(AxCheckBox, 35, 0, 1, 1);
 
         AyCheckBox = new QCheckBox(layoutWidget_1);
         AyCheckBox->setObjectName(QString::fromUtf8("AyCheckBox"));
         AyCheckBox->setChecked(true);
 
-        gridLayout->addWidget(AyCheckBox, 35, 0, 1, 1);
+        gridLayout->addWidget(AyCheckBox, 36, 0, 1, 1);
 
         AyLabel = new QLabel(layoutWidget_1);
         AyLabel->setObjectName(QString::fromUtf8("AyLabel"));
 
-        gridLayout->addWidget(AyLabel, 35, 1, 1, 1);
+        gridLayout->addWidget(AyLabel, 36, 1, 1, 1);
 
         AxExpSpinBox = new QSpinBox(layoutWidget_1);
         AxExpSpinBox->setObjectName(QString::fromUtf8("AxExpSpinBox"));
         AxExpSpinBox->setMinimum(-99);
 
-        gridLayout->addWidget(AxExpSpinBox, 34, 4, 1, 1);
+        gridLayout->addWidget(AxExpSpinBox, 35, 4, 1, 1);
 
         label_24 = new QLabel(layoutWidget_1);
         label_24->setObjectName(QString::fromUtf8("label_24"));
 
-        gridLayout->addWidget(label_24, 34, 3, 1, 1);
+        gridLayout->addWidget(label_24, 35, 3, 1, 1);
 
         inputFileLabel = new QLabel(layoutWidget_1);
         inputFileLabel->setObjectName(QString::fromUtf8("inputFileLabel"));
@@ -902,7 +905,23 @@ public:
         numberOfPointsSpinBox->setMinimum(1);
         numberOfPointsSpinBox->setMaximum(1000);
 
-        gridLayout->addWidget(numberOfPointsSpinBox, 8, 1, 1, 1);
+        gridLayout->addWidget(numberOfPointsSpinBox, 9, 1, 1, 1);
+
+        newDirCheckBox = new QCheckBox(layoutWidget_1);
+        newDirCheckBox->setObjectName(QString::fromUtf8("newDirCheckBox"));
+        newDirCheckBox->setChecked(false);
+
+        gridLayout->addWidget(newDirCheckBox, 3, 0, 1, 1);
+
+        chooseParentDirPushButton = new QPushButton(layoutWidget_1);
+        chooseParentDirPushButton->setObjectName(QString::fromUtf8("chooseParentDirPushButton"));
+
+        gridLayout->addWidget(chooseParentDirPushButton, 3, 2, 1, 1);
+
+        newDirLineEdit = new QLineEdit(layoutWidget_1);
+        newDirLineEdit->setObjectName(QString::fromUtf8("newDirLineEdit"));
+
+        gridLayout->addWidget(newDirLineEdit, 3, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -1287,6 +1306,8 @@ public:
         QObject::connect(closeButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(close()));
         QObject::connect(startButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(startParaNMRD_new()));
         QObject::connect(pushButton, SIGNAL(clicked()), WidgetForm, SLOT(readInputFile()));
+        QObject::connect(chooseParentDirPushButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(chooseParentDir()));
+        QObject::connect(newDirCheckBox, SIGNAL(toggled(bool)), WidgetForm, SLOT(enableNewDirItems()));
 
         tabWidget->setCurrentIndex(0);
 
@@ -1297,17 +1318,17 @@ public:
     void retranslateUi(QWidget *WidgetForm)
     {
         WidgetForm->setWindowTitle(QApplication::translate("WidgetForm", "NMRD", 0, QApplication::UnicodeUTF8));
+        gyCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
+        gzLabel->setText(QApplication::translate("WidgetForm", "gz  G-tensor component", 0, QApplication::UnicodeUTF8));
+        label_22->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
+        gyLabel->setText(QApplication::translate("WidgetForm", "gy  G-tensor component", 0, QApplication::UnicodeUTF8));
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
         fieldRangeLabel->setText(QApplication::translate("WidgetForm", "field range", 0, QApplication::UnicodeUTF8));
         AzLabel->setText(QApplication::translate("WidgetForm", "Az  Hyperfine coupling constants", 0, QApplication::UnicodeUTF8));
         label_31->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         label_26->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         AzCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
-        gyCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
-        gyLabel->setText(QApplication::translate("WidgetForm", "gy  G-tensor component", 0, QApplication::UnicodeUTF8));
-        label_22->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        gzLabel->setText(QApplication::translate("WidgetForm", "gz  G-tensor component", 0, QApplication::UnicodeUTF8));
         AxLabel->setText(QApplication::translate("WidgetForm", "Ax  Hyperfine coupling constants", 0, QApplication::UnicodeUTF8));
         gzCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         label_23->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
@@ -1358,6 +1379,8 @@ public:
         label_24->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         inputFileLabel->setText(QApplication::translate("WidgetForm", "input file:", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("WidgetForm", "Read", 0, QApplication::UnicodeUTF8));
+        newDirCheckBox->setText(QApplication::translate("WidgetForm", "new dir", 0, QApplication::UnicodeUTF8));
+        chooseParentDirPushButton->setText(QApplication::translate("WidgetForm", "Choose Parent Dir", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("WidgetForm", "Tab 1", 0, QApplication::UnicodeUTF8));
         concLabel->setText(QApplication::translate("WidgetForm", "concentration (mM)", 0, QApplication::UnicodeUTF8));
         molFracCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));

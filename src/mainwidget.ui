@@ -47,7 +47,7 @@
           <x>0</x>
           <y>0</y>
           <width>721</width>
-          <height>763</height>
+          <height>776</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">
@@ -60,7 +60,58 @@
          <property name="rightMargin">
           <number>10</number>
          </property>
-         <item row="3" column="1">
+         <item row="32" column="0">
+          <widget class="QCheckBox" name="gyCheckBox">
+           <property name="text">
+            <string>fixed</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="33" column="1">
+          <widget class="QLabel" name="gzLabel">
+           <property name="text">
+            <string>gz  G-tensor component</string>
+           </property>
+          </widget>
+         </item>
+         <item row="35" column="2">
+          <widget class="QDoubleSpinBox" name="AxDoubleSpinBox">
+           <property name="decimals">
+            <number>5</number>
+           </property>
+           <property name="maximum">
+            <double>10.000000000000000</double>
+           </property>
+           <property name="singleStep">
+            <double>0.100000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="32" column="3">
+          <widget class="QLabel" name="label_22">
+           <property name="text">
+            <string>10^</string>
+           </property>
+          </widget>
+         </item>
+         <item row="32" column="1">
+          <widget class="QLabel" name="gyLabel">
+           <property name="text">
+            <string>gy  G-tensor component</string>
+           </property>
+          </widget>
+         </item>
+         <item row="32" column="4">
+          <widget class="QSpinBox" name="gyExpSpinBox">
+           <property name="minimum">
+            <number>-99</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
           <widget class="QDoubleSpinBox" name="metalNuclearSpinDoubleSpinBox">
            <property name="decimals">
             <number>1</number>
@@ -76,28 +127,28 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="5" column="0">
           <widget class="QLabel" name="gammaILabel">
            <property name="text">
             <string>gammaI of investigated particle</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="4">
+         <item row="13" column="4">
           <widget class="QSpinBox" name="TAUMS01ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="7" column="0">
+         <item row="8" column="0">
           <widget class="QLabel" name="fieldRangeLabel">
            <property name="text">
             <string>field range</string>
            </property>
           </widget>
          </item>
-         <item row="36" column="2">
+         <item row="37" column="2">
           <widget class="QDoubleSpinBox" name="AzDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -110,28 +161,28 @@
            </property>
           </widget>
          </item>
-         <item row="36" column="1">
+         <item row="37" column="1">
           <widget class="QLabel" name="AzLabel">
            <property name="text">
             <string>Az  Hyperfine coupling constants</string>
            </property>
           </widget>
          </item>
-         <item row="36" column="3">
+         <item row="37" column="3">
           <widget class="QLabel" name="label_31">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="35" column="3">
+         <item row="36" column="3">
           <widget class="QLabel" name="label_26">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="36" column="0">
+         <item row="37" column="0">
           <widget class="QCheckBox" name="AzCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -141,86 +192,35 @@
            </property>
           </widget>
          </item>
-         <item row="35" column="4">
+         <item row="36" column="4">
           <widget class="QSpinBox" name="AyExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="31" column="0">
-          <widget class="QCheckBox" name="gyCheckBox">
-           <property name="text">
-            <string>fixed</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
+         <item row="9" column="0">
           <widget class="QLabel" name="numberOfPointsLabel">
            <property name="text">
             <string>number of points</string>
            </property>
           </widget>
          </item>
-         <item row="31" column="4">
-          <widget class="QSpinBox" name="gyExpSpinBox">
-           <property name="minimum">
-            <number>-99</number>
-           </property>
-          </widget>
-         </item>
-         <item row="31" column="1">
-          <widget class="QLabel" name="gyLabel">
-           <property name="text">
-            <string>gy  G-tensor component</string>
-           </property>
-          </widget>
-         </item>
-         <item row="31" column="3">
-          <widget class="QLabel" name="label_22">
-           <property name="text">
-            <string>10^</string>
-           </property>
-          </widget>
-         </item>
-         <item row="34" column="2">
-          <widget class="QDoubleSpinBox" name="AxDoubleSpinBox">
-           <property name="decimals">
-            <number>5</number>
-           </property>
-           <property name="maximum">
-            <double>10.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="32" column="1">
-          <widget class="QLabel" name="gzLabel">
-           <property name="text">
-            <string>gz  G-tensor component</string>
-           </property>
-          </widget>
-         </item>
-         <item row="34" column="1">
+         <item row="35" column="1">
           <widget class="QLabel" name="AxLabel">
            <property name="text">
             <string>Ax  Hyperfine coupling constants</string>
            </property>
           </widget>
          </item>
-         <item row="33" column="0" colspan="5">
+         <item row="34" column="0" colspan="5">
           <widget class="Line" name="line_6">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="31" column="2">
+         <item row="32" column="2">
           <widget class="QDoubleSpinBox" name="gyDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -233,14 +233,14 @@
            </property>
           </widget>
          </item>
-         <item row="32" column="4">
+         <item row="33" column="4">
           <widget class="QSpinBox" name="gzExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="32" column="2">
+         <item row="33" column="2">
           <widget class="QDoubleSpinBox" name="gzDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -253,7 +253,7 @@
            </property>
           </widget>
          </item>
-         <item row="32" column="0">
+         <item row="33" column="0">
           <widget class="QCheckBox" name="gzCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -263,35 +263,35 @@
            </property>
           </widget>
          </item>
-         <item row="32" column="3">
+         <item row="33" column="3">
           <widget class="QLabel" name="label_23">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="28" column="3">
+         <item row="29" column="3">
           <widget class="QLabel" name="label_32">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="25" column="1">
+         <item row="26" column="1">
           <widget class="Line" name="line_4">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="26" column="1">
+         <item row="27" column="1">
           <widget class="QLabel" name="DZFSLabel">
            <property name="text">
             <string>D axial component of ZFS</string>
            </property>
           </widget>
          </item>
-         <item row="26" column="2">
+         <item row="27" column="2">
           <widget class="QDoubleSpinBox" name="DZFSDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -304,14 +304,14 @@
            </property>
           </widget>
          </item>
-         <item row="26" column="4">
+         <item row="27" column="4">
           <widget class="QSpinBox" name="DZFSExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="28" column="0">
+         <item row="29" column="0">
           <widget class="QCheckBox" name="S4MCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -321,14 +321,14 @@
            </property>
           </widget>
          </item>
-         <item row="30" column="4">
+         <item row="31" column="4">
           <widget class="QSpinBox" name="gxExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="26" column="0">
+         <item row="27" column="0">
           <widget class="QCheckBox" name="DZFSCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -338,7 +338,7 @@
            </property>
           </widget>
          </item>
-         <item row="30" column="2">
+         <item row="31" column="2">
           <widget class="QDoubleSpinBox" name="gxDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -351,35 +351,35 @@
            </property>
           </widget>
          </item>
-         <item row="30" column="1">
+         <item row="31" column="1">
           <widget class="QLabel" name="gxLabel">
            <property name="text">
             <string>gx  G-tensor component</string>
            </property>
           </widget>
          </item>
-         <item row="29" column="0" colspan="5">
+         <item row="30" column="0" colspan="5">
           <widget class="Line" name="line_5">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="27" column="4">
+         <item row="28" column="4">
           <widget class="QSpinBox" name="EZFSExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="30" column="3">
+         <item row="31" column="3">
           <widget class="QLabel" name="label_21">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="28" column="2">
+         <item row="29" column="2">
           <widget class="QDoubleSpinBox" name="S4MDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -392,28 +392,28 @@
            </property>
           </widget>
          </item>
-         <item row="26" column="3">
+         <item row="27" column="3">
           <widget class="QLabel" name="label_19">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="27" column="3">
+         <item row="28" column="3">
           <widget class="QLabel" name="label_20">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="24" column="3">
+         <item row="25" column="3">
           <widget class="QLabel" name="label_9">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="27" column="0">
+         <item row="28" column="0">
           <widget class="QCheckBox" name="EZFSCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -423,14 +423,14 @@
            </property>
           </widget>
          </item>
-         <item row="27" column="1">
+         <item row="28" column="1">
           <widget class="QLabel" name="EZFSLabel">
            <property name="text">
             <string>E rhombic component of ZFS</string>
            </property>
           </widget>
          </item>
-         <item row="30" column="0">
+         <item row="31" column="0">
           <widget class="QCheckBox" name="gxCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -440,21 +440,21 @@
            </property>
           </widget>
          </item>
-         <item row="24" column="4">
+         <item row="25" column="4">
           <widget class="QSpinBox" name="TAUVM2ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="28" column="1">
+         <item row="29" column="1">
           <widget class="QLabel" name="S4MLabel">
            <property name="text">
             <string>S4M</string>
            </property>
           </widget>
          </item>
-         <item row="27" column="2">
+         <item row="28" column="2">
           <widget class="QDoubleSpinBox" name="EZFSDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -467,42 +467,42 @@
            </property>
           </widget>
          </item>
-         <item row="28" column="4">
+         <item row="29" column="4">
           <widget class="QSpinBox" name="S4MExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="20" column="3">
+         <item row="21" column="3">
           <widget class="QLabel" name="label_5">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="1">
+         <item row="13" column="1">
           <widget class="QLabel" name="TAUMS01Label">
            <property name="text">
             <string>TAUS0M 1</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="3">
+         <item row="5" column="3">
           <widget class="QSpinBox" name="gammaIExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="21" column="4">
+         <item row="22" column="4">
           <widget class="QSpinBox" name="TAURM2ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
+         <item row="5" column="1">
           <widget class="QDoubleSpinBox" name="gammaIDoubleSpinBox">
            <property name="decimals">
             <number>6</number>
@@ -515,35 +515,35 @@
            </property>
           </widget>
          </item>
-         <item row="20" column="1">
+         <item row="21" column="1">
           <widget class="QLabel" name="TAURM1Label">
            <property name="text">
             <string>TAURM 1</string>
            </property>
           </widget>
          </item>
-         <item row="11" column="0" colspan="5">
+         <item row="12" column="0" colspan="5">
           <widget class="Line" name="line">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="21" column="3">
+         <item row="22" column="3">
           <widget class="QLabel" name="label_6">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="17" column="4">
+         <item row="18" column="4">
           <widget class="QSpinBox" name="TAUDELTAExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="20" column="2">
+         <item row="21" column="2">
           <widget class="QDoubleSpinBox" name="TAURM1DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -556,21 +556,21 @@
            </property>
           </widget>
          </item>
-         <item row="17" column="1">
+         <item row="18" column="1">
           <widget class="QLabel" name="TAUDELTALabel">
            <property name="text">
             <string>TAUDELTA</string>
            </property>
           </widget>
          </item>
-         <item row="19" column="0" colspan="5">
+         <item row="20" column="0" colspan="5">
           <widget class="Line" name="line_2">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="21" column="2">
+         <item row="22" column="2">
           <widget class="QDoubleSpinBox" name="TAURM2DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -583,42 +583,42 @@
            </property>
           </widget>
          </item>
-         <item row="20" column="4">
+         <item row="21" column="4">
           <widget class="QSpinBox" name="TAURM1ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
+         <item row="6" column="0">
           <widget class="QLabel" name="elSpinLabel">
            <property name="text">
             <string>electron spin</string>
            </property>
           </widget>
          </item>
-         <item row="22" column="0" colspan="5">
+         <item row="23" column="0" colspan="5">
           <widget class="Line" name="line_3">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
-         <item row="23" column="1">
+         <item row="24" column="1">
           <widget class="QLabel" name="TAUVM1Label">
            <property name="text">
             <string>TAUVM 1</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="3">
+         <item row="13" column="3">
           <widget class="QLabel" name="label_2">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="23" column="2">
+         <item row="24" column="2">
           <widget class="QDoubleSpinBox" name="TAUVM1DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -634,17 +634,17 @@
            </property>
           </widget>
          </item>
-         <item row="23" column="3">
+         <item row="24" column="3">
           <widget class="QLabel" name="label_8">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="8" column="1">
           <widget class="QDoubleSpinBox" name="fieldRangeX1DoubleSpinBox"/>
          </item>
-         <item row="5" column="1">
+         <item row="6" column="1">
           <widget class="QDoubleSpinBox" name="elSpinDoubleSpinBox">
            <property name="decimals">
             <number>1</number>
@@ -654,28 +654,28 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
+         <item row="7" column="0">
           <widget class="QLabel" name="T1T2Label">
            <property name="text">
             <string>T1 or T2 calculation</string>
            </property>
           </widget>
          </item>
-         <item row="21" column="1">
+         <item row="22" column="1">
           <widget class="QLabel" name="TAURM2Label">
            <property name="text">
             <string>TAURM 2</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="2">
+         <item row="5" column="2">
           <widget class="QLabel" name="gammaILabel2">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="20" column="0">
+         <item row="21" column="0">
           <widget class="QCheckBox" name="TauRCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -685,7 +685,7 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
+         <item row="7" column="1">
           <widget class="QComboBox" name="T1T2ComboBox">
            <property name="maximumSize">
             <size>
@@ -708,7 +708,7 @@
            </item>
           </widget>
          </item>
-         <item row="17" column="2">
+         <item row="18" column="2">
           <widget class="QDoubleSpinBox" name="TAUDELTADoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -724,7 +724,7 @@
            </property>
           </widget>
          </item>
-         <item row="12" column="2">
+         <item row="13" column="2">
           <widget class="QDoubleSpinBox" name="TAUMS01DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -737,14 +737,14 @@
            </property>
           </widget>
          </item>
-         <item row="17" column="3">
+         <item row="18" column="3">
           <widget class="QLabel" name="label_4">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="24" column="2">
+         <item row="25" column="2">
           <widget class="QDoubleSpinBox" name="TAUVM2DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -757,21 +757,21 @@
            </property>
           </widget>
          </item>
-         <item row="24" column="1">
+         <item row="25" column="1">
           <widget class="QLabel" name="TAUVM2Label">
            <property name="text">
             <string>TAUVM 2</string>
            </property>
           </widget>
          </item>
-         <item row="23" column="4">
+         <item row="24" column="4">
           <widget class="QSpinBox" name="TAUVM1ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="23" column="0">
+         <item row="24" column="0">
           <widget class="QCheckBox" name="TauVCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -781,10 +781,10 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="3">
+         <item row="8" column="3">
           <widget class="QDoubleSpinBox" name="fieldRangeX3DoubleSpinBox"/>
          </item>
-         <item row="10" column="3">
+         <item row="11" column="3">
           <widget class="QDoubleSpinBox" name="temp3DoubleSpinBox">
            <property name="enabled">
             <bool>false</bool>
@@ -797,14 +797,14 @@
            </property>
           </widget>
          </item>
-         <item row="14" column="4">
+         <item row="15" column="4">
           <widget class="QSpinBox" name="TAUMS02ExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="10" column="2">
+         <item row="11" column="2">
           <widget class="QDoubleSpinBox" name="temp2DoubleSpinBox">
            <property name="enabled">
             <bool>false</bool>
@@ -817,28 +817,28 @@
            </property>
           </widget>
          </item>
-         <item row="14" column="3">
+         <item row="15" column="3">
           <widget class="QLabel" name="label_3">
            <property name="text">
             <string>10^</string>
            </property>
           </widget>
          </item>
-         <item row="10" column="0">
+         <item row="11" column="0">
           <widget class="QLabel" name="tempLabel">
            <property name="text">
             <string>temperature (K)</string>
            </property>
           </widget>
          </item>
-         <item row="10" column="1">
+         <item row="11" column="1">
           <widget class="QDoubleSpinBox" name="temp1DoubleSpinBox">
            <property name="maximum">
             <double>500.000000000000000</double>
            </property>
           </widget>
          </item>
-         <item row="14" column="2">
+         <item row="15" column="2">
           <widget class="QDoubleSpinBox" name="TAUMS02DoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -851,10 +851,10 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="2">
+         <item row="8" column="2">
           <widget class="QDoubleSpinBox" name="fieldRangeX2DoubleSpinBox"/>
          </item>
-         <item row="12" column="0">
+         <item row="13" column="0">
           <widget class="QCheckBox" name="TauSCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -864,14 +864,14 @@
            </property>
           </widget>
          </item>
-         <item row="9" column="0">
+         <item row="10" column="0">
           <widget class="QLabel" name="datasetsLabel">
            <property name="text">
             <string>sets of data</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="1">
+         <item row="10" column="1">
           <widget class="QSpinBox" name="datasetsSpinBox">
            <property name="minimum">
             <number>0</number>
@@ -884,14 +884,14 @@
            </property>
           </widget>
          </item>
-         <item row="14" column="1">
+         <item row="15" column="1">
           <widget class="QLabel" name="TAUMS02Label">
            <property name="text">
             <string>TAUS0M 2</string>
            </property>
           </widget>
          </item>
-         <item row="37" column="0" colspan="5">
+         <item row="38" column="0" colspan="5">
           <widget class="Line" name="line_7">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -901,14 +901,14 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="outputFileLineEdit"/>
          </item>
-         <item row="3" column="0">
+         <item row="4" column="0">
           <widget class="QLabel" name="metalNuclearSpinLabel">
            <property name="text">
             <string>metal nuclear spin</string>
            </property>
           </widget>
          </item>
-         <item row="36" column="4">
+         <item row="37" column="4">
           <widget class="QSpinBox" name="AzExpSpinBox">
            <property name="minimum">
             <number>-99</number>
@@ -922,7 +922,7 @@
            </property>
           </widget>
          </item>
-         <item row="35" column="2">
+         <item row="36" column="2">
           <widget class="QDoubleSpinBox" name="AyDoubleSpinBox">
            <property name="decimals">
             <number>5</number>
@@ -935,7 +935,7 @@
            </property>
           </widget>
          </item>
-         <item row="34" column="0">
+         <item row="35" column="0">
           <widget class="QCheckBox" name="AxCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -945,7 +945,7 @@
            </property>
           </widget>
          </item>
-         <item row="35" column="0">
+         <item row="36" column="0">
           <widget class="QCheckBox" name="AyCheckBox">
            <property name="text">
             <string>fixed</string>
@@ -955,21 +955,21 @@
            </property>
           </widget>
          </item>
-         <item row="35" column="1">
+         <item row="36" column="1">
           <widget class="QLabel" name="AyLabel">
            <property name="text">
             <string>Ay  Hyperfine coupling constants</string>
            </property>
           </widget>
          </item>
-         <item row="34" column="4">
+         <item row="35" column="4">
           <widget class="QSpinBox" name="AxExpSpinBox">
            <property name="minimum">
             <number>-99</number>
            </property>
           </widget>
          </item>
-         <item row="34" column="3">
+         <item row="35" column="3">
           <widget class="QLabel" name="label_24">
            <property name="text">
             <string>10^</string>
@@ -993,7 +993,7 @@
            </property>
           </widget>
          </item>
-         <item row="8" column="1">
+         <item row="9" column="1">
           <widget class="QSpinBox" name="numberOfPointsSpinBox">
            <property name="minimum">
             <number>1</number>
@@ -1002,6 +1002,26 @@
             <number>1000</number>
            </property>
           </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QCheckBox" name="newDirCheckBox">
+           <property name="text">
+            <string>new dir</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QPushButton" name="chooseParentDirPushButton">
+           <property name="text">
+            <string>Choose Parent Dir</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="newDirLineEdit"/>
          </item>
         </layout>
        </widget>
@@ -1619,10 +1639,44 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>chooseParentDirPushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>chooseParentDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>596</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>468</x>
+     <y>3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>newDirCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>enableNewDirItems()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startParaNMRD()</slot>
   <slot>startParaNMRD_new()</slot>
   <slot>readInputFile()</slot>
+  <slot>chooseParentDir()</slot>
+  <slot>enableNewDirItems()</slot>
  </slots>
 </ui>

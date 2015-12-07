@@ -10,8 +10,10 @@
 
 #include <string>
 #include <QtCore/QString>
+#include <QtCore/QFileInfo>
 
 #include "ui_mainwidget.h"
+#include "Plot.h"
 
 class WidgetForm: public QWidget {
 Q_OBJECT
@@ -24,12 +26,17 @@ private slots:
 	void startParaNMRD_new();
 	void on_datasetsSpinBox_valueChanged();
 	void readInputFile();
+	void chooseParentDir();
+	void enableNewDirItems();
 
 private:
 	Ui::WidgetForm ui;
 	QString inputFilename;
 	QString outputFilename;
 	void writeInputFile();
+	QString dir;
+	QFileInfo inputfileInfo;
+	PlotForm plot;
 };
 
 #endif /* WIDGETFORM_H_ */
