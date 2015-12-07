@@ -190,14 +190,11 @@ public:
     QLabel *label_36;
     QLabel *label_37;
     QLabel *label_38;
-    QSpinBox *nExpPts1SpinBox;
     QLabel *fittingStepLabel;
     QLabel *toleranceLabel;
     QDoubleSpinBox *distanceDoubleSpinBox;
     QLabel *rkDistanceLabel;
-    QCheckBox *nExpPtsCheckBox;
     QCheckBox *thetaCheckBox;
-    QLabel *nExpPtsLabel;
     QLabel *phiLabel;
     QLabel *AHLabel;
     QCheckBox *rkDistanceCheckBox;
@@ -210,10 +207,25 @@ public:
     QLabel *label_40;
     QSpinBox *toleranceExpSpinBox;
     QSpinBox *taum2ExpSpinBox;
-    QSpinBox *nExpPts2SpinBox;
-    QSpinBox *nExpPts3SpinBox;
     QLabel *taum2Label;
     QDoubleSpinBox *rkDistanceDoubleSpinBox;
+    QFrame *line_8;
+    QWidget *tab_3;
+    QWidget *widget;
+    QGridLayout *gridLayout_3;
+    QSpinBox *nExpPts3SpinBox;
+    QLabel *nExpPtsLabel;
+    QSpinBox *nExpPts2SpinBox;
+    QSpinBox *nExpPts1SpinBox;
+    QCheckBox *nExpPtsCheckBox;
+    QWidget *exptPointsWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *exptPointsVLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QLabel *label_7;
+    QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *startButton;
     QSpacerItem *horizontalSpacer;
@@ -224,7 +236,7 @@ public:
         if (WidgetForm->objectName().isEmpty())
             WidgetForm->setObjectName(QString::fromUtf8("WidgetForm"));
         WidgetForm->setWindowModality(Qt::NonModal);
-        WidgetForm->resize(757, 916);
+        WidgetForm->resize(894, 908);
         layoutWidget = new QWidget(WidgetForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 10, 741, 891));
@@ -928,7 +940,7 @@ public:
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         layoutWidget_2 = new QWidget(tab_2);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(0, 0, 721, 395));
+        layoutWidget_2->setGeometry(QRect(0, 0, 721, 401));
         gridLayout_2 = new QGridLayout(layoutWidget_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(10, 10, 10, 0);
@@ -1140,11 +1152,6 @@ public:
 
         gridLayout_2->addWidget(label_38, 11, 4, 1, 1);
 
-        nExpPts1SpinBox = new QSpinBox(layoutWidget_2);
-        nExpPts1SpinBox->setObjectName(QString::fromUtf8("nExpPts1SpinBox"));
-
-        gridLayout_2->addWidget(nExpPts1SpinBox, 16, 3, 1, 1);
-
         fittingStepLabel = new QLabel(layoutWidget_2);
         fittingStepLabel->setObjectName(QString::fromUtf8("fittingStepLabel"));
 
@@ -1168,22 +1175,11 @@ public:
 
         gridLayout_2->addWidget(rkDistanceLabel, 11, 2, 1, 1);
 
-        nExpPtsCheckBox = new QCheckBox(layoutWidget_2);
-        nExpPtsCheckBox->setObjectName(QString::fromUtf8("nExpPtsCheckBox"));
-        nExpPtsCheckBox->setChecked(true);
-
-        gridLayout_2->addWidget(nExpPtsCheckBox, 16, 1, 1, 1);
-
         thetaCheckBox = new QCheckBox(layoutWidget_2);
         thetaCheckBox->setObjectName(QString::fromUtf8("thetaCheckBox"));
         thetaCheckBox->setChecked(true);
 
         gridLayout_2->addWidget(thetaCheckBox, 14, 1, 1, 1);
-
-        nExpPtsLabel = new QLabel(layoutWidget_2);
-        nExpPtsLabel->setObjectName(QString::fromUtf8("nExpPtsLabel"));
-
-        gridLayout_2->addWidget(nExpPtsLabel, 16, 2, 1, 1);
 
         phiLabel = new QLabel(layoutWidget_2);
         phiLabel->setObjectName(QString::fromUtf8("phiLabel"));
@@ -1253,18 +1249,6 @@ public:
 
         gridLayout_2->addWidget(taum2ExpSpinBox, 8, 5, 1, 1);
 
-        nExpPts2SpinBox = new QSpinBox(layoutWidget_2);
-        nExpPts2SpinBox->setObjectName(QString::fromUtf8("nExpPts2SpinBox"));
-        nExpPts2SpinBox->setEnabled(false);
-
-        gridLayout_2->addWidget(nExpPts2SpinBox, 16, 4, 1, 1);
-
-        nExpPts3SpinBox = new QSpinBox(layoutWidget_2);
-        nExpPts3SpinBox->setObjectName(QString::fromUtf8("nExpPts3SpinBox"));
-        nExpPts3SpinBox->setEnabled(false);
-
-        gridLayout_2->addWidget(nExpPts3SpinBox, 16, 5, 1, 1);
-
         taum2Label = new QLabel(layoutWidget_2);
         taum2Label->setObjectName(QString::fromUtf8("taum2Label"));
 
@@ -1278,7 +1262,86 @@ public:
 
         gridLayout_2->addWidget(rkDistanceDoubleSpinBox, 11, 3, 1, 1);
 
+        line_8 = new QFrame(layoutWidget_2);
+        line_8->setObjectName(QString::fromUtf8("line_8"));
+        line_8->setFrameShape(QFrame::HLine);
+        line_8->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_2->addWidget(line_8, 20, 1, 1, 5);
+
         tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        widget = new QWidget(tab_3);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(7, 7, 711, 821));
+        gridLayout_3 = new QGridLayout(widget);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        nExpPts3SpinBox = new QSpinBox(widget);
+        nExpPts3SpinBox->setObjectName(QString::fromUtf8("nExpPts3SpinBox"));
+        nExpPts3SpinBox->setEnabled(false);
+
+        gridLayout_3->addWidget(nExpPts3SpinBox, 0, 4, 1, 1);
+
+        nExpPtsLabel = new QLabel(widget);
+        nExpPtsLabel->setObjectName(QString::fromUtf8("nExpPtsLabel"));
+
+        gridLayout_3->addWidget(nExpPtsLabel, 0, 1, 1, 1);
+
+        nExpPts2SpinBox = new QSpinBox(widget);
+        nExpPts2SpinBox->setObjectName(QString::fromUtf8("nExpPts2SpinBox"));
+        nExpPts2SpinBox->setEnabled(false);
+
+        gridLayout_3->addWidget(nExpPts2SpinBox, 0, 3, 1, 1);
+
+        nExpPts1SpinBox = new QSpinBox(widget);
+        nExpPts1SpinBox->setObjectName(QString::fromUtf8("nExpPts1SpinBox"));
+
+        gridLayout_3->addWidget(nExpPts1SpinBox, 0, 2, 1, 1);
+
+        nExpPtsCheckBox = new QCheckBox(widget);
+        nExpPtsCheckBox->setObjectName(QString::fromUtf8("nExpPtsCheckBox"));
+        nExpPtsCheckBox->setChecked(true);
+
+        gridLayout_3->addWidget(nExpPtsCheckBox, 0, 0, 1, 1);
+
+        exptPointsWidget = new QWidget(widget);
+        exptPointsWidget->setObjectName(QString::fromUtf8("exptPointsWidget"));
+        verticalLayoutWidget = new QWidget(exptPointsWidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 0, 281, 793));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        exptPointsVLayout = new QVBoxLayout();
+        exptPointsVLayout->setObjectName(QString::fromUtf8("exptPointsVLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        label_7 = new QLabel(verticalLayoutWidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        horizontalLayout_2->addWidget(label_7);
+
+
+        exptPointsVLayout->addLayout(horizontalLayout_2);
+
+
+        verticalLayout_2->addLayout(exptPointsVLayout);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+
+        gridLayout_3->addWidget(exptPointsWidget, 1, 2, 1, 2);
+
+        tabWidget->addTab(tab_3, QString());
 
         verticalLayout->addWidget(tabWidget);
 
@@ -1308,8 +1371,9 @@ public:
         QObject::connect(pushButton, SIGNAL(clicked()), WidgetForm, SLOT(readInputFile()));
         QObject::connect(chooseParentDirPushButton, SIGNAL(clicked(bool)), WidgetForm, SLOT(chooseParentDir()));
         QObject::connect(newDirCheckBox, SIGNAL(toggled(bool)), WidgetForm, SLOT(enableNewDirItems()));
+        QObject::connect(nExpPts1SpinBox, SIGNAL(valueChanged(int)), WidgetForm, SLOT(setupExptPointsGui()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(WidgetForm);
@@ -1402,9 +1466,7 @@ public:
         fittingStepLabel->setText(QApplication::translate("WidgetForm", "step in fitting procedure", 0, QApplication::UnicodeUTF8));
         toleranceLabel->setText(QApplication::translate("WidgetForm", "tolerence of fitting", 0, QApplication::UnicodeUTF8));
         rkDistanceLabel->setText(QApplication::translate("WidgetForm", "rk water proton - paramagnetic center distance  [Angstroem]", 0, QApplication::UnicodeUTF8));
-        nExpPtsCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         thetaCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
-        nExpPtsLabel->setText(QApplication::translate("WidgetForm", "number experimental points", 0, QApplication::UnicodeUTF8));
         phiLabel->setText(QApplication::translate("WidgetForm", "phi [degree]", 0, QApplication::UnicodeUTF8));
         AHLabel->setText(QApplication::translate("WidgetForm", "a/h constant of contact interaction  [MHz]", 0, QApplication::UnicodeUTF8));
         rkDistanceCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
@@ -1416,6 +1478,11 @@ public:
         label_40->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         taum2Label->setText(QApplication::translate("WidgetForm", "tauM 2", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("WidgetForm", "Tab 2", 0, QApplication::UnicodeUTF8));
+        nExpPtsLabel->setText(QApplication::translate("WidgetForm", "number experimental points", 0, QApplication::UnicodeUTF8));
+        nExpPtsCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("WidgetForm", "field (MHz)", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("WidgetForm", "R1 (sec-1)", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("WidgetForm", "Tab 3", 0, QApplication::UnicodeUTF8));
         startButton->setText(QApplication::translate("WidgetForm", "START", 0, QApplication::UnicodeUTF8));
         closeButton->setText(QApplication::translate("WidgetForm", "CLOSE", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

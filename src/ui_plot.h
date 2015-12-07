@@ -15,6 +15,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
 #include <QtGui/QPushButton>
+#include <QtGui/QScrollBar>
 #include <QtGui/QWidget>
 #include "qcustomplot.h"
 
@@ -25,18 +26,28 @@ class Ui_PlotForm
 public:
     QCustomPlot *plotarea;
     QPushButton *pushButton;
+    QScrollBar *horizontalScrollBar;
+    QScrollBar *verticalScrollBar;
 
     void setupUi(QWidget *PlotForm)
     {
         if (PlotForm->objectName().isEmpty())
             PlotForm->setObjectName(QString::fromUtf8("PlotForm"));
-        PlotForm->resize(744, 649);
+        PlotForm->resize(761, 670);
         plotarea = new QCustomPlot(PlotForm);
         plotarea->setObjectName(QString::fromUtf8("plotarea"));
-        plotarea->setGeometry(QRect(9, 9, 721, 591));
+        plotarea->setGeometry(QRect(9, 0, 721, 581));
         pushButton = new QPushButton(PlotForm);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(20, 610, 75, 23));
+        pushButton->setGeometry(QRect(10, 620, 75, 23));
+        horizontalScrollBar = new QScrollBar(PlotForm);
+        horizontalScrollBar->setObjectName(QString::fromUtf8("horizontalScrollBar"));
+        horizontalScrollBar->setGeometry(QRect(10, 590, 721, 20));
+        horizontalScrollBar->setOrientation(Qt::Horizontal);
+        verticalScrollBar = new QScrollBar(PlotForm);
+        verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
+        verticalScrollBar->setGeometry(QRect(730, 9, 20, 581));
+        verticalScrollBar->setOrientation(Qt::Vertical);
 
         retranslateUi(PlotForm);
         QObject::connect(pushButton, SIGNAL(clicked()), PlotForm, SLOT(close()));

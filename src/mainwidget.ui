@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>757</width>
-    <height>916</height>
+    <width>894</width>
+    <height>908</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1036,7 +1036,7 @@
           <x>0</x>
           <y>0</y>
           <width>721</width>
-          <height>395</height>
+          <height>401</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -1353,9 +1353,6 @@
            </property>
           </widget>
          </item>
-         <item row="16" column="3">
-          <widget class="QSpinBox" name="nExpPts1SpinBox"/>
-         </item>
          <item row="18" column="1">
           <widget class="QLabel" name="fittingStepLabel">
            <property name="text">
@@ -1390,16 +1387,6 @@
            </property>
           </widget>
          </item>
-         <item row="16" column="1">
-          <widget class="QCheckBox" name="nExpPtsCheckBox">
-           <property name="text">
-            <string>fixed</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="14" column="1">
           <widget class="QCheckBox" name="thetaCheckBox">
            <property name="text">
@@ -1407,13 +1394,6 @@
            </property>
            <property name="checked">
             <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="16" column="2">
-          <widget class="QLabel" name="nExpPtsLabel">
-           <property name="text">
-            <string>number experimental points</string>
            </property>
           </widget>
          </item>
@@ -1516,20 +1496,6 @@
            </property>
           </widget>
          </item>
-         <item row="16" column="4">
-          <widget class="QSpinBox" name="nExpPts2SpinBox">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="16" column="5">
-          <widget class="QSpinBox" name="nExpPts3SpinBox">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
          <item row="8" column="2">
           <widget class="QLabel" name="taum2Label">
            <property name="text">
@@ -1548,6 +1514,115 @@
            <property name="singleStep">
             <double>0.100000000000000</double>
            </property>
+          </widget>
+         </item>
+         <item row="20" column="1" colspan="5">
+          <widget class="Line" name="line_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Tab 3</string>
+       </attribute>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>7</y>
+          <width>711</width>
+          <height>821</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="4">
+          <widget class="QSpinBox" name="nExpPts3SpinBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="nExpPtsLabel">
+           <property name="text">
+            <string>number experimental points</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QSpinBox" name="nExpPts2SpinBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QSpinBox" name="nExpPts1SpinBox"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QCheckBox" name="nExpPtsCheckBox">
+           <property name="text">
+            <string>fixed</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2" colspan="2">
+          <widget class="QWidget" name="exptPointsWidget" native="true">
+           <widget class="QWidget" name="verticalLayoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>281</width>
+              <height>793</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <layout class="QVBoxLayout" name="exptPointsVLayout">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="text">
+                    <string>field (MHz)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_7">
+                   <property name="text">
+                    <string>R1 (sec-1)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </item>
         </layout>
@@ -1671,6 +1746,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>nExpPts1SpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>WidgetForm</receiver>
+   <slot>setupExptPointsGui()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>800</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startParaNMRD()</slot>
@@ -1678,5 +1769,7 @@
   <slot>readInputFile()</slot>
   <slot>chooseParentDir()</slot>
   <slot>enableNewDirItems()</slot>
+  <slot>addExptPoint(int)</slot>
+  <slot>setupExptPointsGui()</slot>
  </slots>
 </ui>

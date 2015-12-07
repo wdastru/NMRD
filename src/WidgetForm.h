@@ -28,6 +28,10 @@ private slots:
 	void readInputFile();
 	void chooseParentDir();
 	void enableNewDirItems();
+	void addExptPoint();
+	void deleteExptPoint();
+	void setupExptPointsGui();
+	//void setupExptPoints();
 
 private:
 	Ui::WidgetForm ui;
@@ -37,6 +41,7 @@ private:
 	QString dir;
 	QFileInfo inputfileInfo;
 	PlotForm plot;
+	QVector<QHBoxLayout*> exptPointLayout;
 };
 
 #endif /* WIDGETFORM_H_ */

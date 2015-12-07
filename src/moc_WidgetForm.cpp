@@ -22,7 +22,7 @@ static const uint qt_meta_data_WidgetForm[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,6 +36,9 @@ static const uint qt_meta_data_WidgetForm[] = {
       82,   11,   11,   11, 0x08,
       98,   11,   11,   11, 0x08,
      116,   11,   11,   11, 0x08,
+     136,   11,   11,   11, 0x08,
+     151,   11,   11,   11, 0x08,
+     169,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -45,7 +48,8 @@ static const char qt_meta_stringdata_WidgetForm[] = {
     "startParaNMRD_new()\0"
     "on_datasetsSpinBox_valueChanged()\0"
     "readInputFile()\0chooseParentDir()\0"
-    "enableNewDirItems()\0"
+    "enableNewDirItems()\0addExptPoint()\0"
+    "deleteExptPoint()\0setupExptPointsGui()\0"
 };
 
 void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -60,6 +64,9 @@ void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->readInputFile(); break;
         case 4: _t->chooseParentDir(); break;
         case 5: _t->enableNewDirItems(); break;
+        case 6: _t->addExptPoint(); break;
+        case 7: _t->deleteExptPoint(); break;
+        case 8: _t->setupExptPointsGui(); break;
         default: ;
         }
     }
@@ -98,9 +105,9 @@ int WidgetForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }

@@ -40,6 +40,7 @@ WidgetForm::WidgetForm(QWidget *parent) :
 	outputFilename = "PARC.OUT";
 	ui.inputFileLineEdit->setText(inputFilename);
 	ui.outputFileLineEdit->setText(outputFilename);
+
 	enableNewDirItems();
 }
 
@@ -835,6 +836,7 @@ void WidgetForm::readInputFile() {
 	if (ds == 1) {
 		file >> i;
 		ui.nExpPts1SpinBox->setValue(i);
+		setupExptPointsGui();
 	} else if (ds == 2) {
 		file >> i;
 		ui.nExpPts1SpinBox->setValue(i);
@@ -868,6 +870,10 @@ void WidgetForm::readInputFile() {
 	file >> d;
 	ui.fittingStepDoubleSpinBox->setValue(d);
 
+	for (unsigned int i=0; i<ui.nExpPts1SpinBox->value(); i++) {
+		;
+	}
+
 }
 
 void WidgetForm::startParaNMRD_new() {
@@ -900,25 +906,18 @@ void WidgetForm::startParaNMRD_new() {
 
 	plot.show();
 	plot.ui.plotarea->addGraph();
-	plot.ui.plotarea->graph(0)->setPen(QPen(Qt::blue));
-	plot.ui.plotarea->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
+	plot.ui.plotarea->graph()->setPen(QPen(Qt::blue));
+	plot.ui.plotarea->graph()->setBrush(QBrush(QColor(0, 0, 255, 20)));
 //	plot.ui.plotarea->addGraph();
 //	plot.ui.plotarea->graph(1)->setPen(QPen(Qt::red));
 
-	COUT(ui.outputFileLineEdit->text().toStdString().c_str());
 	ifstream file(ui.outputFileLineEdit->text().toStdString().c_str());
-	if (file.is_open()) {
-		COUT("file exists");
-	}
 
-	QVector<double> x, y0, y1;
+	QVector<double> x, y;
 	double x_val, y_val, x_max, x_min, y_max, y_min;
 	x_max=x_min=y_max=y_min=0;
 
-	for (unsigned int i=0; i<100; i++) {
-	//while (!file.eof()) {
-		file >> x_val;
-		file >> y_val;
+	while (file >> x_val && file >> y_val) {
 
 		x_max = x_val>x_max ? x_val : x_max;
 		x_min = x_val<x_min ? x_val : x_min;
@@ -928,20 +927,99 @@ void WidgetForm::startParaNMRD_new() {
 		//COUT(x_val << '\t' << y_val);
 
 		x.push_back(x_val);
-		y0.push_back(y_val);
+		y.push_back(y_val);
 	}
 
 	file.close();
 
-	plot.ui.plotarea->graph(0)->setData(x, y0);
-//	plot.ui.plotarea->graph(1)->setData(x, y1);
+	plot.ui.horizontalScrollBar->setRange((int)x_min*100, (int)x_max*100);
+	plot.ui.verticalScrollBar->setRange((int)y_min*100, (int)y_max*100);
+	plot.ui.plotarea->graph()->setData(x, y);
 	plot.ui.plotarea->axisRect()->setupFullAxesBox(true);
 	plot.ui.plotarea->xAxis->setScaleType(QCPAxis::stLogarithmic);
 	plot.ui.plotarea->xAxis->setScaleLogBase(100);
+
 	plot.ui.plotarea->xAxis->setRange(x_min, x_max);
 	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
+
 	plot.ui.plotarea->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 	plot.ui.plotarea->replot();
+
+}
+
+//void WidgetForm::addExptPointsGui() {
+//	;
+//}
+
+//void WidgetForm::setupExptPoints() {
+//
+//	QVector<QDoubleSpinBox*> exptX;
+//	QVector<QDoubleSpinBox*> exptY;
+//
+//	for (unsigned int i=0; i<ui)
+//	QDoubleSpinBox *dsb = new QDoubleSpinBox();
+//    //dsb->setObjectName(QString::fromUtf8("gyDoubleSpinBox"));
+//	dsb->setDecimals(5);
+//	dsb->setMaximum(10);
+//	dsb->setSingleStep(0.1);
+//
+//	ui.gridLayout_3->addWidget(dsb, 3, 3, 1, 1);
+//}
+
+void WidgetForm::addExptPoint() {
+#undef FUNCTION_NAME
+#define FUNCTION_NAME __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ". "
+
+	QDoubleSpinBox *dsbx = new QDoubleSpinBox();
+	dsbx->setDecimals(5);
+	dsbx->setMaximum(99);
+	dsbx->setSingleStep(0.1);
+	QDoubleSpinBox *dsby = new QDoubleSpinBox();
+	dsby->setDecimals(5);
+	dsby->setMaximum(99);
+	dsby->setSingleStep(0.1);
+
+	dsbx->setValue(ui.exptPointsVLayout->count());
+
+	QHBoxLayout* layout = new QHBoxLayout();
+	layout->addWidget(dsbx);
+	layout->addWidget(dsby);
+	exptPointLayout.push_back(layout);
+
+	ui.exptPointsVLayout->addLayout(exptPointLayout.at(exptPointLayout.size()-1));
+
+	COUT(FUNCTION_NAME << exptPointLayout.size() << '\t' << ui.exptPointsVLayout->count()-1);
+
+}
+
+void WidgetForm::setupExptPointsGui() {
+#undef FUNCTION_NAME
+#define FUNCTION_NAME __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ". "
+
+	COUT(FUNCTION_NAME << exptPointLayout.size() << '\t' << ui.exptPointsVLayout->count()-1);
+
+	int toAdd = (ui.nExpPts1SpinBox->value() > ui.exptPointsVLayout->count() - 1) ? \
+			ui.nExpPts1SpinBox->value() - ui.exptPointsVLayout->count() + 1 : 0;
+
+	for (unsigned int i=0; i<toAdd; i++)
+		addExptPoint(); // because of the label field/R1
+
+	int toDelete = (ui.nExpPts1SpinBox->value() < ui.exptPointsVLayout->count() - 1) ? \
+			ui.exptPointsVLayout->count() - 1 - ui.nExpPts1SpinBox->value() : 0;
+
+	for (unsigned int i=0; i<toDelete; i++)
+		deleteExptPoint(); // delete the last row
+
+}
+
+void WidgetForm::deleteExptPoint() {
+#undef FUNCTION_NAME
+#define FUNCTION_NAME __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ". "
+
+	delete ui.exptPointsVLayout->takeAt(1);
+	exptPointLayout.pop_front();
+
+	COUT(FUNCTION_NAME << exptPointLayout.size() << '\t' << ui.exptPointsVLayout->count()-1);
 
 }
 
