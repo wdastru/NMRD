@@ -1,7 +1,7 @@
 @ECHO OFF
 
-set QT=D:\Qt\4.8.6
-rem set QT=C:\Qt\4.8.6
+rem set QT=D:\Qt\4.8.6
+set QT=C:\Qt\4.8.6
 
 set QT_INCLUDE=%QT%\include
 set UIC_PROGRAM=%QT%\bin\uic

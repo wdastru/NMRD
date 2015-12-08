@@ -211,7 +211,7 @@ public:
     QDoubleSpinBox *rkDistanceDoubleSpinBox;
     QFrame *line_8;
     QWidget *tab_3;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QGridLayout *gridLayout_3;
     QSpinBox *nExpPts3SpinBox;
     QLabel *nExpPtsLabel;
@@ -221,10 +221,10 @@ public:
     QWidget *exptPointsWidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout_2;
-    QVBoxLayout *exptPointsVLayout;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLabel *label_7;
+    QVBoxLayout *exptPointsVLayout;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *startButton;
@@ -1272,41 +1272,41 @@ public:
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
-        widget = new QWidget(tab_3);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(7, 7, 711, 821));
-        gridLayout_3 = new QGridLayout(widget);
+        layoutWidget1 = new QWidget(tab_3);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(7, 7, 711, 821));
+        gridLayout_3 = new QGridLayout(layoutWidget1);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        nExpPts3SpinBox = new QSpinBox(widget);
+        nExpPts3SpinBox = new QSpinBox(layoutWidget1);
         nExpPts3SpinBox->setObjectName(QString::fromUtf8("nExpPts3SpinBox"));
         nExpPts3SpinBox->setEnabled(false);
 
         gridLayout_3->addWidget(nExpPts3SpinBox, 0, 4, 1, 1);
 
-        nExpPtsLabel = new QLabel(widget);
+        nExpPtsLabel = new QLabel(layoutWidget1);
         nExpPtsLabel->setObjectName(QString::fromUtf8("nExpPtsLabel"));
 
         gridLayout_3->addWidget(nExpPtsLabel, 0, 1, 1, 1);
 
-        nExpPts2SpinBox = new QSpinBox(widget);
+        nExpPts2SpinBox = new QSpinBox(layoutWidget1);
         nExpPts2SpinBox->setObjectName(QString::fromUtf8("nExpPts2SpinBox"));
         nExpPts2SpinBox->setEnabled(false);
 
         gridLayout_3->addWidget(nExpPts2SpinBox, 0, 3, 1, 1);
 
-        nExpPts1SpinBox = new QSpinBox(widget);
+        nExpPts1SpinBox = new QSpinBox(layoutWidget1);
         nExpPts1SpinBox->setObjectName(QString::fromUtf8("nExpPts1SpinBox"));
 
         gridLayout_3->addWidget(nExpPts1SpinBox, 0, 2, 1, 1);
 
-        nExpPtsCheckBox = new QCheckBox(widget);
+        nExpPtsCheckBox = new QCheckBox(layoutWidget1);
         nExpPtsCheckBox->setObjectName(QString::fromUtf8("nExpPtsCheckBox"));
         nExpPtsCheckBox->setChecked(true);
 
         gridLayout_3->addWidget(nExpPtsCheckBox, 0, 0, 1, 1);
 
-        exptPointsWidget = new QWidget(widget);
+        exptPointsWidget = new QWidget(layoutWidget1);
         exptPointsWidget->setObjectName(QString::fromUtf8("exptPointsWidget"));
         verticalLayoutWidget = new QWidget(exptPointsWidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
@@ -1314,8 +1314,6 @@ public:
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        exptPointsVLayout = new QVBoxLayout();
-        exptPointsVLayout->setObjectName(QString::fromUtf8("exptPointsVLayout"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label = new QLabel(verticalLayoutWidget);
@@ -1329,8 +1327,10 @@ public:
         horizontalLayout_2->addWidget(label_7);
 
 
-        exptPointsVLayout->addLayout(horizontalLayout_2);
+        verticalLayout_2->addLayout(horizontalLayout_2);
 
+        exptPointsVLayout = new QVBoxLayout();
+        exptPointsVLayout->setObjectName(QString::fromUtf8("exptPointsVLayout"));
 
         verticalLayout_2->addLayout(exptPointsVLayout);
 
