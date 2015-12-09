@@ -41,6 +41,8 @@ WidgetForm::WidgetForm(QWidget *parent) :
 	ui.inputFileLineEdit->setText(inputFilename);
 	ui.outputFileLineEdit->setText(outputFilename);
 
+	x_max = x_min = y_max = y_min = 0;
+
 	enableNewDirItems();
 }
 
@@ -222,10 +224,7 @@ void WidgetForm::writeInputFile() {
 
 	file << ui.fittingStepDoubleSpinBox->value() << std::endl;
 
-	COUT(exptPointXDoubleSpinBoxes.size());
-
 	for (unsigned int i=0; i<exptPointXDoubleSpinBoxes.size(); i++) {
-		COUT(i);
 		file << exptPointXDoubleSpinBoxes.at(i)->value() << ' ' << exptPointYDoubleSpinBoxes.at(i)->value() << std::endl;
 	}
 
@@ -857,6 +856,38 @@ void WidgetForm::readInputFile() {
 	}
 
 //	printValues();
+
+	plot.show();
+
+	/* experimental points */
+	plot.ui.plotarea->addGraph();
+	plot.ui.plotarea->graph()->setPen(QPen(Qt::red));
+	plot.ui.plotarea->graph()->setLineStyle(QCPGraph::lsNone);
+	plot.ui.plotarea->graph()->setScatterStyle(QCPScatterStyle::ssDisc);
+	QVector<double> exptX, exptY;
+	for (unsigned int i=0; i<exptPointXDoubleSpinBoxes.size(); i++) {
+
+		double x_val = exptPointXDoubleSpinBoxes.at(i)->value();
+		double y_val = exptPointYDoubleSpinBoxes.at(i)->value();
+
+		exptX.push_back(x_val);
+		exptY.push_back(y_val);
+
+		x_max = x_val > x_max ? x_val : x_max;
+		x_min = x_val < x_min ? x_val : x_min;
+		y_max = y_val > y_max ? y_val : y_max;
+		y_min = y_val < y_min ? y_val : y_min;
+
+	}
+	plot.ui.plotarea->graph()->setData(exptX, exptY);
+	plot.ui.plotarea->xAxis->setRange(x_min, x_max);
+	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
+	plot.ui.plotarea->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+	plot.ui.plotarea->axisRect()->setupFullAxesBox(true);
+	plot.ui.plotarea->xAxis->setScaleType(QCPAxis::stLogarithmic);
+	plot.ui.plotarea->xAxis->setScaleLogBase(100);
+	plot.ui.plotarea->replot();
+
 }
 
 void WidgetForm::startParaNMRD_new() {
@@ -887,7 +918,7 @@ void WidgetForm::startParaNMRD_new() {
 
 	paranmrdorig_(inputFN, &max, outputFN, &max);
 
-	plot.show();
+	/* fitted data */
 	plot.ui.plotarea->addGraph();
 	plot.ui.plotarea->graph()->setPen(QPen(Qt::blue));
 	plot.ui.plotarea->graph()->setBrush(QBrush(QColor(0, 0, 255, 20)));
@@ -897,8 +928,7 @@ void WidgetForm::startParaNMRD_new() {
 	ifstream file(ui.outputFileLineEdit->text().toStdString().c_str());
 
 	QVector<double> x, y;
-	double x_val, y_val, x_max, x_min, y_max, y_min;
-	x_max = x_min = y_max = y_min = 0;
+	double x_val, y_val;
 
 	while (file >> x_val && file >> y_val) {
 
@@ -918,14 +948,10 @@ void WidgetForm::startParaNMRD_new() {
 	plot.ui.horizontalScrollBar->setRange((int) x_min * 100, (int) x_max * 100);
 	plot.ui.verticalScrollBar->setRange((int) y_min * 100, (int) y_max * 100);
 	plot.ui.plotarea->graph()->setData(x, y);
-	plot.ui.plotarea->axisRect()->setupFullAxesBox(true);
-	plot.ui.plotarea->xAxis->setScaleType(QCPAxis::stLogarithmic);
-	plot.ui.plotarea->xAxis->setScaleLogBase(100);
 
 	plot.ui.plotarea->xAxis->setRange(x_min, x_max);
 	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
 
-	plot.ui.plotarea->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 	plot.ui.plotarea->replot();
 
 }
