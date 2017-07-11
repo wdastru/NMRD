@@ -1397,7 +1397,7 @@ public:
         AxCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         xyFileLabel->setText(QApplication::translate("WidgetForm", "xy output file:", 0, QApplication::UnicodeUTF8));
         metalNuclearSpinLabel->setText(QApplication::translate("WidgetForm", "metal nuclear spin", 0, QApplication::UnicodeUTF8));
-        xyFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
+        xyFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "WARNING !!! Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
         TauRCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         T1T2ComboBox->clear();
         T1T2ComboBox->insertItems(0, QStringList()
@@ -1457,10 +1457,10 @@ public:
         AyCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         newDirCheckBox->setText(QApplication::translate("WidgetForm", "new dir", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("WidgetForm", "Read", 0, QApplication::UnicodeUTF8));
-        inputFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
+        inputFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "WARNING !!! Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
         chooseParentDirPushButton->setText(QApplication::translate("WidgetForm", "Choose Parent Dir", 0, QApplication::UnicodeUTF8));
         parsOutFileLabel->setText(QApplication::translate("WidgetForm", "parameters output file:", 0, QApplication::UnicodeUTF8));
-        parsOutFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
+        parsOutFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "WARNING !!! Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("WidgetForm", "Tab 1", 0, QApplication::UnicodeUTF8));
         concLabel->setText(QApplication::translate("WidgetForm", "concentration (mM)", 0, QApplication::UnicodeUTF8));
         molFracCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
