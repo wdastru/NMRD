@@ -71,8 +71,8 @@
       COMMON /BPARA/B1(10),B2(10),B3(10),B4(10),B5(10),B6(10),B7(10), &
       B8(10),B9(10),B10(10),B11(10),B12(10),B13(10),B14(10),B15(10), &
       B16(10),B17(10),B18(10),B19(10),B20(10),B21(10)
-      CHARACTER(LEN=10) :: XYOUTPUT                      ! WD 13/11/2015
-      CHARACTER(LEN=10) :: FILEINPUT                     ! WD 13/11/2015
+      CHARACTER(LEN=10) :: XYOUTPUT                      ! WD 11/07/2017
+      CHARACTER(LEN=10) :: FILEINPUT                     ! WD 11/07/2017
       CHARACTER(LEN=10) :: PAROUTPUT                     ! WD 11/07/2017
       COMMON/TEMPERATURE/ TEMP(10)
       COMMON /TMSTART/ TM11(10),TM21(10)

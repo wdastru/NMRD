@@ -9,6 +9,7 @@
 #define PLOT_H_
 
 #include "ui_plot.h"
+#include <QtGui/QWidget>
 
 class PlotForm: public QWidget {
 Q_OBJECT
