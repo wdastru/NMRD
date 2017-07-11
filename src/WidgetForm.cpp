@@ -30,16 +30,19 @@ extern "C" {
 //void paranmrd_(char *, unsigned int *, char *, unsigned int *, double *,\
 		double *, double *, unsigned int *, double *, double *, double *,\
 		unsigned int *, double *, double *, unsigned int *);
-void paranmrdorig_(char *, unsigned int *, char *, unsigned int *);
+//void paranmrdorig_(char *, unsigned int *, char *, unsigned int *, char *, unsigned int *);
+void paranmrdorig_(char *, char *, char *);
 }
 
 WidgetForm::WidgetForm(QWidget *parent) :
 	QWidget(parent) {
 	ui.setupUi(this);
-	inputFilename = "PARC.DAT";
-	outputFilename = "PARC.OUT";
+	inputFilename = "";
+	outputFilename = "";
+	parametersFilename = "";
 	ui.inputFileLineEdit->setText(inputFilename);
-	ui.outputFileLineEdit->setText(outputFilename);
+	ui.xyFileLineEdit->setText(outputFilename);
+	ui.parsOutFileLineEdit->setText(parametersFilename);
 
 	x_max = x_min = y_max = y_min = 0;
 
@@ -79,13 +82,12 @@ void WidgetForm::writeInputFile() {
 	std::string str = this->dir.toStdString() + '\\'
 			+ this->inputfileInfo.fileName().toStdString();
 
-	//COUT(FUNCTION_NAME << str);
-
 	ofstream file;
 
 	file.open(str.c_str());
 
-	file << ui.outputFileLineEdit->text().toStdString().c_str() << std::endl;
+	file << ui.xyFileLineEdit->text().toStdString().c_str() << std::endl;
+	file << ui.parsOutFileLineEdit->text().toStdString().c_str() << std::endl;
 	file << ui.metalNuclearSpinDoubleSpinBox->value() << std::endl;
 	file << ui.gammaIDoubleSpinBox->value() * pow(10,
 			ui.gammaIExpSpinBox->value()) << std::endl;
@@ -278,7 +280,10 @@ void WidgetForm::readInputFile() {
 	QStringList items;
 
 	file >> str;
-	ui.outputFileLineEdit->setText(QString::fromStdString(str));
+	ui.xyFileLineEdit->setText(QString::fromStdString(str));
+
+	file >> str;
+	ui.parsOutFileLineEdit->setText(QString::fromStdString(str));
 
 	file >> d;
 	ui.metalNuclearSpinDoubleSpinBox->setValue(d);
@@ -906,18 +911,22 @@ void WidgetForm::startParaNMRD_new() {
 	writeInputFile();
 
 	QByteArray ba1 = ui.inputFileLineEdit->text().toLatin1();
-	QByteArray ba2 = ui.outputFileLineEdit->text().toLatin1();
+	QByteArray ba2 = ui.xyFileLineEdit->text().toLatin1();
+	QByteArray ba3 = ui.parsOutFileLineEdit->text().toLatin1();
 
 	char *inputFN = ba1.data();
-	char *outputFN = ba2.data();
+	char *xyFN = ba2.data();
+	char *parsFN = ba3.data();
 
 	unsigned int inputLen = strlen(inputFN);
-	unsigned int outputLen = strlen(outputFN);
+	unsigned int xyLen = strlen(xyFN);
+	unsigned int parsLen = strlen(parsFN);
 
-	unsigned int max = (inputLen > outputLen) ? inputLen : outputLen;
+	unsigned int max = (inputLen > xyLen) ? inputLen : xyLen;
 
-	paranmrdorig_(inputFN, &max, outputFN, &max);
-
+	//paranmrdorig_(inputFN, &max, xyFN, &max, parsFN, &max);
+	paranmrdorig_(inputFN, xyFN, parsFN);
+	
 	/* fitted data */
 	plot.ui.plotarea->addGraph();
 	plot.ui.plotarea->graph()->setPen(QPen(Qt::blue));
@@ -925,7 +934,7 @@ void WidgetForm::startParaNMRD_new() {
 	//	plot.ui.plotarea->addGraph();
 	//	plot.ui.plotarea->graph(1)->setPen(QPen(Qt::red));
 
-	ifstream file(ui.outputFileLineEdit->text().toStdString().c_str());
+	ifstream file(ui.xyFileLineEdit->text().toStdString().c_str());
 
 	QVector<double> x, y;
 	double x_val, y_val;
@@ -953,7 +962,6 @@ void WidgetForm::startParaNMRD_new() {
 	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
 
 	plot.ui.plotarea->replot();
-
 }
 
 void WidgetForm::printValues() {
@@ -1032,50 +1040,50 @@ void WidgetForm::setupExptPointsGui() {
 
 }
 
-void WidgetForm::startParaNMRD() {
-
-	QByteArray ba1 = ui.inputFileLineEdit->text().toLatin1();
-	QByteArray ba2 = ui.outputFileLineEdit->text().toLatin1();
-
-	char *inputFN = ba1.data();
-	char *outputFN = ba2.data();
-
-	unsigned int inputLen = strlen(inputFN);
-	unsigned int outputLen = strlen(outputFN);
-
-	unsigned int max = (inputLen > outputLen) ? inputLen : outputLen;
-
-	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
-
-	double gammaI = ui.gammaIDoubleSpinBox->value() * pow(10,
-			ui.gammaIExpSpinBox->value());
-	double elSpin = ui.elSpinDoubleSpinBox->value();
-
-	unsigned int T1T2;
-	if (ui.T1T2ComboBox->currentText() == "T1") {
-		T1T2 = 1;
-	} else if (ui.T1T2ComboBox->currentText() == "T1") {
-		T1T2 = 2;
-	}
-
-	double X1 = ui.fieldRangeX1DoubleSpinBox->value();
-	double X2 = ui.fieldRangeX2DoubleSpinBox->value();
-	double X3 = ui.fieldRangeX3DoubleSpinBox->value();
-
-	unsigned int np = ui.numberOfPointsSpinBox->value();
-
-	/*
-	 * ds sono i dataset che dovranno essere trattati
-	 * dsDouble e' servito perche' se passavo un int
-	 * il fortran crasha
-	 */
-	unsigned int ds = ui.datasetsSpinBox->value();
-	double dsDouble = (double) ds;
-
-	double temp[3] = { 273, 310, 298 };
-
-	//double fpA[]={1.2f,3.f,44.f,2.5f,-1.3f,33.44f,5.f,0.3f,-3.6f,24.1f};
-
-	//paranmrd_(inputFN, &max, outputFN, &max, &metalNuclearSpin, &gammaI,\
-			&elSpin, &T1T2, &X1, &X2, &X3, &np, &dsDouble, temp, &ds);
-}
+//void WidgetForm::startParaNMRD() {
+//
+//	QByteArray ba1 = ui.inputFileLineEdit->text().toLatin1();
+//	QByteArray ba2 = ui.xyFileLineEdit->text().toLatin1();
+//
+//	char *inputFN = ba1.data();
+//	char *xyFN = ba2.data();
+//
+//	unsigned int inputLen = strlen(inputFN);
+//	unsigned int xyLen = strlen(xyFN);
+//
+//	unsigned int max = (inputLen > xyLen) ? inputLen : xyLen;
+//
+//	double metalNuclearSpin = ui.metalNuclearSpinDoubleSpinBox->value();
+//
+//	double gammaI = ui.gammaIDoubleSpinBox->value() * pow(10,
+//			ui.gammaIExpSpinBox->value());
+//	double elSpin = ui.elSpinDoubleSpinBox->value();
+//
+//	unsigned int T1T2;
+//	if (ui.T1T2ComboBox->currentText() == "T1") {
+//		T1T2 = 1;
+//	} else if (ui.T1T2ComboBox->currentText() == "T1") {
+//		T1T2 = 2;
+//	}
+//
+//	double X1 = ui.fieldRangeX1DoubleSpinBox->value();
+//	double X2 = ui.fieldRangeX2DoubleSpinBox->value();
+//	double X3 = ui.fieldRangeX3DoubleSpinBox->value();
+//
+//	unsigned int np = ui.numberOfPointsSpinBox->value();
+//
+//	/*
+//	 * ds sono i dataset che dovranno essere trattati
+//	 * dsDouble e' servito perche' se passavo un int
+//	 * il fortran crasha
+//	 */
+//	unsigned int ds = ui.datasetsSpinBox->value();
+//	double dsDouble = (double) ds;
+//
+//	double temp[3] = { 273, 310, 298 };
+//
+//	//double fpA[]={1.2f,3.f,44.f,2.5f,-1.3f,33.44f,5.f,0.3f,-3.6f,24.1f};
+//
+//	//paranmrd_(inputFN, &max, xyFN, &max, &metalNuclearSpin, &gammaI,\
+//			&elSpin, &T1T2, &X1, &X2, &X3, &np, &dsDouble, temp, &ds);
+//}

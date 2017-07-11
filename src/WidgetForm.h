@@ -22,7 +22,7 @@ public:
 	WidgetForm(QWidget *parent = 0);
 
 private slots:
-	void startParaNMRD();
+	//void startParaNMRD();
 	void startParaNMRD_new();
 	void on_datasetsSpinBox_valueChanged();
 	void readInputFile();
@@ -38,6 +38,7 @@ private:
 	Ui::WidgetForm ui;
 	QString inputFilename;
 	QString outputFilename;
+	QString parametersFilename;
 	void writeInputFile();
 	QString dir;
 	QFileInfo inputfileInfo;
