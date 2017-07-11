@@ -1,0 +1,34 @@
+butto                 output file
+0                 
+2.675199D+8       gammaI of investigated particle
+1                 electron spin 
+1                 1=t1  2=t2 calculation to be performed
+3 8 1             field range in Log(Hz) (1) or Tesla (2)
+20                number of points
+1                 sets of data
+298               temperature
+0  0.1  0 2       taue(1),taus0(1)if tauv=/0[s],or delta (2)[cm**(-1)]
+0  1.e-6  0       taur    rotational correlation time   [s]
+0  4.e-12  0      tauv  correlation time of electron relaxation [s]
+0  1.2247         D   axial component of ZFS             [cm**(-1)]
+0  .0061235       E   rhombic component of ZFS           [cm**(-1)]
+0   0             s4  constant of higher order term      [cm**(-1)]
+0   2.0023D+0     gx  G-tensor components
+0   2.0023D+0     gy
+0   2.0023D+0     gz
+0   .00           Ax  Hyperfine coupling constants       [cm**(-1)]
+0   .00           Ay         [cm**(-1)]
+0   0.0           Az         [cm**(-1)]
+0   0             d   distance of closest approach       [Angstroem]
+0   0.e-5         Ddiff   diffusion coefficient          [cm**2/s]
+0   0.000009009   concentration       [M]
+1                 number of types of water
+0   0  0          taum       [s]
+0   1             mol.frac. (number of interacting water protons)
+0   2.55          rk  water proton - paramagnetic center distance  [Angstroem]
+0   0.            a/h  constant of contact interaction  [MHz]
+0   0             theta      [degree]
+0   0.            phi        [degree]
+0                 number experimental points
+1.e-5             tolerence of fitting
+.05               step in fitting procedure

@@ -31,6 +31,7 @@ private slots:
 	void addExptPoint();
 	void deleteExptPoint();
 	void setupExptPointsGui();
+	void printValues();
 	//void setupExptPoints();
 
 private:
@@ -41,7 +42,9 @@ private:
 	QString dir;
 	QFileInfo inputfileInfo;
 	PlotForm plot;
-	QVector<QHBoxLayout*> exptPointLayout;
+	QVector<QDoubleSpinBox*> exptPointXDoubleSpinBoxes;
+	QVector<QDoubleSpinBox*> exptPointYDoubleSpinBoxes;
+	double x_max, x_min, y_max, y_min;
 };
 
 #endif /* WIDGETFORM_H_ */
