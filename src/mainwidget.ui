@@ -112,7 +112,11 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="xyFileLineEdit"/>
+          <widget class="QLineEdit" name="xyFileLineEdit">
+           <property name="placeholderText">
+            <string>WARNING !!! Filenames longer than 10 characters will be truncated!</string>
+           </property>
+          </widget>
          </item>
          <item row="14" column="2">
           <widget class="QDoubleSpinBox" name="TAUMS01DoubleSpinBox">
@@ -1011,7 +1015,11 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="inputFileLineEdit"/>
+          <widget class="QLineEdit" name="inputFileLineEdit">
+           <property name="placeholderText">
+            <string>WARNING !!! Filenames longer than 10 characters will be truncated!</string>
+           </property>
+          </widget>
          </item>
          <item row="4" column="1">
           <widget class="QLineEdit" name="newDirLineEdit"/>
@@ -1031,7 +1039,11 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLineEdit" name="parsOutFileLineEdit"/>
+          <widget class="QLineEdit" name="parsOutFileLineEdit">
+           <property name="placeholderText">
+            <string>WARNING !!! Filenames longer than 10 characters will be truncated!</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
