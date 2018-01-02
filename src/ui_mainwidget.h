@@ -56,7 +56,6 @@ public:
     QSpinBox *TAUVM1ExpSpinBox;
     QDoubleSpinBox *TAUVM2DoubleSpinBox;
     QCheckBox *TauVCheckBox;
-    QDoubleSpinBox *fieldRangeX3DoubleSpinBox;
     QDoubleSpinBox *temp3DoubleSpinBox;
     QSpinBox *TAUMS02ExpSpinBox;
     QDoubleSpinBox *temp2DoubleSpinBox;
@@ -155,6 +154,7 @@ public:
     QPushButton *chooseParentDirPushButton;
     QLabel *parsOutFileLabel;
     QLineEdit *parsOutFileLineEdit;
+    QComboBox *fieldRangeComboBox;
     QWidget *tab_2;
     QWidget *layoutWidget_2;
     QGridLayout *gridLayout_2;
@@ -356,11 +356,6 @@ public:
         TauVCheckBox->setChecked(true);
 
         gridLayout->addWidget(TauVCheckBox, 25, 0, 1, 1);
-
-        fieldRangeX3DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
-        fieldRangeX3DoubleSpinBox->setObjectName(QString::fromUtf8("fieldRangeX3DoubleSpinBox"));
-
-        gridLayout->addWidget(fieldRangeX3DoubleSpinBox, 9, 3, 1, 1);
 
         temp3DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         temp3DoubleSpinBox->setObjectName(QString::fromUtf8("temp3DoubleSpinBox"));
@@ -947,6 +942,11 @@ public:
 
         gridLayout->addWidget(parsOutFileLineEdit, 3, 1, 1, 1);
 
+        fieldRangeComboBox = new QComboBox(layoutWidget_1);
+        fieldRangeComboBox->setObjectName(QString::fromUtf8("fieldRangeComboBox"));
+
+        gridLayout->addWidget(fieldRangeComboBox, 9, 3, 1, 1);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -1461,15 +1461,20 @@ public:
         chooseParentDirPushButton->setText(QApplication::translate("WidgetForm", "Choose Parent Dir", 0, QApplication::UnicodeUTF8));
         parsOutFileLabel->setText(QApplication::translate("WidgetForm", "parameters output file:", 0, QApplication::UnicodeUTF8));
         parsOutFileLineEdit->setPlaceholderText(QApplication::translate("WidgetForm", "WARNING !!! Filenames longer than 10 characters will be truncated!", 0, QApplication::UnicodeUTF8));
+        fieldRangeComboBox->clear();
+        fieldRangeComboBox->insertItems(0, QStringList()
+         << QApplication::translate("WidgetForm", "log(Hz)", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("WidgetForm", "Tesla", 0, QApplication::UnicodeUTF8)
+        );
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("WidgetForm", "Tab 1", 0, QApplication::UnicodeUTF8));
-        concLabel->setText(QApplication::translate("WidgetForm", "concentration (mM)", 0, QApplication::UnicodeUTF8));
+        concLabel->setText(QApplication::translate("WidgetForm", "concentration [mM]", 0, QApplication::UnicodeUTF8));
         molFracCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         molFracLabel->setText(QApplication::translate("WidgetForm", "mol.frac. (number of interacting water protons)", 0, QApplication::UnicodeUTF8));
-        distanceLabel->setText(QApplication::translate("WidgetForm", "distance of closest approach", 0, QApplication::UnicodeUTF8));
+        distanceLabel->setText(QApplication::translate("WidgetForm", "distance of closest approach [\303\205]", 0, QApplication::UnicodeUTF8));
         typesOfWaterLabel->setText(QApplication::translate("WidgetForm", "number of types of water", 0, QApplication::UnicodeUTF8));
         DCoeffCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         distanceCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
-        DCoeffLabel->setText(QApplication::translate("WidgetForm", "diffusion coefficient", 0, QApplication::UnicodeUTF8));
+        DCoeffLabel->setText(QApplication::translate("WidgetForm", "diffusion coefficient [cm^2/s]", 0, QApplication::UnicodeUTF8));
         taum1Label->setText(QApplication::translate("WidgetForm", "tauM 1", 0, QApplication::UnicodeUTF8));
         concCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         taumCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
@@ -1481,10 +1486,10 @@ public:
         label_38->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         fittingStepLabel->setText(QApplication::translate("WidgetForm", "step in fitting procedure", 0, QApplication::UnicodeUTF8));
         toleranceLabel->setText(QApplication::translate("WidgetForm", "tolerence of fitting", 0, QApplication::UnicodeUTF8));
-        rkDistanceLabel->setText(QApplication::translate("WidgetForm", "rk water proton - paramagnetic center distance  [Angstroem]", 0, QApplication::UnicodeUTF8));
+        rkDistanceLabel->setText(QApplication::translate("WidgetForm", "rk water proton - paramagnetic center distance [\303\205]", 0, QApplication::UnicodeUTF8));
         thetaCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         phiLabel->setText(QApplication::translate("WidgetForm", "phi [degree]", 0, QApplication::UnicodeUTF8));
-        AHLabel->setText(QApplication::translate("WidgetForm", "a/h constant of contact interaction  [MHz]", 0, QApplication::UnicodeUTF8));
+        AHLabel->setText(QApplication::translate("WidgetForm", "a/h constant of contact interaction [MHz]", 0, QApplication::UnicodeUTF8));
         rkDistanceCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         thetaLabel->setText(QApplication::translate("WidgetForm", "theta [degree]", 0, QApplication::UnicodeUTF8));
         phiCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));

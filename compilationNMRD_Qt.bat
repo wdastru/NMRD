@@ -1,7 +1,9 @@
 @ECHO OFF
 
 set QT=D:\Qt\4.8.6
-rem set QT=C:\Qt\4.8.6
+set PATH=%QT%\bin
+set PATH=%PATH%;C:\MinGW\bin
+set PATH=%PATH%;%SystemRoot%\System32
 
 set QT_INCLUDE=%QT%\include
 set UIC_PROGRAM=%QT%\bin\uic
@@ -30,8 +32,8 @@ c:\MinGW\bin\g++.exe -o build/WidgetForm.o -c %INCLUDES% src/WidgetForm.cpp
 c:\MinGW\bin\g++.exe -o build/moc_WidgetForm.o -c %INCLUDES% src/moc_WidgetForm.cpp
 c:\MinGW\bin\g++.exe -o build/Plot.o -c %INCLUDES% src/Plot.cpp
 c:\MinGW\bin\g++.exe -o build/moc_Plot.o -c %INCLUDES% src/moc_Plot.cpp
-rem c:\MinGW\bin\g++.exe -o build/qcustomplot.o -c %INCLUDES% src/qcustomplot.cpp
-rem c:\MinGW\bin\g++.exe -o build/moc_qcustomplot.o -c %INCLUDES% src/moc_qcustomplot.cpp
+c:\MinGW\bin\g++.exe -o build/qcustomplot.o -c %INCLUDES% src/qcustomplot.cpp
+c:\MinGW\bin\g++.exe -o build/moc_qcustomplot.o -c %INCLUDES% src/moc_qcustomplot.cpp
 
 echo Linking ... 
 c:\MinGW\bin\g++.exe -o NMRDGui build/nmrd_subroutineF_new.o build/qcustomplot.o build/moc_qcustomplot.o build/nmrd_subroutineC_Qt.o build/WidgetForm.o build/moc_WidgetForm.o build/Plot.o build/moc_Plot.o %LINK_LIBS%

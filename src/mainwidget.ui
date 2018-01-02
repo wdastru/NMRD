@@ -224,9 +224,6 @@
            </property>
           </widget>
          </item>
-         <item row="9" column="3">
-          <widget class="QDoubleSpinBox" name="fieldRangeX3DoubleSpinBox"/>
-         </item>
          <item row="12" column="3">
           <widget class="QDoubleSpinBox" name="temp3DoubleSpinBox">
            <property name="enabled">
@@ -1045,6 +1042,20 @@
            </property>
           </widget>
          </item>
+         <item row="9" column="3">
+          <widget class="QComboBox" name="fieldRangeComboBox">
+           <item>
+            <property name="text">
+             <string>log(Hz)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Tesla</string>
+            </property>
+           </item>
+          </widget>
+         </item>
         </layout>
        </widget>
       </widget>
@@ -1074,7 +1085,7 @@
          <item row="5" column="2">
           <widget class="QLabel" name="concLabel">
            <property name="text">
-            <string>concentration (mM)</string>
+            <string>concentration [mM]</string>
            </property>
           </widget>
          </item>
@@ -1115,7 +1126,7 @@
          <item row="3" column="2">
           <widget class="QLabel" name="distanceLabel">
            <property name="text">
-            <string>distance of closest approach</string>
+            <string>distance of closest approach [Å]</string>
            </property>
           </widget>
          </item>
@@ -1155,7 +1166,7 @@
          <item row="4" column="2">
           <widget class="QLabel" name="DCoeffLabel">
            <property name="text">
-            <string>diffusion coefficient</string>
+            <string>diffusion coefficient [cm^2/s]</string>
            </property>
           </widget>
          </item>
@@ -1405,7 +1416,7 @@
          <item row="11" column="2">
           <widget class="QLabel" name="rkDistanceLabel">
            <property name="text">
-            <string>rk water proton - paramagnetic center distance  [Angstroem]</string>
+            <string>rk water proton - paramagnetic center distance [Å]</string>
            </property>
           </widget>
          </item>
@@ -1429,7 +1440,7 @@
          <item row="13" column="2">
           <widget class="QLabel" name="AHLabel">
            <property name="text">
-            <string>a/h constant of contact interaction  [MHz]</string>
+            <string>a/h constant of contact interaction [MHz]</string>
            </property>
           </widget>
          </item>

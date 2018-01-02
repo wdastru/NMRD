@@ -100,8 +100,14 @@ void WidgetForm::writeInputFile() {
 	}
 
 	file << ui.fieldRangeX1DoubleSpinBox->value() << ' '
-			<< ui.fieldRangeX2DoubleSpinBox->value() << ' '
-			<< ui.fieldRangeX3DoubleSpinBox->value() << std::endl;
+			<< ui.fieldRangeX2DoubleSpinBox->value() << ' ';
+
+	if (ui.fieldRangeComboBox->currentText() == "log(Hz)") {
+		file << 1 << std::endl;
+	} else if (ui.fieldRangeComboBox->currentText() == "Tesla") {
+		file << 2 << std::endl;
+	}
+
 	file << ui.numberOfPointsSpinBox->value() << std::endl;
 	file << ui.datasetsSpinBox->value() << std::endl;
 
@@ -318,8 +324,13 @@ void WidgetForm::readInputFile() {
 	ui.fieldRangeX1DoubleSpinBox->setValue(d);
 	file >> d;
 	ui.fieldRangeX2DoubleSpinBox->setValue(d);
-	file >> d;
-	ui.fieldRangeX3DoubleSpinBox->setValue(d);
+
+	file >> i;
+	if (i == 1 || i == 2) {
+		ui.fieldRangeComboBox->setCurrentIndex(i - 1);
+	} else {
+		COUT("ERROR! Field range unit illegal value!");
+	}
 
 	file >> i;
 	ui.numberOfPointsSpinBox->setValue(i);
