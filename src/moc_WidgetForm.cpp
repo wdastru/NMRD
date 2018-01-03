@@ -22,7 +22,7 @@ static const uint qt_meta_data_WidgetForm[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,12 +33,13 @@ static const uint qt_meta_data_WidgetForm[] = {
       12,   11,   11,   11, 0x08,
       32,   11,   11,   11, 0x08,
       66,   11,   11,   11, 0x08,
-      82,   11,   11,   11, 0x08,
-     100,   11,   11,   11, 0x08,
-     120,   11,   11,   11, 0x08,
-     135,   11,   11,   11, 0x08,
-     153,   11,   11,   11, 0x08,
-     174,   11,   11,   11, 0x08,
+     111,   11,   11,   11, 0x08,
+     127,   11,   11,   11, 0x08,
+     145,   11,   11,   11, 0x08,
+     165,   11,   11,   11, 0x08,
+     180,   11,   11,   11, 0x08,
+     198,   11,   11,   11, 0x08,
+     219,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -46,6 +47,7 @@ static const uint qt_meta_data_WidgetForm[] = {
 static const char qt_meta_stringdata_WidgetForm[] = {
     "WidgetForm\0\0startParaNMRD_new()\0"
     "on_datasetsSpinBox_valueChanged()\0"
+    "on_TAUSComboBox_currentIndexChanged(QString)\0"
     "readInputFile()\0chooseParentDir()\0"
     "enableNewDirItems()\0addExptPoint()\0"
     "deleteExptPoint()\0setupExptPointsGui()\0"
@@ -60,17 +62,17 @@ void WidgetForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->startParaNMRD_new(); break;
         case 1: _t->on_datasetsSpinBox_valueChanged(); break;
-        case 2: _t->readInputFile(); break;
-        case 3: _t->chooseParentDir(); break;
-        case 4: _t->enableNewDirItems(); break;
-        case 5: _t->addExptPoint(); break;
-        case 6: _t->deleteExptPoint(); break;
-        case 7: _t->setupExptPointsGui(); break;
-        case 8: _t->printValues(); break;
+        case 2: _t->on_TAUSComboBox_currentIndexChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->readInputFile(); break;
+        case 4: _t->chooseParentDir(); break;
+        case 5: _t->enableNewDirItems(); break;
+        case 6: _t->addExptPoint(); break;
+        case 7: _t->deleteExptPoint(); break;
+        case 8: _t->setupExptPointsGui(); break;
+        case 9: _t->printValues(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData WidgetForm::staticMetaObjectExtraData = {
@@ -105,9 +107,9 @@ int WidgetForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

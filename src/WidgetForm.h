@@ -25,6 +25,7 @@ private slots:
 	//void startParaNMRD();
 	void startParaNMRD_new();
 	void on_datasetsSpinBox_valueChanged();
+	void on_TAUSComboBox_currentIndexChanged(const QString);
 	void readInputFile();
 	void chooseParentDir();
 	void enableNewDirItems();

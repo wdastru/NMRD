@@ -49,6 +49,32 @@ WidgetForm::WidgetForm(QWidget *parent) :
 	enableNewDirItems();
 }
 
+void WidgetForm::on_TAUSComboBox_currentIndexChanged(const QString text) {
+#undef FUNCTION_NAME
+#define FUNCTION_NAME __FILE__ << ":" << __FUNCTION__ << ":" << __LINE__ << ". "
+
+	if ( text == "TAUE, TAUS0" ) {
+		ui.TAUMS01Label->setText("TAUE [s]");
+
+		ui.TAUMS02Label->setEnabled(true);
+		ui.TAUMS02Label->setText("TAUS0 [s]");
+		ui.TAUMS02DoubleSpinBox->setEnabled(true);
+		ui.TAUMS02ExpSpinBox->setEnabled(true);
+		ui.TAUMS02Label2->setEnabled(true);
+
+	} else if ( text == "Delta" ) {
+		ui.TAUMS01Label->setText("Delta [cm^-1]");
+
+		ui.TAUMS02Label->setEnabled(false);
+		ui.TAUMS02Label->setText("");
+		ui.TAUMS02Label2->setEnabled(false);
+		ui.TAUMS02DoubleSpinBox->setEnabled(false);
+		ui.TAUMS02ExpSpinBox->setEnabled(false);
+	} else {
+		COUT("ERROR! TAUSComboBox illegal value!");
+	}
+}
+
 void WidgetForm::on_datasetsSpinBox_valueChanged() {
 	if (ui.datasetsSpinBox->value() == 1) {
 		ui.temp1DoubleSpinBox->setEnabled(true);
@@ -127,8 +153,12 @@ void WidgetForm::writeInputFile() {
 			ui.TAUMS01ExpSpinBox->value()) << ' ';
 	file << ui.TAUMS02DoubleSpinBox->value() * pow(10,
 			ui.TAUMS02ExpSpinBox->value()) << ' ';
-	file << ui.TAUDELTADoubleSpinBox->value() * pow(10,
-			ui.TAUDELTAExpSpinBox->value()) << std::endl;
+
+	if (ui.TAUSComboBox->currentText() == "TAUE, TAUS0") {
+		file << 1 << std::endl;
+	} else if (ui.TAUSComboBox->currentText() == "Delta") {
+		file << 2 << std::endl;
+	}
 
 	FIXED(ui.TauRCheckBox);
 	file << ui.TAURM1DoubleSpinBox->value() * pow(10,
@@ -392,20 +422,11 @@ void WidgetForm::readInputFile() {
 		 */
 	}
 
-	file >> str;
-	items.clear();
-	items = QString::fromStdString(str).split(QRegExp("[eD+]"),
-			QString::SkipEmptyParts);
-	if (items.size() == 1) {
-		ui.TAUDELTADoubleSpinBox->setValue(items[0].toDouble());
-		ui.TAUDELTAExpSpinBox->setValue(0);
-	} else if (items.size() == 2) {
-		ui.TAUDELTADoubleSpinBox->setValue(items[0].toDouble());
-		ui.TAUDELTAExpSpinBox->setValue(items[1].toInt());
+	file >> i;
+	if (i == 1 || i == 2) {
+		ui.TAUSComboBox->setCurrentIndex(i - 1);
 	} else {
-		/* TO DO
-		 * catch error
-		 */
+		COUT("ERROR! Taus options illegal value!");
 	}
 
 	file >> i;
@@ -939,9 +960,13 @@ void WidgetForm::startParaNMRD_new() {
 	paranmrdorig_(inputFN, xyFN, parsFN);
 	
 	/* fitted data */
+	plot.ui.plotarea->removeGraph(1);
 	plot.ui.plotarea->addGraph();
-	plot.ui.plotarea->graph()->setPen(QPen(Qt::blue));
-	plot.ui.plotarea->graph()->setBrush(QBrush(QColor(0, 0, 255, 20)));
+	//plot.ui.plotarea->graph()->setPen(QPen(Qt::blue));
+	plot.ui.plotarea->graph()->setPen(QPen(QColor(0, 0, 255, 0)));
+
+
+	//plot.ui.plotarea->graph()->setBrush(QBrush(QColor(0, 0, 255, 20)));
 	//	plot.ui.plotarea->addGraph();
 	//	plot.ui.plotarea->graph(1)->setPen(QPen(Qt::red));
 
@@ -973,6 +998,7 @@ void WidgetForm::startParaNMRD_new() {
 	plot.ui.plotarea->yAxis->setRange(y_min, y_max);
 
 	plot.ui.plotarea->replot();
+
 }
 
 void WidgetForm::printValues() {

@@ -48,10 +48,8 @@ public:
     QFrame *line_7;
     QLineEdit *xyFileLineEdit;
     QDoubleSpinBox *TAUMS01DoubleSpinBox;
-    QDoubleSpinBox *TAUDELTADoubleSpinBox;
     QCheckBox *TauRCheckBox;
     QComboBox *T1T2ComboBox;
-    QLabel *label_4;
     QLabel *TAUVM2Label;
     QSpinBox *TAUVM1ExpSpinBox;
     QDoubleSpinBox *TAUVM2DoubleSpinBox;
@@ -61,7 +59,7 @@ public:
     QDoubleSpinBox *temp2DoubleSpinBox;
     QDoubleSpinBox *temp1DoubleSpinBox;
     QLabel *tempLabel;
-    QLabel *label_3;
+    QLabel *TAUMS02Label2;
     QDoubleSpinBox *TAUMS02DoubleSpinBox;
     QLabel *TAUMS02Label;
     QSpinBox *datasetsSpinBox;
@@ -123,13 +121,11 @@ public:
     QDoubleSpinBox *gammaIDoubleSpinBox;
     QFrame *line;
     QLabel *label_6;
-    QSpinBox *TAUDELTAExpSpinBox;
     QLabel *TAURM1Label;
     QDoubleSpinBox *TAURM1DoubleSpinBox;
     QDoubleSpinBox *TAURM2DoubleSpinBox;
     QFrame *line_2;
     QSpinBox *TAURM1ExpSpinBox;
-    QLabel *TAUDELTALabel;
     QLabel *label_2;
     QLabel *elSpinLabel;
     QFrame *line_3;
@@ -155,6 +151,7 @@ public:
     QLabel *parsOutFileLabel;
     QLineEdit *parsOutFileLineEdit;
     QComboBox *fieldRangeComboBox;
+    QComboBox *TAUSComboBox;
     QWidget *tab_2;
     QWidget *layoutWidget_2;
     QGridLayout *gridLayout_2;
@@ -305,15 +302,6 @@ public:
 
         gridLayout->addWidget(TAUMS01DoubleSpinBox, 14, 2, 1, 1);
 
-        TAUDELTADoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
-        TAUDELTADoubleSpinBox->setObjectName(QString::fromUtf8("TAUDELTADoubleSpinBox"));
-        TAUDELTADoubleSpinBox->setDecimals(5);
-        TAUDELTADoubleSpinBox->setMaximum(10);
-        TAUDELTADoubleSpinBox->setSingleStep(0.1);
-        TAUDELTADoubleSpinBox->setValue(0);
-
-        gridLayout->addWidget(TAUDELTADoubleSpinBox, 19, 2, 1, 1);
-
         TauRCheckBox = new QCheckBox(layoutWidget_1);
         TauRCheckBox->setObjectName(QString::fromUtf8("TauRCheckBox"));
         TauRCheckBox->setChecked(true);
@@ -326,11 +314,6 @@ public:
         T1T2ComboBox->setMaxVisibleItems(10);
 
         gridLayout->addWidget(T1T2ComboBox, 8, 1, 1, 1);
-
-        label_4 = new QLabel(layoutWidget_1);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        gridLayout->addWidget(label_4, 19, 3, 1, 1);
 
         TAUVM2Label = new QLabel(layoutWidget_1);
         TAUVM2Label->setObjectName(QString::fromUtf8("TAUVM2Label"));
@@ -390,10 +373,10 @@ public:
 
         gridLayout->addWidget(tempLabel, 12, 0, 1, 1);
 
-        label_3 = new QLabel(layoutWidget_1);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        TAUMS02Label2 = new QLabel(layoutWidget_1);
+        TAUMS02Label2->setObjectName(QString::fromUtf8("TAUMS02Label2"));
 
-        gridLayout->addWidget(label_3, 16, 3, 1, 1);
+        gridLayout->addWidget(TAUMS02Label2, 16, 3, 1, 1);
 
         TAUMS02DoubleSpinBox = new QDoubleSpinBox(layoutWidget_1);
         TAUMS02DoubleSpinBox->setObjectName(QString::fromUtf8("TAUMS02DoubleSpinBox"));
@@ -405,6 +388,7 @@ public:
 
         TAUMS02Label = new QLabel(layoutWidget_1);
         TAUMS02Label->setObjectName(QString::fromUtf8("TAUMS02Label"));
+        TAUMS02Label->setEnabled(true);
 
         gridLayout->addWidget(TAUMS02Label, 16, 1, 1, 1);
 
@@ -764,12 +748,6 @@ public:
 
         gridLayout->addWidget(label_6, 23, 3, 1, 1);
 
-        TAUDELTAExpSpinBox = new QSpinBox(layoutWidget_1);
-        TAUDELTAExpSpinBox->setObjectName(QString::fromUtf8("TAUDELTAExpSpinBox"));
-        TAUDELTAExpSpinBox->setMinimum(-99);
-
-        gridLayout->addWidget(TAUDELTAExpSpinBox, 19, 4, 1, 1);
-
         TAURM1Label = new QLabel(layoutWidget_1);
         TAURM1Label->setObjectName(QString::fromUtf8("TAURM1Label"));
 
@@ -803,11 +781,6 @@ public:
         TAURM1ExpSpinBox->setMinimum(-99);
 
         gridLayout->addWidget(TAURM1ExpSpinBox, 22, 4, 1, 1);
-
-        TAUDELTALabel = new QLabel(layoutWidget_1);
-        TAUDELTALabel->setObjectName(QString::fromUtf8("TAUDELTALabel"));
-
-        gridLayout->addWidget(TAUDELTALabel, 19, 1, 1, 1);
 
         label_2 = new QLabel(layoutWidget_1);
         label_2->setObjectName(QString::fromUtf8("label_2"));
@@ -946,6 +919,11 @@ public:
         fieldRangeComboBox->setObjectName(QString::fromUtf8("fieldRangeComboBox"));
 
         gridLayout->addWidget(fieldRangeComboBox, 9, 3, 1, 1);
+
+        TAUSComboBox = new QComboBox(layoutWidget_1);
+        TAUSComboBox->setObjectName(QString::fromUtf8("TAUSComboBox"));
+
+        gridLayout->addWidget(TAUSComboBox, 17, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -1404,12 +1382,11 @@ public:
          << QApplication::translate("WidgetForm", "T1", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("WidgetForm", "T2", 0, QApplication::UnicodeUTF8)
         );
-        label_4->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        TAUVM2Label->setText(QApplication::translate("WidgetForm", "TAUVM 2", 0, QApplication::UnicodeUTF8));
+        TAUVM2Label->setText(QApplication::translate("WidgetForm", "TAUVM 2 [s]", 0, QApplication::UnicodeUTF8));
         TauVCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         tempLabel->setText(QApplication::translate("WidgetForm", "temperature (K)", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        TAUMS02Label->setText(QApplication::translate("WidgetForm", "TAUS0M 2", 0, QApplication::UnicodeUTF8));
+        TAUMS02Label2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
+        TAUMS02Label->setText(QApplication::translate("WidgetForm", "TAUS0 [s]", 0, QApplication::UnicodeUTF8));
         TauSCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         datasetsLabel->setText(QApplication::translate("WidgetForm", "sets of data", 0, QApplication::UnicodeUTF8));
         gyCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
@@ -1418,11 +1395,11 @@ public:
         label_22->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         gammaILabel->setText(QApplication::translate("WidgetForm", "gammaI of investigated particle", 0, QApplication::UnicodeUTF8));
         fieldRangeLabel->setText(QApplication::translate("WidgetForm", "field range", 0, QApplication::UnicodeUTF8));
-        AzLabel->setText(QApplication::translate("WidgetForm", "Az  Hyperfine coupling constants", 0, QApplication::UnicodeUTF8));
+        AzLabel->setText(QApplication::translate("WidgetForm", "Az  Hyperfine coupling constants [cm^-1]", 0, QApplication::UnicodeUTF8));
         AzCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         label_31->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         label_26->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        AxLabel->setText(QApplication::translate("WidgetForm", "Ax  Hyperfine coupling constants", 0, QApplication::UnicodeUTF8));
+        AxLabel->setText(QApplication::translate("WidgetForm", "Ax  Hyperfine coupling constants [cm^-1]", 0, QApplication::UnicodeUTF8));
         numberOfPointsLabel->setText(QApplication::translate("WidgetForm", "number of points", 0, QApplication::UnicodeUTF8));
         gzCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         label_23->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
@@ -1440,19 +1417,18 @@ public:
         gxCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         S4MLabel->setText(QApplication::translate("WidgetForm", "S4M", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        TAUMS01Label->setText(QApplication::translate("WidgetForm", "TAUS0M 1", 0, QApplication::UnicodeUTF8));
+        TAUMS01Label->setText(QApplication::translate("WidgetForm", "TAUE  [s]", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        TAURM1Label->setText(QApplication::translate("WidgetForm", "TAURM 1", 0, QApplication::UnicodeUTF8));
-        TAUDELTALabel->setText(QApplication::translate("WidgetForm", "TAUDELTA", 0, QApplication::UnicodeUTF8));
+        TAURM1Label->setText(QApplication::translate("WidgetForm", "TAURM 1 [s]", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         elSpinLabel->setText(QApplication::translate("WidgetForm", "electron spin", 0, QApplication::UnicodeUTF8));
-        TAUVM1Label->setText(QApplication::translate("WidgetForm", "TAUVM 1", 0, QApplication::UnicodeUTF8));
+        TAUVM1Label->setText(QApplication::translate("WidgetForm", "TAUVM 1 [s]", 0, QApplication::UnicodeUTF8));
         T1T2Label->setText(QApplication::translate("WidgetForm", "T1 or T2 calculation", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         gammaILabel2->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        TAURM2Label->setText(QApplication::translate("WidgetForm", "TAURM 2", 0, QApplication::UnicodeUTF8));
+        TAURM2Label->setText(QApplication::translate("WidgetForm", "TAURM 2 [s]", 0, QApplication::UnicodeUTF8));
         label_24->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        AyLabel->setText(QApplication::translate("WidgetForm", "Ay  Hyperfine coupling constants", 0, QApplication::UnicodeUTF8));
+        AyLabel->setText(QApplication::translate("WidgetForm", "Ay  Hyperfine coupling constants [cm^-1]", 0, QApplication::UnicodeUTF8));
         inputFileLabel->setText(QApplication::translate("WidgetForm", "input file:", 0, QApplication::UnicodeUTF8));
         AyCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         newDirCheckBox->setText(QApplication::translate("WidgetForm", "new dir", 0, QApplication::UnicodeUTF8));
@@ -1466,8 +1442,13 @@ public:
          << QApplication::translate("WidgetForm", "log(Hz)", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("WidgetForm", "Tesla", 0, QApplication::UnicodeUTF8)
         );
+        TAUSComboBox->clear();
+        TAUSComboBox->insertItems(0, QStringList()
+         << QApplication::translate("WidgetForm", "TAUE, TAUS0", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("WidgetForm", "Delta", 0, QApplication::UnicodeUTF8)
+        );
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("WidgetForm", "Tab 1", 0, QApplication::UnicodeUTF8));
-        concLabel->setText(QApplication::translate("WidgetForm", "concentration [mM]", 0, QApplication::UnicodeUTF8));
+        concLabel->setText(QApplication::translate("WidgetForm", "concentration [M]", 0, QApplication::UnicodeUTF8));
         molFracCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         molFracLabel->setText(QApplication::translate("WidgetForm", "mol.frac. (number of interacting water protons)", 0, QApplication::UnicodeUTF8));
         distanceLabel->setText(QApplication::translate("WidgetForm", "distance of closest approach [\303\205]", 0, QApplication::UnicodeUTF8));
@@ -1475,7 +1456,7 @@ public:
         DCoeffCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         distanceCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         DCoeffLabel->setText(QApplication::translate("WidgetForm", "diffusion coefficient [cm^2/s]", 0, QApplication::UnicodeUTF8));
-        taum1Label->setText(QApplication::translate("WidgetForm", "tauM 1", 0, QApplication::UnicodeUTF8));
+        taum1Label->setText(QApplication::translate("WidgetForm", "TAUM 1 [s]", 0, QApplication::UnicodeUTF8));
         concCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         taumCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
         label_34->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
@@ -1497,7 +1478,7 @@ public:
         label_39->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         label_41->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
         label_40->setText(QApplication::translate("WidgetForm", "10^", 0, QApplication::UnicodeUTF8));
-        taum2Label->setText(QApplication::translate("WidgetForm", "tauM 2", 0, QApplication::UnicodeUTF8));
+        taum2Label->setText(QApplication::translate("WidgetForm", "TAUM 2 [s]", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("WidgetForm", "Tab 2", 0, QApplication::UnicodeUTF8));
         nExpPtsLabel->setText(QApplication::translate("WidgetForm", "number experimental points", 0, QApplication::UnicodeUTF8));
         nExpPtsCheckBox->setText(QApplication::translate("WidgetForm", "fixed", 0, QApplication::UnicodeUTF8));
